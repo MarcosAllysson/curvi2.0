@@ -1,0 +1,24 @@
+version: "2.0"
+
+rules:
+  # rule 1 - call the submit action when the form was complete
+  # - rule: submit form
+  #   condition: # condition that form is active
+  #   - active_loop: feedback_form
+  #   steps:
+  #   - action: feedback_form
+  #   - active_loop: null
+  #   # the action to run after form is submited. Old submit()
+  #   - action: action_submit_resume
+
+  # rule 2
+  - rule: user says thanks, bot answer
+    steps:
+    - intent: obrigado
+    - action: utter_seeya
+
+  # rule 3
+  - rule: swear words
+    steps:
+    - intent: swear_word
+    - action: utter_no_education

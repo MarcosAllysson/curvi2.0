@@ -1,0 +1,186 @@
+version: "2.0"
+nlu:
+- intent: cumprimentar
+  examples: |
+    - oi, tudo bem
+    - oi, como vai voce
+    - como vao as coisas
+    - opa tudo bem
+    - boa tarde
+    - boa noite
+    - bom dia
+    - oi, bom dia
+    - oi, boa tarde
+    - oi, boa noite
+    - eai
+    - oie
+    - ei
+    - fala
+    - tranquilo
+    - tudo bom?
+    - como voce esta
+    - como voce ta
+    - como vai você
+    - como vai voce
+    - como vai vc
+    - como vai
+    - como ta
+    - joia
+    - joinha
+    - oi
+    - olá
+    - e aí
+    - E aí?
+    - De boa?
+    - Oi
+    - Opa
+    - Olá
+    - Ola
+    - boa
+    - aeee
+    - ola
+    - E ai mano
+    - opa
+    - fala meu querido
+    - oi moço
+    - olá rapaz
+    - bom dia meu senhor
+    - boa notie
+    - e ai
+    - Olá tudo bem?
+    - Está tudo bem?
+    - e aí?
+    - E ai bot
+    - Oi!
+    - eai?
+    - Boa tarde
+    - Olá!
+- intent: afirmacao
+  examples: |
+    - sim
+    - talvez
+    - entendi
+    - entendi sim
+    - sim, entendi
+    - s
+    - ss
+    - tá
+    - beleza
+    - quero
+    - tudo bem
+    - vamos
+    - vamo
+    - bora
+    - pode ser
+    - compreendi
+    - compreendo
+    - blz
+    - claro
+    - correto
+    - exatamente
+    - exato
+    - aham
+    - uhum
+    - realmente
+    - podemos
+    - pode
+    - Sim.
+    - Entendi.
+    - avmos
+    - yes
+    - si
+    - vai lá
+    - prossiga
+    - podemos prosseguir
+    - ok
+    - certo
+    - vamo la
+    - vamos la
+    - podemos sim
+    - Tudo certo
+    - Claro
+    - Ok
+    - ta
+    - Beleza
+    - OK
+    - Sim
+    - all right
+    - vamos lá
+    - vinha sim
+    - oba
+    - borá
+    - sim, podemos começar!
+    - olá tudo bem e com voce? sim, podemos começar
+    - tudo bem e contigo!? Vamos começar!
+    - bora bora
+    - vamo lá
+    - vamu
+    - simbora
+    - bora amigo
+    - vamos sim
+    - bora sim
+    - só bora!
+- intent: negacao
+  examples: |
+    - não
+    - n
+    - nn
+    - nunca
+    - nada
+    - só isso
+    - foi só isso
+    - discordo
+    - negativo
+    - mais ou menos
+    - nao
+    - nao conheco
+    - não quero
+    - escolhi errado
+    - falei errado
+    - duvida
+    - no
+    - nope
+    - ainda não sei
+    - nenhum
+    - jamais
+    - Não
+- intent: obrigado
+  examples: |
+    - obrigada
+    - agradeço
+    - valeu, obrigado!
+    - opa, valeu!
+    - valeu
+    - massa
+    - de boa
+    - de boa, obrigado
+    - agradeço demais!
+- intent: swear_word
+  examples: |
+    - pqp
+    - porra
+    - vsf
+    - vai se fuder
+    - vai se foder
+    - fuck
+    - fuck you
+    - fdp
+    - filho da puta
+    - vai tomar no cu
+    - vai se lascar
+    - foda-se
+    - foda se
+    - meu pau
+    - caralho
+    - caraí
+    - son of a bitch
+    - merda
+    - vai a merda
+    - enfia no rabo
+    - teu cu
+    - enfia no cu
+    - retardado
+    - chupa meu pau
+    - meu pau no teu cu
+    - arrombado
+    - cuzao
