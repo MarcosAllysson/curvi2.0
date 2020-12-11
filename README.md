@@ -41,15 +41,16 @@ cd curvi2.0
 ```
 The Curvi uses **Python 3.8.5** and has not been tested with other versions.
 Use the requirements.txt file to install the appropriate dependencies
-via pip. If you do not have pip installed yet first do:
+via pip for Python 3. If you do not have pip installed yet first do:
 ```
-sudo easy_install pip
+$ sudo apt update
+$ sudo apt install python3-pip
 ```
 otherwise move to the next step directly.
 
 **Step 2**: Install requirements:
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 This will install the bot and all of its requirements.
