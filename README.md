@@ -11,6 +11,29 @@ It supports the following user goals:
 
 ## 💾 How to install and setup Curvi
 
+**Optional (but important)**: Install virtual environment
+Its used to install specific packages to a project directory instead of installing the package globally on your system. This allow to use different versions of the same package for different projects. Venv is recommended.
+```
+Create the virtual environment:
+1 - Create a project directory
+	mkdir project_folder_name
+	cd project_folder_name
+
+2 - Install venv python package:
+	pip install virtualenv
+
+3 - Create a virtual environment run:
+	python3 -m venv ./venv
+
+4 - Activate the environment:
+	source ./venv/bin/activate
+
+5 - To deactivate, run:
+    deactivate
+
+6 - Go to step 1 if you do not want to use virtual environment or to continue.
+```
+
 **Step 1**: To install Curvi, please clone the repo:
 ```
 git clone https://github.com/MarcosAllysson/curvi2.0.git
