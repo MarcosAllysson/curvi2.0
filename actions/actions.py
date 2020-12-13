@@ -59,7 +59,6 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
     except requests.exceptions.HTTPError as err:
         raise SystemExit(err)
 
-    print(response.json())
     return response
     print(response.status_code)
 
@@ -70,7 +69,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_dados_basicos_form"
 
-    def validate_nome(self,
+    async def validate_nome(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -88,7 +87,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
             dispatcher.utter_message("Desculpa, não entendi.")
             return {"nome": None}
 
-    def validate_idade(self,
+    async def validate_idade(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -103,7 +102,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
             dispatcher.utter_message("Apenas número...")
             return {"idade": None}
 
-    def validate_telefone(
+    async def validate_telefone(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -120,7 +119,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
             return {"telefone": None}
 
 
-    def validate_cep(
+    async def validate_cep(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -176,7 +175,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
             return {"cep": None}
 
 
-    def validate_email(
+    async def validate_email(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -204,7 +203,7 @@ class ValidateLinkedlnForm(FormValidationAction):
         """ Nome do formulário """
         return "validate_linkedln_form"
 
-    def validate_linkedln_link(
+    async def validate_linkedln_link(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -228,7 +227,7 @@ class ValidateFormacaoForm(FormValidationAction):
         """ Validando formação form """
         return "validate_formacao_form"
 
-    def validate_area(
+    async def validate_area(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -249,38 +248,15 @@ class ValidateFormacaoForm(FormValidationAction):
            10 Engenharia 
            11 Outros"""
 
-        if value.isdigit():
-            if int(value) == 1:
-                return {"area": "Vendas"}
-            elif int(value) == 2:
-                return {"area": "Marketing"}
-            elif int(value) == 3:
-                return {"area": "Tecnologia"}
-            elif int(value) == 4:
-                return {"area": "Direito"}
-            elif int(value) == 5:
-                return {"area": "Saúde"}
-            elif int(value) == 6:
-                return {"area": "RH"}
-            elif int(value) == 7:
-                return {"area": "Administração"}
-            elif int(value) == 8:
-                return {"area": "Contabilidade"}
-            elif int(value) == 9:
-                return {"area": "Projetos"}
-            elif int(value) == 10:
-                return {"area": "Engenharia"}
-            elif int(value) == 11:
-                return {"area": "Outros"}
-            else:
-                dispatcher.utter_message("Só entre 1 e 11")
-                return {"area": None}
-        else: 
-            dispatcher.utter_message("Vamos de novo! Só número. ")
+        # Opção habilitada na escolha de botões, se nenhum for clicado, aceitar campo não vazio
+        if value != '':
+            return {"area": value}
+        else:
+            dispatcher.utter_message("Campo não pode ficar vazio.")
             return {"area": None}
 
 
-    def validate_area_nivel(
+    async def validate_area_nivel(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -294,27 +270,16 @@ class ValidateFormacaoForm(FormValidationAction):
                   3 Júnior
                   4 Sênior
                   5 Pleno"""
-
-        if value.isdigit():
-            if int(value) == 1:
-                return {"area_nivel": "Estagiário(a)"}
-            elif int(value) == 2:
-                return {"area_nivel": "Jovem aprendiz"}
-            elif int(value) == 3:
-                return {"area_nivel": "Júnior"}
-            elif int(value) == 4:
-                return {"area_nivel": "Sênior"}
-            elif int(value) == 5:
-                return {"area_nivel": "Pleno"}
-            else:
-                dispatcher.utter_message("Só entre 1 e 5")
-                return {"area_nivel": None}
-        else: 
-            dispatcher.utter_message("Vamos de novo! Só número. ")
+        
+        # Opção habilitada na escolha de botões, se nenhum for clicado, aceitar campo não vazio
+        if value != '':
+            return {"area_nivel": value}
+        else:
+            dispatcher.utter_message("Campo não pode ficar vazio.")
             return {"area_nivel": None}
 
 
-    def validate_objetivo(
+    async def validate_objetivo(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -333,7 +298,7 @@ class ValidateFormacaoForm(FormValidationAction):
             return {"objetivo": None}
 
 
-    def validate_escolaridade(
+    async def validate_escolaridade(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -342,17 +307,15 @@ class ValidateFormacaoForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ Validando escolaridade """
 
-        # conter apenas de A a Z, excluindo caracteres especiais e números
-        # if re.findall(r"([a-zA-Z])\D*([a-zA-Z])$", value):
+        # Opção habilitada na escolha de botões, se nenhum for clicado, aceitar campo não vazio
         if value != '':
-            # slot recebe valor inserido devidamente aprovado pelo regular expressions
-            return {"escolaridade": value.capitalize()}
-        else: 
-            dispatcher.utter_message("Vamos de novo! ")
+            return {"escolaridade": value}
+        else:
+            dispatcher.utter_message("Sua escolaridade é importante.")
             return {"escolaridade": None}
 
     
-    def validate_cursoNome(self,
+    async def validate_cursoNome(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -370,7 +333,7 @@ class ValidateFormacaoForm(FormValidationAction):
             return {"cursoNome": None}
 
 
-    def validate_institutoNome(self,
+    async def validate_institutoNome(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -388,7 +351,7 @@ class ValidateFormacaoForm(FormValidationAction):
             return {"institutoNome": None}
 
 
-    def validate_previsaoTermino(self,
+    async def validate_previsaoTermino(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -419,7 +382,7 @@ class ValidateCursoForm(FormValidationAction):
         return "validate_cursos_form"
 
     
-    def validate_habilidade(
+    async def validate_habilidade(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -445,7 +408,7 @@ class ValidateExperienciaForm(FormValidationAction):
         """ Validando formação form """
         return "validate_experiencia_form"
 
-    def validate_cargo(self,
+    async def validate_cargo(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -463,7 +426,7 @@ class ValidateExperienciaForm(FormValidationAction):
             return {"cargo": None}
 
 
-    def validate_nomeEmpresa(self,
+    async def validate_nomeEmpresa(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -480,7 +443,7 @@ class ValidateExperienciaForm(FormValidationAction):
             return {"nomeEmpresa": None}
 
     
-    def validate_cargo_data_entrada_saida(self,
+    async def validate_cargo_data_entrada_saida(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -499,7 +462,7 @@ class ValidateExperienciaForm(FormValidationAction):
             return {"cargo_data_entrada_saida": None}
 
 
-    def validate_cargo_descricao(
+    async def validate_cargo_descricao(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -524,7 +487,7 @@ class ValidateFeedbackForm(FormValidationAction):
         return "validate_feedback_form"
 
     
-    def validate_feedback(
+    async def validate_feedback(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -542,7 +505,7 @@ class ValidateFeedbackForm(FormValidationAction):
             return {"feedback": None}
 
 
-    def validate_nota(
+    async def validate_nota(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
@@ -651,3 +614,5 @@ class ActionSubmitResume(Action):
             SlotSet("feedback", None),
             SlotSet("nota", None)
         ]
+
+        # dispatcher.utter_message("AFTER API CALL, EMPTYING SLOTS: Nome: {}, Age: {}, Address: {}, City: {}, State{}, Phone: {}, Email:{}". format(name, age, address, city, state, cellphone, email))

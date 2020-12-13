@@ -9,21 +9,20 @@
 </head>
 
 <body>
-    <div class="chat-container"></div>
+    <div id="webchat"></div>
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
 
-    <script
-        src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js" />
-    </script>
-    <script type="text/javascript">
-        var chatroom = new window.Chatroom({
-            host: "http://localhost:5005",
+    <script>
+        WebChat.default.init({
+            selector: "#webchat",
+            // initPayload: "/get_started",
+            customData: { "language": "pr_BR" }, // arbitrary custom data. Stay minimal as this will be added to the socket
+            socketUrl: "http://localhost:5005",
+            socketPath: "/socket.io/",
             title: "Curvi",
-            container: document.querySelector(".chat-container"),
-            welcomeMessage: "Digite OI para começarmos",
-            speechRecognition: "pt-BR",
-            voiceLang: "pt-BR"
-        });
-        chatroom.openChat();
+            subtitle: "Digite Oi para começarmos",
+            params: { "storage": "session" } // can be set to "local"  or "session". details in storage section.
+        })
     </script>
 </body>
 

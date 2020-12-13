@@ -155,32 +155,42 @@ nlu:
     - de boa
     - de boa, obrigado
     - agradeço demais!
-- intent: swear_word
+
+- intent: area
   examples: |
-    - pqp
-    - porra
-    - vsf
-    - vai se fuder
-    - vai se foder
-    - fuck
-    - fuck you
-    - fdp
-    - filho da puta
-    - vai tomar no cu
-    - vai se lascar
-    - foda-se
-    - foda se
-    - meu pau
-    - caralho
-    - caraí
-    - son of a bitch
-    - merda
-    - vai a merda
-    - enfia no rabo
-    - teu cu
-    - enfia no cu
-    - retardado
-    - chupa meu pau
-    - meu pau no teu cu
-    - arrombado
-    - cuzao
+    - (Vendas){"entity": "area"}
+    - (Marketing){"entity": "area"}
+    - (Tecnologia){"entity": "area"}
+    - (Direito){"entity": "area"}
+    - (Saúde){"entity": "area"}
+    - (RH){"entity": "area"}
+    - (Administração){"entity": "area"}
+    - (Contabilidade){"entity": "area"}
+    - (Projetos){"entity": "area"}
+    - (Engenharia){"entity": "area"}
+    - (Outros){"entity": "area"}
+    - Estagiário(a){"entity": "area_nivel"}
+    - Jovem aprendiz{"entity": "area_nivel"}
+    - Júnior{"entity": "area_nivel"}
+    - Sênior{"entity": "area_nivel"}
+    - Pleno{"entity": "area_nivel"}
+
+- intent: escolaridade
+  examples: |
+    - Ensino fundamental{"entity": "escolaridade"}
+    - Ensino médio{"entity": "escolaridade"}
+    - Ensino superior{"entity": "escolaridade"}
+    - Técnologo{"entity": "escolaridade"}
+    - Pós Graduação{"entity": "escolaridade"}
+    - Mestrado{"entity": "escolaridade"}
+    - Doutorado{"entity": "escolaridade"}
+    - Outros{"entity": "outros"}
+
+- intent: out_of_scope
+  examples: |
+    - como tá o clima hoje?
+    - será que vai chover?
+    - queria viajar
+    - passaro voando
+    - quanto é 2 + 2?
+    - conhece o presidente?

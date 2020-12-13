@@ -1,6 +1,19 @@
 version: "2.0"
 
 rules:
+  # - rule: Example of an unhappy path
+  #   condition:
+  #   # Condition that form is active.
+  #   - active_loop: restaurant_form
+  #   steps:
+  #   # This unhappy path handles the case of an intent `chitchat`.
+  #   - intent: chitchat
+  #   - action: utter_chitchat
+  #   # Return to form after handling the `chitchat` intent
+  #   - action: restaurant_form
+  #   - active_loop: restaurant_form
+
+
   # rule 1 - call the submit action when the form was complete
   # - rule: submit form
   #   condition: # condition that form is active
@@ -11,14 +24,20 @@ rules:
   #   # the action to run after form is submited. Old submit()
   #   - action: action_submit_resume
 
-  # rule 2
+  # rule 1
   - rule: user says thanks, bot answer
     steps:
     - intent: obrigado
     - action: utter_seeya
 
-  # rule 3
-  - rule: swear words
+  # rule 2
+  - rule: out of scope
     steps:
-    - intent: swear_word
-    - action: utter_no_education
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+  # rule 3
+  - rule: messages with low confidence handled by FallBack Policy
+    steps:
+    - intent: nlu_fallback
+    - action: utter_ask_rephrase

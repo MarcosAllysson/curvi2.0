@@ -1,3 +1,5 @@
+version: "2.0"
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -6,7 +8,9 @@ intents:
 - afirmacao
 - negacao
 - obrigado
-- swear_word
+- area
+- escolaridade
+- out_of_scope
 entities:
 - nome
 - idade
@@ -157,19 +161,71 @@ responses:
   - text: 'Linkedln: {linkedln_link}'
   utter_not_linkedln:
   - text: Ok, sem problemas vamos para a próxima pergunta!
+
   utter_ask_area:
-  - text: "Antes de iniciar a coleta de dados e​ para que possamos personalizar o\
-      \ seu currículo é importante saber, em qual área você deseja atuar? Então vamos\
-      \ lá, digite: \n1 - Vendas; \n2 - Marketing; \n3 - Tecnologia; \n4 - Direito;\
-      \ \n5 - Saúde; \n6 - RH; \n7 - Administração; \n8 - Contabilidade; \n9 - Projetos;\
-      \ \n10 - Engenharia; \n11 - Outros."
+  - buttons:
+    - title: "Vendas"
+      payload: '/area{"area": "Vendas"}'
+    - title: "Marketing"
+      payload: '/area{"area": "Marketing"}'
+    - title: "Tecnologia"
+      payload: '/area{"area": "Tecnologia"}'
+    - title: "Direito"
+      payload: '/area{"area": "Direito"}'
+    - title: "Saúde"
+      payload: '/area{"area": "Saúde"}'
+    - title: "RH"
+      payload: '/area{"area": "RH"}'
+    - title: "Administração"
+      payload: '/area{"area": "Administração"}'
+    - title: "Contabilidade"
+      payload: '/area{"area": "Contabilidade"}'
+    - title: "Projetos"
+      payload: '/area{"area": "Projetos"}'
+    - title: "Engenharia"
+      payload: '/area{"area": "Engenharia"}'
+    - title: "Outros"
+      payload: '/area{"area": "Outros"}'
+    text: "Antes de iniciar a coleta de dados e​ para que possamos personalizar o\
+      \ seu currículo é importante saber, em qual área você deseja atuar?"
+
   utter_ask_area_nivel:
-  - text: "Ótimo, agora me diga qual o seu nível na area: \n1 - Estagiário(a); \n\
-      2 - Jovem aprendiz; \n3 - Júnior; \n4 - Sênior; \n5 - Pleno."
+  - buttons:
+    - title: "Estagiário(a)"
+      payload: '/area{"area_nivel": "Estagiário(a)"}'
+    - title: "Jovem aprendiz"
+      payload: '/area{"area_nivel": "Jovem aprendiz"}'
+    - title: "Júnior"
+      payload: '/area{"area_nivel": "Júnior"}'
+    - title: "Sênior"
+      payload: '/area{"area_nivel": "Sênior"}'
+    - title: "Pleno"
+      payload: '/area{"area_nivel": "Pleno"}'
+    text: "Ótimo, agora me diga qual o seu nível na area: "
+
   utter_ask_objetivo:
   - text: "Qual seu objetivo? \nEscreva brevemente o que você almeja."
+  
   utter_ask_escolaridade:
-  - text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {primeiroNome}?
+  - buttons:
+    - title: "Fundamental"
+      payload: '/escolaridade{"escolaridade":"Fundamental"}'
+    - title: "Médio"
+      payload: '/escolaridade{"escolaridade":"Médio"}'
+    - title: "Superior"
+      payload: '/escolaridade{"escolaridade":"Superior"}'
+    - title: "Técnologo"
+      payload: '/escolaridade{"escolaridade":"Técnologo"}'
+    - title: "Pós"
+      payload: '/escolaridade{"escolaridade":"Pós"}'
+    - title: "Mestrado"
+      payload: '/escolaridade{"escolaridade":"Mestrado"}'
+    - title: "Doutorado"
+      payload: '/escolaridade{"escolaridade":"Doutorado"}'
+    - title: "Outros"
+      payload: '/escolaridade{"escolaridade":"Outros"}'
+    text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {primeiroNome}?
+
   utter_ask_cursoNome:
   - text: Qual o seu curso atual?
   utter_ask_institutoNome:
@@ -250,9 +306,12 @@ responses:
   - text: Até mais {primeiroNome}!
   utter_unhappy:
   - text: Tudo bem! Caso mude de ideia, volte e continuamos.
-  utter_no_education:
-  - text: Apesar da falta de educação, te desejo tudo de bom. Que tu possa um dia
-      crescer não só como pessoa, mas também como ser humano!
+  utter_out_of_scope:
+  - text: Kkkkk, não entendi o que quis dizer! Mas fique numa boa que estou aprendendo.
+  utter_ask_rephrase:
+  - text: Não entendi o que você disse, poderia dizer de outro jeito?
+  - text: Poderia dizer de novo? Não entendi o que você disse.
+
 actions:
 - action_submit_resume
 - validate_dados_basicos_form
@@ -263,104 +322,101 @@ actions:
 - validate_feedback_form
 forms:
   dados_basicos_form:
-    cep:
-    - entity: cep
-      type: from_entity
-    - type: from_text
-    cidade:
-    - entity: cidade
-      type: from_entity
-    - type: from_text
-    email:
-    - entity: email
-      type: from_entity
-    - type: from_text
-    endereco:
-    - entity: endereco
-      type: from_entity
-    - type: from_text
-    estado:
-    - entity: estado
-      type: from_entity
-    - type: from_text
-    idade:
-    - entity: idade
-      type: from_entity
-    - type: from_text
     nome:
-    - entity: nome
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: nome
+      - type: from_text
+        not_intent: negacao
     primeiroNome:
-    - entity: primeiroNome
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: primeiroNome
+    idade:
+      - type: from_entity
+        entity: idade
+      - type: from_text
+    cep:
+      - type: from_entity
+        entity: cep
+      - type: from_text
+    cidade:
+      - type: from_entity
+        entity: cidade
+    endereco:
+      - type: from_entity
+        entity: endereco
+    estado:
+      - type: from_entity
+        entity: estado
     telefone:
-    - entity: telefone
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: telefone
+      - type: from_text
+    email:
+      - type: from_entity
+        entity: email
+      - type: from_text
   linkedln_form:
     linkedln_link:
-    - entity: linkedln_link
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: linkedln_link
+      - type: from_text
   formacao_form:
     area:
-    - entity: area
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: area
+      - type: from_text
     area_nivel:
-    - entity: area_nivel
-      type: from_entity
-    - type: from_text
-    cursoNome:
-    - entity: cursoNome
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: area_nivel
+      - type: from_text
     escolaridade:
-    - entity: escolaridade
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: escolaridade
+      - type: from_text
+    cursoNome:
+      - type: from_entity
+        entity: cursoNome
+      - type: from_text
     institutoNome:
-    - entity: institutoNome
-      type: from_entity
-    - type: from_text
-    objetivo:
-    - entity: objetivo
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: institutoNome
+      - type: from_text
     previsaoTermino:
-    - entity: previsaoTermino
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: previsaoTermino
+      - type: from_text
+    objetivo:
+      - type: from_entity
+        entity: objetivo
+      - type: from_text
   cursos_form:
     habilidade:
-    - entity: habilidade
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: habilidade
+      - type: from_text
   experiencia_form:
     cargo:
-    - entity: cargo
-      type: from_entity
-    - type: from_text
-    cargo_data_entrada_saida:
-    - entity: cargo_data_entrada_saida
-      type: from_entity
-    - type: from_text
-    cargo_descricao:
-    - entity: cargo_descricao
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: cargo
+      - type: from_text
     nomeEmpresa:
-    - entity: nomeEmpresa
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: nomeEmpresa
+      - type: from_text
+    cargo_descricao:
+      - type: from_entity
+        entity: cargo_descricao
+      - type: from_text
+    cargo_data_entrada_saida:
+      - type: from_entity
+        entity: cargo_data_entrada_saida
+      - type: from_text    
   feedback_form:
     feedback:
-    - entity: feedback
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: feedback
+      - type: from_text
     nota:
-    - entity: nota
-      type: from_entity
-    - type: from_text
+      - type: from_entity
+        entity: nota
+      - type: from_text
