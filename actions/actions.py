@@ -192,7 +192,22 @@ class ValidateDadosBasicosForm(FormValidationAction):
             return {"email": None}
 
 
+    async def validate_confirmacao_dados_basicos(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação dos dados básicos """
 
+        confirmacao = tracker.get_slot("confirmacao_dados_basicos")
+        if confirmacao == 'Sim':
+            # se estiver certo, fluxo continua
+            return {"confirmacao_dados_basicos": confirmacao}
+        else:
+            # se dados estiverem errados, slots setados pra None e fluxo é perguntado novamente.
+            return {"nome": None, "idade": None, "cep": None, "cidade": None, "estado": None, "telefone": None, "email": None, "confirmacao_dados_basicos": None}
 
 
 
@@ -219,6 +234,22 @@ class ValidateLinkedlnForm(FormValidationAction):
         else: 
             # dispatcher.utter_message("Vamos de novo! ")
             return {"linkedln_link": None}
+
+    async def validate_confirmacao_linkedln(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação se link está certo """
+
+        confirmacao = tracker.get_slot("confirmacao_linkedln")
+
+        if confirmacao == 'Sim':
+            return {"confirmacao_linkedln": confirmacao}
+        else:
+            return {"linkedln_link": None, "confirmacao_linkedln": None}
 
 
 # FORMACAO FORM
@@ -374,6 +405,23 @@ class ValidateFormacaoForm(FormValidationAction):
             return {"previsaoTermino": None}
 
 
+    async def validate_confirmacao_formacao(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação da formação """
+
+        confirmacao = tracker.get_slot("confirmacao_formacao")
+
+        if confirmacao == 'Sim':
+            return {"confirmacao_formacao": confirmacao}
+        else:
+            return {"area": None, "area_nivel": None, "objetivo": None, "escolaridade": None, "cursoNome": None, "institutoNome": None, "previsaoTermino": None, "confirmacao_formacao": None}
+
+
 
 # CURSO FORM
 class ValidateCursoForm(FormValidationAction):
@@ -399,6 +447,23 @@ class ValidateCursoForm(FormValidationAction):
         else: 
             dispatcher.utter_message("Me fala de novo quais cursos você possui, não entendi... ")
             return {"habilidade": None}
+
+
+    async def validate_confirmacao_habilidade(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação dos cursos """
+
+        confirmacao = tracker.get_slot("confirmacao_habilidade")
+
+        if confirmacao == 'Sim':
+            return {"confirmacao_habilidade": confirmacao}
+        else:
+            return {"habilidade": None, "confirmacao_habilidade": None}
 
 
 
@@ -478,6 +543,21 @@ class ValidateExperienciaForm(FormValidationAction):
         else: 
             dispatcher.utter_message("Me fala de novo, não entendi... ")
             return {"cargo_descricao": None}
+
+    async def validate_confirmacao_experiencia(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação da experiência """
+
+        confirmacao = tracker.get_slot("confirmacao_experiencia")
+        if confirmacao == 'Sim':
+            return {"confirmacao_experiencia": confirmacao}
+        else:
+            return {"cargo": None, "nomeEmpresa": None, "cargo_data_entrada_saida": None, "cargo_descricao": None, "confirmacao_experiencia": None}
 
 
 # FEEDBACK FORM

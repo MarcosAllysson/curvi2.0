@@ -17,6 +17,12 @@ entities:
 - telefone
 - email
 - cep
+- confirmacao
+- confirmacao_dados_basicos
+- confirmacao_linkedln
+- confirmacao_formacao
+- confirmacao_habilidade
+- confirmacao_experiencia
 - endereco
 - cidade
 - estado
@@ -58,6 +64,18 @@ slots:
   cidade:
     type: text
     influence_conversation: false
+  confirmacao:
+    type: bool
+  confirmacao_dados_basicos:
+    type: bool
+  confirmacao_linkedln:
+    type: bool
+  confirmacao_formacao:
+    type: bool
+  confirmacao_habilidade:
+    type: bool
+  confirmacao_experiencia:
+    type: bool
   cursoNome:
     type: any
     influence_conversation: false
@@ -144,10 +162,17 @@ responses:
   - text: "Qual seu telefone para contato? \nExemplo: 61999998888"
   utter_ask_email:
   - text: E o seu email para que as empresas entrem em contato com você, {primeiroNome}?
-  utter_print_dados_basicos:
-  - text: "Certo! Seus dados básicos: \nNome Completo: {nome}; \nIdade: {idade}; \n\
-      Telefone: {telefone}; \nEmail: {email}; \nEndereço: {endereco}; \nCidade: {cidade};\
-      \ Estado: {estado}."
+  
+  utter_ask_confirmacao_dados_basicos:
+  - buttons:
+    - title: "Sim"
+      payload: '/afirmacao{"confirmacao_dados_basicos": "Sim"}'
+    - title: "Não"
+      payload: '/negacao{"confirmacao_dados_basicos": "Não"}'
+    text: "Certo! Seus dados básicos: \nNome Completo: {nome}; \nIdade: {idade}; \n\
+      Telefone: {telefone}; \nEmail: {email}; \nEndereço: {endereco}; \nCidade: {cidade}; 
+      \nEstado: {estado}. \nTodos os dados estão corretos? "
+
   utter_user_has_linkedln:
   - buttons:
     - payload: /afirmacao
@@ -157,8 +182,15 @@ responses:
     text: Você tem Linkedln?
   utter_ask_linkedln_link:
   - text: Qual o link do seu perfil no Linkedln?
-  utter_print_linkedln:
-  - text: 'Linkedln: {linkedln_link}'
+
+  utter_ask_confirmacao_linkedln:
+  - buttons:
+    - title: "Certo"
+      payload: '/afirmacao{"confirmacao_linkedln": "Sim"}'
+    - title: "Errado"
+      payload: '/negacao{"confirmacao_linkedln": "Não"}'
+    text: 'Linkedln: {linkedln_link}. Link certo?'
+
   utter_not_linkedln:
   - text: Ok, sem problemas vamos para a próxima pergunta!
 
@@ -232,10 +264,17 @@ responses:
   - text: Qual a Instituição de Ensino?
   utter_ask_previsaoTermino:
   - text: Ano de previsão para conclusão?
-  utter_print_formacao:
-  - text: "Ok! \nÁrea: {area}; \nNível: {area_nivel}; \nObjetivo: {objetivo}; \nEscolaridade:\
+
+  utter_ask_confirmacao_formacao:
+  - buttons:
+    - title: "Correto"
+      payload: '/afirmacao{"confirmacao_formacao": "Sim"}'
+    - title: "Errado"
+      payload: '/negacao{"confirmacao_formacao": "Não"}'
+    text: "Ok! \nÁrea: {area}; \nNível: {area_nivel}; \nObjetivo: {objetivo}; \nEscolaridade:\
       \ {escolaridade}; \nCurso: {cursoNome}; \nInstituição: {institutoNome}; \nPrevisão\
-      \ de término: {previsaoTermino}."
+      \ de término: {previsaoTermino}. \nTudo certinho {primeiroNome}?"
+
   utter_conhecer_curso:
   - buttons:
     - payload: /afirmacao
@@ -247,8 +286,14 @@ responses:
   - text: ' Escreva o nome do curso junto da Instituição de ensino ( Ex. Aux. de Vendas
       - Microlins), OBS: Nessa versão teste, insira apenas 1 curso. Já está em desenvolvimento
       🙃😉'
-  utter_print_habilidade:
-  - text: "Então você tem curso: \n{habilidade}"
+  utter_ask_confirmacao_habilidade:
+  - buttons:
+    - title: "Certinho"
+      payload: '/afirmacao{"confirmacao_habilidade": "Sim"}'
+    - title: "Errado"
+      payload: '/afirmacao{"confirmacao_habilidade": "Não"}'
+    text: "Então você tem curso: \n{habilidade}. \nCorreto?"
+
   utter_not_habilidade:
   - text: Ok, continuando então...
   utter_conhecer_experiencia:
@@ -269,12 +314,18 @@ responses:
   - text: Me diga agora qual o ano de entrada e ano de saída (ex. 2009-2010)?
   utter_not_experiencia:
   - text: Ah, deve estar procurando primeira oportunidade. Ótimo!
-  utter_print_experiencia:
-  - text: "Certo, sua experiência: \nCargo: {cargo}; \nNome da empresa: {nomeEmpresa};\
-      \  \nEntrou e saiu em: {cargo_data_entrada_saida}; \nDescrição do cargo: {cargo_descricao}.\
-      \ \n "
+
+  utter_ask_confirmacao_experiencia:
+  - buttons:
+    - title: "Tudo certo"
+      payload: '/afirmacao{"confirmacao_experiencia": "Sim"}'
+    - title: "Preciso corrigir"
+      payload: '/negacao{"confirmacao_experiencia": "Não"}'
+    text: "Certo, sua experiência: \nCargo: {cargo}; \nNome da empresa: {nomeEmpresa};\
+      \  \nEntrou e saiu em: {cargo_data_entrada_saida}; \nDescrição do cargo: {cargo_descricao}. \nCorreto {primeiroNome}?"
+
   utter_gerando_curriculo:
-  - text: Ok, estou gerando seu currículo :D
+  - text: Ok, estou gerando seu currículo 😉
   utter_ask_feedback:
   - text: Seu currículo está quase pronto pra você enviar para a vaga dos seus sonhos.
       Antes de te enviar, me conte sobre sua experiência com o Curvi na hora de fazer
@@ -283,7 +334,7 @@ responses:
   - text: Para nos ajudar por favor nos responda de 1 a 10 o quanto você estaria disposto
       a recomendar o Curvi para um amigo ou parente?
   utter_submit:
-  - text: Muito obrigado pelo feedback, {primeiroNome} :D
+  - text: Muito obrigado pelo feedback, {primeiroNome} 😉
   utter_not_curriculo:
   - text: "Estamos conversando há um tempinho e você não quer ver? Como assim {primeiroNome}!?\
       \ \nMas caso tenha curiosidade"
@@ -355,10 +406,18 @@ forms:
       - type: from_entity
         entity: email
       - type: from_text
+    confirmacao_dados_basicos:
+      - type: from_entity
+        entity: confirmacao_dados_basicos
+      - type: from_text
   linkedln_form:
     linkedln_link:
       - type: from_entity
         entity: linkedln_link
+      - type: from_text
+    confirmacao_linkedln:
+      - type: from_entity
+        entity: confirmacao_linkedln
       - type: from_text
   formacao_form:
     area:
@@ -389,10 +448,18 @@ forms:
       - type: from_entity
         entity: objetivo
       - type: from_text
+    confirmacao_formacao:
+      - type: from_entity
+        entity: confirmacao_formacao
+      - type: from_text
   cursos_form:
     habilidade:
       - type: from_entity
         entity: habilidade
+      - type: from_text
+    confirmacao_habilidade:
+      - type: from_entity
+        entity: confirmacao_habilidade
       - type: from_text
   experiencia_form:
     cargo:
@@ -410,7 +477,11 @@ forms:
     cargo_data_entrada_saida:
       - type: from_entity
         entity: cargo_data_entrada_saida
-      - type: from_text    
+      - type: from_text
+    confirmacao_experiencia:
+      - type: from_entity
+        entity: confirmacao_experiencia
+      - type: from_text
   feedback_form:
     feedback:
       - type: from_entity

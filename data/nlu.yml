@@ -57,14 +57,17 @@ nlu:
     - Olá!
 - intent: afirmacao
   examples: |
-    - sim
+    - (sim){"entity":"confirmacao", "value": "sim"}
+    - (s){"entity":"confirmacao", "value": "sim"}
+    - (ss){"entity":"confirmacao", "value": "sim"}
+    - (tá){"entity":"confirmacao", "value": "sim"}
+    - (correto){"entity":"confirmacao", "value": "sim"}
+    - (exatamente){"entity":"confirmacao", "value": "sim"}
+    - (exato){"entity":"confirmacao", "value": "sim"}
     - talvez
     - entendi
     - entendi sim
     - sim, entendi
-    - s
-    - ss
-    - tá
     - beleza
     - quero
     - tudo bem
@@ -76,9 +79,6 @@ nlu:
     - compreendo
     - blz
     - claro
-    - correto
-    - exatamente
-    - exato
     - aham
     - uhum
     - realmente
@@ -122,24 +122,25 @@ nlu:
     - só bora!
 - intent: negacao
   examples: |
-    - não
-    - n
-    - nn
+    - (não){"entity":"confirmacao", "value": "nao"}
+    - (n){"entity":"confirmacao", "value": "nao"}
+    - (nn){"entity":"confirmacao", "value": "nao"}
+    - (negativo){"entity":"confirmacao", "value": "nao"}
+    - (nao){"entity":"confirmacao", "value": "nao"}
+    - (no){"entity":"confirmacao", "value": "nao"}
+    - (nope){"entity":"confirmacao", "value": "nao"}
+    - (errado){"entity":"confirmacao", "value": "nao"}
     - nunca
     - nada
     - só isso
     - foi só isso
     - discordo
-    - negativo
     - mais ou menos
-    - nao
     - nao conheco
     - não quero
     - escolhi errado
     - falei errado
     - duvida
-    - no
-    - nope
     - ainda não sei
     - nenhum
     - jamais
@@ -169,22 +170,22 @@ nlu:
     - (Projetos){"entity": "area"}
     - (Engenharia){"entity": "area"}
     - (Outros){"entity": "area"}
-    - Estagiário(a){"entity": "area_nivel"}
-    - Jovem aprendiz{"entity": "area_nivel"}
-    - Júnior{"entity": "area_nivel"}
-    - Sênior{"entity": "area_nivel"}
-    - Pleno{"entity": "area_nivel"}
+    - (Estagiário){"entity": "area_nivel"}
+    - (Jovem aprendiz){"entity": "area_nivel"}
+    - (Júnior){"entity": "area_nivel"}
+    - (Sênior){"entity": "area_nivel"}
+    - (Pleno){"entity": "area_nivel"}
 
 - intent: escolaridade
   examples: |
-    - Ensino fundamental{"entity": "escolaridade"}
-    - Ensino médio{"entity": "escolaridade"}
-    - Ensino superior{"entity": "escolaridade"}
-    - Técnologo{"entity": "escolaridade"}
-    - Pós Graduação{"entity": "escolaridade"}
-    - Mestrado{"entity": "escolaridade"}
-    - Doutorado{"entity": "escolaridade"}
-    - Outros{"entity": "outros"}
+    - (Ensino fundamental){"entity": "escolaridade"}
+    - (Ensino médio){"entity": "escolaridade"}
+    - (Ensino superior){"entity": "escolaridade"}
+    - (Técnologo){"entity": "escolaridade"}
+    - (Pós Graduação){"entity": "escolaridade"}
+    - (Mestrado){"entity": "escolaridade"}
+    - (Doutorado){"entity": "escolaridade"}
+    - (Outros){"entity": "outros"}
 
 - intent: out_of_scope
   examples: |
