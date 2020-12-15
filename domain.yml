@@ -264,8 +264,8 @@ responses:
       title: Médio
     - payload: /escolaridade{"escolaridade":"Superior"}
       title: Superior
-    - payload: /escolaridade{"escolaridade":"Técnologo"}
-      title: Técnologo
+    - payload: /escolaridade{"escolaridade":"Técnico"}
+      title: Técnico
     - payload: /escolaridade{"escolaridade":"Pós"}
       title: Pós
     - payload: /escolaridade{"escolaridade":"Mestrado"}

@@ -19,7 +19,7 @@ from datetime import date
 
 # DOUGLAS API
 def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-                courseName, courseSchool, courseEndYear, courses, cientific_research, companyName, companyOccupation, 
+                courseName, courseSchool, courseEndYear, courses, cientificResearch, companyName, companyOccupation, 
                 companyDescription, companyStartEnd, feedback, grade):
     request_url = "https://curvi-api.herokuapp.com/api/user"
 
@@ -40,7 +40,7 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
         "courseSchool": courseSchool,
         "courseEndYear": courseEndYear,
         "courses": courses,
-        "cientific_research": cientific_research,
+        "cientificResearch": cientificResearch,
         "companyName": companyName,
         "companyOccupation": companyOccupation,
         "companyDescription": companyDescription,
@@ -681,9 +681,9 @@ class ActionSubmitResume(Action):
         if courses == None:
             courses = "NOT_PRINT"
 
-        cientific_research = tracker.get_slot("pesquisaCientifica")
-        if cientific_research == None:
-            cientific_research = "NOT_PRINT"
+        cientificResearch = tracker.get_slot("pesquisaCientifica")
+        if cientificResearch == None:
+            cientificResearch = "NOT_PRINT"
 
         companyName = tracker.get_slot("nomeEmpresa")
         if companyName == None:
@@ -706,9 +706,9 @@ class ActionSubmitResume(Action):
         
 
         # CHAMADA DA FUNÇÃO PASSANDO OS DADOS PRA FAZER POST REQUEST
-        # generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-        #         courseName, courseSchool, courseEndYear, courses, cientific_research, companyName, companyOccupation, 
-        #         companyDescription, companyStartEnd, feedback, grade)
+        generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
+                courseName, courseSchool, courseEndYear, courses, cientificResearch, companyName, companyOccupation, 
+                companyDescription, companyStartEnd, feedback, grade)
 
 
         # return []
