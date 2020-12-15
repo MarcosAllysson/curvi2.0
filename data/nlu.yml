@@ -120,6 +120,10 @@ nlu:
     - vamos sim
     - bora sim
     - só bora!
+    - /afirmacao
+    - silva santos
+    - top
+    - top demais
 - intent: negacao
   examples: |
     - (não){"entity":"confirmacao", "value": "nao"}
@@ -145,6 +149,86 @@ nlu:
     - nenhum
     - jamais
     - Não
+- intent: dados_pessoais
+  examples: |
+    - meu nome é (Marcos Allysson){"entity":"nome"}
+    - me chamo (Marcos Allysson){"entity":"nome"}
+    - tenho (30){"entity":"idade"} anos
+    - (20){"entity":"idade"} anos
+    - meu cep é (70030300){"entity":"cep"}
+    - CEP (70030300){"entity":"cep"}
+    - meu número é (99999999999){"entity":"telefone"}
+    - telefone: (99999999999){"entity":"telefone"}
+    - meu email é (email@gmail.com){"entity":"email"}
+    - email: (email@gmail.com){"entity":"email"}
+    - meu linkedin é (https://www.linkedin.com/in/marcos-allysson/){"entity":"linkedln_link"}
+    - linkedin: (https://www.linkedin.com/in/marcos-allysson-648128188/){"entity":"linkedln_link"}
+    - marcos allysson
+    - 23
+    - 70070300
+    - 99999999999
+    - email@gmail.com
+    - https://link.com.br
+    - 10
+    - allysson silva
+    - 16
+    - 61999999999
+    - silva santos
+    - 67
+    - 61988889999
+    - 2021
+    - marcos
+    - 13
+    - 99990909090
+    - 2020
+    - silva allysson
+    - email@hotmail.com
+    - 2022
+- intent: dados_formacao
+  examples: |
+    - sou da area de (tecnologia){"entity":"area"}
+    - meu nível na área é (pleno){"entity":"area_nivel"}
+    - (Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.){"entity":"objetivo"}
+    - (ensino superior){"entity":"escolaridade"}
+    - estou cursando (direito){"entity":"cursoNome"}
+    - eu estudo no (Instituto Federal de Brasília){"entity":"institutoNome"}
+    - previsão pra me formar em (2021){"entity":"previsaoTermino"}
+    - fiz curso de (auxiliar administrativo){"entity":"habilidade"}
+    - já participei no desenvolvimento de (artigos cientificos){"entity":"pesquisaCientifica"}
+    - tecnologia
+    - estudo no instituto federal de brasilia
+    - 2020
+    - primeiro emprego com objetivo de aprender junto a empresa
+    - cursando auxiliar administrativo
+    - participei no desenvolvimento de artigos cientificos juntamente ao lattes
+    - tecnologo sistemas para internet
+    - unb
+    - 2021
+    - objetivo trabalhar, aprender e agregar valor a empresa
+    - advogacia
+    - ufmg
+    - Primeiro emprego objetivando adquirir conhecimento e                                                                                   \n      experiência necessária junto à empresa
+    - auxiliar de vendas na microlins
+    - participei de um artigo cientifico ano passado e projetos relacionados
+    - primeiro emprego objetivando adquirir conhecimento
+    - ja desenvolvi e participei de projetos e artigos cientificos
+    - universidade de brasilia
+    - primeiro emprego, busco aprender e me desenvolver junto a empresa
+    - curso de vendas pela internet
+- intent: dados_experiencia
+  examples: |
+    - trabalhei no (Google){"entity":"nomeEmpresa"}
+    - desempenhei a função de (gerente){"entity":"cargo"} quando trabalhei no google
+    - (minha função era organizar todos os processos da empresa). {"entity":"cargo_descricao"}
+    - fique lá no período de (2010-2020){"entity": "cargo_data_entrada_saida"}
+    - trabalhei no google
+    - trabalhei no funcao de gerente
+    - era responsavel por organizar os processos da empresa
+    - fique la no periodo de 2010-2020
+    - rasa
+    - executivo
+    - responsavel pelo trafego interno e externo da empresa
+    - 2020-2021
 - intent: obrigado
   examples: |
     - obrigada
@@ -156,7 +240,7 @@ nlu:
     - de boa
     - de boa, obrigado
     - agradeço demais!
-
+    - obrigado
 - intent: area
   examples: |
     - (Vendas){"entity": "area"}
@@ -175,7 +259,6 @@ nlu:
     - (Júnior){"entity": "area_nivel"}
     - (Sênior){"entity": "area_nivel"}
     - (Pleno){"entity": "area_nivel"}
-
 - intent: escolaridade
   examples: |
     - (Ensino fundamental){"entity": "escolaridade"}
@@ -186,7 +269,6 @@ nlu:
     - (Mestrado){"entity": "escolaridade"}
     - (Doutorado){"entity": "escolaridade"}
     - (Outros){"entity": "outros"}
-
 - intent: out_of_scope
   examples: |
     - como tá o clima hoje?

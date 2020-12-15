@@ -467,6 +467,46 @@ class ValidateCursoForm(FormValidationAction):
 
 
 
+# PROJETOS E PESQUISAS CIENTIFICAS
+class ValidateProjetoForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_projeto_form"
+
+    async def validate_pesquisaCientifica(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação da pesquisa, aceitando texto """
+
+        if value != '':
+            return {"pesquisaCientifica": value}
+        else:
+            dispatcher.utter_message("Não entendi, vamos de novo...")
+            return {"pesquisaCientifica": None}
+
+
+    async def validate_confirmacao_pesquisa(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação da pesquisa, se tá correto ou não """
+
+        confirmacao = tracker.get_slot("confirmacao_pesquisa")
+
+        if confirmacao == 'Sim':
+            return {"confirmacao_pesquisa": value}
+        else:
+            return {"pesquisaCientifica": None, "confirmacao_pesquisa": None}
+
+
+
+
 # EXPERIENCIA FORM
 class ValidateExperienciaForm(FormValidationAction):
     def name(self) -> Text:
@@ -640,6 +680,10 @@ class ActionSubmitResume(Action):
         if courses == None:
             courses = "NOT_PRINT"
 
+        cientific_research = tracker.get_slot("pesquisaCientifica")
+        if cientific_research == None:
+            cientific_research = "NOT_PRINT"
+
         companyName = tracker.get_slot("nomeEmpresa")
         if companyName == None:
             companyName = "Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
@@ -672,7 +716,9 @@ class ActionSubmitResume(Action):
         # após post request, zerando todos os slots para None
         return [
             SlotSet("nome", None),
+            SlotSet("primeiroNome", None),
             SlotSet("idade", None),
+            SlotSet("cep", None),
             SlotSet("endereco", None),
             SlotSet("cidade", None),
             SlotSet("estado", None),
@@ -687,12 +733,19 @@ class ActionSubmitResume(Action):
             SlotSet("institutoNome", None),
             SlotSet("previsaoTermino", None),
             SlotSet("habilidade", None),
+            SlotSet("pesquisaCientifica", None),
             SlotSet("nomeEmpresa", None),
             SlotSet("cargo", None),
             SlotSet("cargo_descricao", None),
             SlotSet("cargo_data_entrada_saida", None),
             SlotSet("feedback", None),
-            SlotSet("nota", None)
+            SlotSet("nota", None),
+            SlotSet("confirmacao_dados_basicos", None),
+            SlotSet("confirmacao_formacao", None),
+            SlotSet("confirmacao_habilidade", None),
+            SlotSet("confirmacao_pesquisa", None),
+            SlotSet("confirmacao_experiencia", None),
+            SlotSet("confirmacao_linkedln", None)
         ]
 
         # dispatcher.utter_message("AFTER API CALL, EMPTYING SLOTS: Nome: {}, Age: {}, Address: {}, City: {}, State{}, Phone: {}, Email:{}". format(name, age, address, city, state, cellphone, email))

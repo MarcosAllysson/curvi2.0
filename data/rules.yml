@@ -29,6 +29,7 @@ rules:
     steps:
     - intent: obrigado
     - action: utter_seeya
+    - action: action_restart
 
   # rule 2
   - rule: out of scope
