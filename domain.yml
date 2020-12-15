@@ -154,54 +154,55 @@ responses:
       title: Vamos!
     - payload: /negacao
       title: Não.
-    text: Olá, tudo bem? Sou o Curvi e vou te ajudar fazer o seu currículo. Vamos começar?
+    text: Um currículo pode ter importância fundamental no seu futuro emprego. E o Curvi pode te ajudar com isso! Vamos continuar?
   utter_vamos_continuar:
   - buttons:
     - payload: /afirmacao
       title: Tá bom, vamos lá!
     - payload: /negacao
       title: Não quero...
-    text: Um currículo pode ter importância fundamental no seu futuro emprego. E o Corvi pode te ajudar com isso! Vamos continuar?
+    text: Você quer continuar? Posso te ajudar fazer seu currículo. Leva apenas alguns minutinhos.
   utter_ask_nome:
   - text: O primeiro passo para fazer o seu currículo são os dados pessoais, então vamos nessa. Qual o seu nome completo?
+  - text: Vamos começar pelos dados pessoais. Qual o seu nome completo?
   utter_ask_idade:
   - text: Quantos anos você tem, {primeiroNome}?
+  - text: Qual sua idade, {primeiroNome}?
   utter_ask_cep:
-  - text: |-
-      Qual o seu CEP?
-      Deve conter apenas 8 números.
+  - text: Qual o seu CEP? Deve conter apenas 8 números.
+  - text: Vamos localizar seu endereço agora, qual seu CEP? Me fala apenas os 8 números.
   utter_ask_cidade:
   - text: Em qual cidade você mora?
   utter_ask_estado:
   - text: 'E o estado? '
   utter_ask_telefone:
-  - text: |-
-      Qual seu telefone para contato? 
-      Exemplo: 61999998888
+  - text: Qual seu telefone para contato? Exemplo 61999998888
+  - text: Telefone para contato? De preferência seu WhatsApp. Digite apenas seu número, exemplo 61999998888
   utter_ask_email:
   - text: E o seu email para que as empresas entrem em contato com você, {primeiroNome}?
+  - text: Ok, qual seu email, {primeiroNome}?
   utter_ask_confirmacao_dados_basicos:
   - buttons:
     - payload: '/afirmacao{"confirmacao_dados_basicos": "Sim"}'
-      title: Sim
+      title: Tudo certo!
     - payload: '/negacao{"confirmacao_dados_basicos": "Não"}'
-      title: Não
+      title: Preciso corrigir
     text: |-
       Certo! Seus dados básicos: 
       Nome Completo: {nome}; 
-      Idade: {idade}; 
-      Telefone: {telefone}; 
-      Email: {email}; 
-      Endereço: {endereco}; 
-      Cidade: {cidade}; 
-      Estado: {estado}. 
+      Idade: {idade};
+      Telefone: {telefone};
+      Email: {email};
+      Endereço: {endereco};
+      Cidade: {cidade};
+      Estado: {estado}.
       Todos os dados estão corretos? 
   utter_user_has_linkedln:
   - buttons:
     - payload: /afirmacao
-      title: Sim!
+      title: Tenho!
     - payload: /negacao
-      title: Não.
+      title: Ainda não.
     text: Você tem Linkedln?
   utter_ask_linkedln_link:
   - text: Qual o link do seu perfil no Linkedln?
@@ -210,8 +211,8 @@ responses:
     - payload: '/afirmacao{"confirmacao_linkedln": "Sim"}'
       title: Certo
     - payload: '/negacao{"confirmacao_linkedln": "Não"}'
-      title: Errado
-    text: 'Linkedln: {linkedln_link}. Link certo?'
+      title: Preciso mudar.
+    text: 'Então seu linkedln é: {linkedln_link}, o link está certo?'
   utter_not_linkedln:
   - text: Ok, sem problemas vamos para a próxima pergunta!
   utter_ask_area:
@@ -238,7 +239,7 @@ responses:
       title: Engenharia
     - payload: '/area{"area": "Outros"}'
       title: Outros
-    text: Antes de iniciar a coleta de dados e​ para que possamos personalizar o seu currículo é importante saber, em qual área você deseja atuar?
+    text: Para que eu possa personalizar o seu currículo é importante saber em qual área você deseja atuar
   utter_ask_area_nivel:
   - buttons:
     - payload: '/area{"area_nivel": "Estagiário(a)"}'
@@ -253,9 +254,8 @@ responses:
       title: Pleno
     text: 'Ótimo, agora me diga qual o seu nível na area: '
   utter_ask_objetivo:
-  - text: |-
-      {primeiroNome}, qual seu objetivo se candidatando para a vaga? 
-      Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.
+  - text: "{primeiroNome}, qual seu objetivo se candidatando para a vaga? \n 
+      Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
   utter_ask_escolaridade:
   - buttons:
     - payload: /escolaridade{"escolaridade":"Fundamental"}
@@ -286,7 +286,7 @@ responses:
     - payload: '/afirmacao{"confirmacao_formacao": "Sim"}'
       title: Correto
     - payload: '/negacao{"confirmacao_formacao": "Não"}'
-      title: Errado
+      title: Quero mudar.
     text: |-
       Ok! 
       Área: {area}; 
@@ -305,17 +305,14 @@ responses:
       title: Não.
     text: Possui cursos ou certificações que deseja incluir no seu currículo?
   utter_ask_habilidade:
-  - text: ' Escreva o nome do curso junto da Instituição de ensino ( Ex. Aux. de Vendas - Microlins), OBS: Nessa versão teste, insira apenas 1 curso. Já está em desenvolvimento 🙃😉'
+  - text: 'Escreva o nome do curso junto da Instituição de ensino (Ex. Aux. de Vendas - Microlins), OBS: Nessa versão teste, insira apenas 1 curso. Você poderá acrescentar outros cursos, por enquanto está em desenvolvimento 🙃😉'
   utter_ask_confirmacao_habilidade:
   - buttons:
     - payload: '/afirmacao{"confirmacao_habilidade": "Sim"}'
       title: Certinho
     - payload: '/afirmacao{"confirmacao_habilidade": "Não"}'
-      title: Errado
-    text: |-
-      Então você tem curso: 
-      {habilidade}. 
-      Correto?
+      title: Quero corrigir.
+    text: "Então você tem curso: \n{habilidade}. \nCorreto?"
   utter_not_habilidade:
   - text: Ok, continuando então...
   utter_conhecer_projeto:
@@ -334,8 +331,7 @@ responses:
     - payload: '/negacao{"confirmacao_pesquisa": "Não"}'
       title: Preciso mudar
     text: |-
-      Então: 
-      {pesquisaCientifica}. Certo {primeiroNome}?
+      Então: {pesquisaCientifica}. Certo {primeiroNome}?
   utter_conhecer_experiencia:
   - buttons:
     - payload: /afirmacao
@@ -369,9 +365,9 @@ responses:
   utter_gerando_curriculo:
   - text: Ok, estou gerando seu currículo 😉
   utter_ask_feedback:
-  - text: Seu currículo está quase pronto pra você enviar para a vaga dos seus sonhos. Antes de te enviar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {primeiroNome}?
+  - text: Seu currículo está quase pronto. Antes de te mandar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {primeiroNome}?
   utter_ask_nota:
-  - text: Para nos ajudar por favor nos responda de 1 a 10 o quanto você estaria disposto a recomendar o Curvi para um amigo ou parente?
+  - text: Para nos ajudar, por favor nos responda de 1 a 10 o quanto você estaria disposto a recomendar o Curvi para um amigo ou parente?
   utter_submit:
   - text: Muito obrigado pelo feedback 😉
   utter_not_curriculo:
@@ -385,11 +381,12 @@ responses:
     text: Seu currículo está pronto e totalmente personalizado para sua necessidade. você quer olhar como ele ficou?
   utter_curriculo_link:
   - image: https://i.imgur.com/qqEOp3u.jpg
-    text: Seu currículo está pronto e falta pouco para você acessar. Acesse o [Curvi - clicando aqui](https://curviapp.herokuapp.com/resume) e coloque seu EMAIL. Abraço do Curvi e obrigado por ser um dos primeiros a testar 🙃😉...
+    text: Seu currículo está pronto e falta pouco para você acessar. Acesse o [Curvi - clicando aqui](https://curviapp.herokuapp.com/resume) e coloque seu EMAIL. Um forte abraço virtual e sucesso na sua jornada profissional 🙃😉...
   utter_not_curriculo_link:
   - text: Ok!
   utter_seeya:
   - text: Até mais!
+  - text: Tchau.
   utter_unhappy:
   - text: Tudo bem! Caso mude de ideia, volte e continuamos.
   utter_out_of_scope:

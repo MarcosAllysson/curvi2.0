@@ -19,8 +19,8 @@ from datetime import date
 
 # DOUGLAS API
 def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-                courseName, courseSchool, courseEndYear, courses, companyName, companyOccupation, companyDescription, 
-                companyStartEnd, feedback, grade):
+                courseName, courseSchool, courseEndYear, courses, cientific_research, companyName, companyOccupation, 
+                companyDescription, companyStartEnd, feedback, grade):
     request_url = "https://curvi-api.herokuapp.com/api/user"
 
     info = {
@@ -40,6 +40,7 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
         "courseSchool": courseSchool,
         "courseEndYear": courseEndYear,
         "courses": courses,
+        "cientific_research": cientific_research,
         "companyName": companyName,
         "companyOccupation": companyOccupation,
         "companyDescription": companyDescription,
@@ -634,8 +635,8 @@ class ValidateFeedbackForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ Validando nota """
 
-        # aceitar apenas número entre 1 e 10
-        if value.isdigit() and int(value) > 0 and int(value) < 11:
+        # campo não vazio, única verificação
+        if value != '':
             return {"nota": value}
         else: 
             dispatcher.utter_message("Vamos de novo... ")
@@ -706,8 +707,8 @@ class ActionSubmitResume(Action):
 
         # CHAMADA DA FUNÇÃO PASSANDO OS DADOS PRA FAZER POST REQUEST
         # generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-        #         courseName, courseSchool, courseEndYear, courses, companyName, companyOccupation, companyDescription, 
-        #         companyStartEnd, feedback, grade)
+        #         courseName, courseSchool, courseEndYear, courses, cientific_research, companyName, companyOccupation, 
+        #         companyDescription, companyStartEnd, feedback, grade)
 
 
         # return []
@@ -748,4 +749,4 @@ class ActionSubmitResume(Action):
             SlotSet("confirmacao_linkedln", None)
         ]
 
-        # dispatcher.utter_message("AFTER API CALL, EMPTYING SLOTS: Nome: {}, Age: {}, Address: {}, City: {}, State{}, Phone: {}, Email:{}". format(name, age, address, city, state, cellphone, email))
+        # dispatcher.utter_message("")
