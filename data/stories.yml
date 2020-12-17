@@ -1812,3 +1812,236 @@ stories:
   - action: utter_curriculo_pronto
   - intent: afirmacao
   - action: utter_curriculo_link
+
+- story: interactive_story_1
+  steps:
+  - intent: cumprimentar
+  - action: utter_intro
+  - intent: negacao
+  - action: utter_vamos_continuar
+  - intent: afirmacao
+  - action: dados_basicos_form
+  - active_loop: dados_basicos_form
+  - slot_was_set:
+    - requested_slot: nome
+  - slot_was_set:
+    - nome: Marcos silva
+  - slot_was_set:
+    - primeiroNome: Marcos
+  - slot_was_set:
+    - requested_slot: idade
+  - slot_was_set:
+    - idade: '23'
+  - slot_was_set:
+    - requested_slot: cep
+  - slot_was_set:
+    - cep: '70070300'
+  - slot_was_set:
+    - endereco: Esplanada da Torre
+  - slot_was_set:
+    - cidade: Brasília
+  - slot_was_set:
+    - estado: DF
+  - slot_was_set:
+    - requested_slot: telefone
+  - slot_was_set:
+    - telefone: '99999999999'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: emaile@gmail.com
+  - slot_was_set:
+    - requested_slot: confirmacao_dados_basicos
+  - slot_was_set:
+    - confirmacao_dados_basicos: Não
+  - slot_was_set:
+    - confirmacao_dados_basicos: null
+  - slot_was_set:
+    - nome: null
+  - slot_was_set:
+    - idade: null
+  - slot_was_set:
+    - cep: null
+  - slot_was_set:
+    - cidade: null
+  - slot_was_set:
+    - estado: null
+  - slot_was_set:
+    - telefone: null
+  - slot_was_set:
+    - email: null
+  - slot_was_set:
+    - requested_slot: nome
+  - slot_was_set:
+    - nome: Marcos silva
+  - slot_was_set:
+    - primeiroNome: Marcos
+  - slot_was_set:
+    - requested_slot: idade
+  - slot_was_set:
+    - idade: '23'
+  - slot_was_set:
+    - requested_slot: cep
+  - slot_was_set:
+    - cep: '70070300'
+  - slot_was_set:
+    - endereco: Esplanada da Torre
+  - slot_was_set:
+    - cidade: Brasília
+  - slot_was_set:
+    - estado: DF
+  - slot_was_set:
+    - requested_slot: telefone
+  - slot_was_set:
+    - telefone: '61998989090'
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: aemail@gmail.com
+  - slot_was_set:
+    - requested_slot: confirmacao_dados_basicos
+  - slot_was_set:
+    - confirmacao_dados_basicos: Sim
+  - slot_was_set:
+    - confirmacao_dados_basicos: Sim
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_user_has_linkedln
+  - intent: negacao
+  - action: utter_not_linkedln
+  - action: formacao_form
+  - active_loop: formacao_form
+  - slot_was_set:
+    - requested_slot: area
+  - slot_was_set:
+    - area: Vendas
+  - slot_was_set:
+    - area: Vendas
+  - slot_was_set:
+    - requested_slot: area_nivel
+  - slot_was_set:
+    - area_nivel: Júnior
+  - slot_was_set:
+    - area_nivel: Júnior
+  - slot_was_set:
+    - requested_slot: escolaridade
+  - slot_was_set:
+    - escolaridade: Superior
+  - slot_was_set:
+    - escolaridade: Superior
+  - slot_was_set:
+    - requested_slot: cursoNome
+  - slot_was_set:
+    - cursoNome: ti
+  - slot_was_set:
+    - requested_slot: institutoNome
+  - slot_was_set:
+    - institutoNome: ifb
+  - slot_was_set:
+    - requested_slot: previsaoTermino
+  - slot_was_set:
+    - previsaoTermino: '2020'
+  - slot_was_set:
+    - requested_slot: objetivo
+  - slot_was_set:
+    - objetivo: Primeiro emprego
+  - slot_was_set:
+    - requested_slot: confirmacao_formacao
+  - slot_was_set:
+    - confirmacao_formacao: Sim
+  - slot_was_set:
+    - confirmacao_formacao: Sim
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_conhecer_curso
+  - intent: negacao
+  - action: utter_not_habilidade
+  - action: utter_conhecer_projeto
+  - intent: negacao
+  - action: utter_conhecer_experiencia
+  - intent: negacao
+  - action: utter_not_experiencia
+  - action: utter_gerando_curriculo
+  - action: feedback_form
+  - active_loop: feedback_form
+  - slot_was_set:
+    - requested_slot: feedback
+  - slot_was_set:
+    - feedback: top
+  - slot_was_set:
+    - requested_slot: nota
+  - slot_was_set:
+    - nota: '10'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_resume
+  - slot_was_set:
+    - nome: null
+  - slot_was_set:
+    - primeiroNome: null
+  - slot_was_set:
+    - idade: null
+  - slot_was_set:
+    - cep: null
+  - slot_was_set:
+    - endereco: null
+  - slot_was_set:
+    - cidade: null
+  - slot_was_set:
+    - estado: null
+  - slot_was_set:
+    - telefone: null
+  - slot_was_set:
+    - email: null
+  - slot_was_set:
+    - linkedln_link: null
+  - slot_was_set:
+    - area: null
+  - slot_was_set:
+    - area_nivel: null
+  - slot_was_set:
+    - objetivo: null
+  - slot_was_set:
+    - escolaridade: null
+  - slot_was_set:
+    - cursoNome: null
+  - slot_was_set:
+    - institutoNome: null
+  - slot_was_set:
+    - previsaoTermino: null
+  - slot_was_set:
+    - habilidade: null
+  - slot_was_set:
+    - pesquisaCientifica: null
+  - slot_was_set:
+    - nomeEmpresa: null
+  - slot_was_set:
+    - cargo: null
+  - slot_was_set:
+    - cargo_descricao: null
+  - slot_was_set:
+    - cargo_data_entrada_saida: null
+  - slot_was_set:
+    - feedback: null
+  - slot_was_set:
+    - nota: null
+  - slot_was_set:
+    - confirmacao_dados_basicos: null
+  - slot_was_set:
+    - confirmacao_formacao: null
+  - slot_was_set:
+    - confirmacao_habilidade: null
+  - slot_was_set:
+    - confirmacao_pesquisa: null
+  - slot_was_set:
+    - confirmacao_experiencia: null
+  - slot_was_set:
+    - confirmacao_linkedln: null
+  - action: utter_submit
+  - action: utter_curriculo_pronto
+  - intent: negacao
+  - action: utter_not_curriculo
+  - action: utter_curriculo_link

@@ -185,12 +185,37 @@ class ValidateDadosBasicosForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ Validando email com RE """
 
+        # validando email com RE
         if re.findall(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", value):
-        # if value != '':
-            return {"email": value.lower()}
-        else:
+            # requisição no banco pra verificação se já está cadastrado
+            get_data_user = requests.get('http://curvi-api.herokuapp.com/api/user', headers={'email' : '{}'.format(value)})
+            # dispatcher.utter_message("STATUS CODE: ", str(get_data_user.status_code))
+
+            if get_data_user.status_code == 200:
+                # 200 - conexão sucedida
+                # 404 - not found
+                # 500 - server
+                
+                # RECEBENDO DADOS DO BANCO EM JSON
+                user_data = get_data_user.json()
+                # print(user_data['id'])
+                # print(user_data['name'], ", JÁ TE CONHEÇO...")
+                dia_criado = user_data['created_at']
+
+                dispatcher.utter_message("Acho que já nos conhecemos hein! Vi que você criou teu currículo no dia, {}. Esse email já está cadastrado e não é possível criarmos outro currículo. Só se quiser inserir outro...".format(dia_criado))
+                # dispatcher.utter_message(template="utter_curriculo_link")
+                return {"email": None}
+
+            else:
+                # status code diferente de 200, email disponível pra continuar
+                return {"email": value.lower()}
+        
+        # email inválido pelo RE
+        else:    
             dispatcher.utter_message("Email inválido...")
             return {"email": None}
+
+        
 
 
     async def validate_confirmacao_dados_basicos(
@@ -346,6 +371,25 @@ class ValidateFormacaoForm(FormValidationAction):
             dispatcher.utter_message("Sua escolaridade é importante.")
             return {"escolaridade": None}
 
+
+    async def validate_escolaridade_formadoOuAndamento(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validando escolaridade_formadoOuAndamento """
+
+        # verificando se o status é Completo ou Andamento
+        if value != '':
+            status_escolaridade = tracker.get_slot("escolaridade_formadoOuAndamento")
+            if status_escolaridade == 'Completo':
+                return {"escolaridade_formadoOuAndamento": status_escolaridade, "previsaoTermino": status_escolaridade}
+        else:
+            dispatcher.utter_message("O status é importante.")
+            return {"escolaridade_formadoOuAndamento": None}
+
     
     async def validate_cursoNome(self,
         value: Text,
@@ -420,7 +464,7 @@ class ValidateFormacaoForm(FormValidationAction):
         if confirmacao == 'Sim':
             return {"confirmacao_formacao": confirmacao}
         else:
-            return {"area": None, "area_nivel": None, "objetivo": None, "escolaridade": None, "cursoNome": None, "institutoNome": None, "previsaoTermino": None, "confirmacao_formacao": None}
+            return {"area": None, "area_nivel": None, "objetivo": None, "escolaridade": None, "escolaridade_formadoOuAndamento": None, "cursoNome": None, "institutoNome": None, "previsaoTermino": None, "confirmacao_formacao": None}
 
 
 
@@ -709,9 +753,6 @@ class ActionSubmitResume(Action):
         generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
                 courseName, courseSchool, courseEndYear, courses, cientificResearch, companyName, companyOccupation, 
                 companyDescription, companyStartEnd, feedback, grade)
-
-
-        # return []
 
 
         # após post request, zerando todos os slots para None

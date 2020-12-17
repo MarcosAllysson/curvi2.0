@@ -3,15 +3,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- negacao
+- obrigado
 - dados_formacao
-- dados_pessoais
+- cumprimentar
 - afirmacao
 - escolaridade
+- negacao
 - area
+- dados_pessoais
 - dados_experiencia
-- cumprimentar
-- obrigado
 - out_of_scope
 - nlu_fallback
 entities:
@@ -33,6 +33,7 @@ entities:
 - email
 - endereco
 - escolaridade
+- escolaridade_formadoOuAndamento
 - estado
 - feedback
 - habilidade
@@ -99,6 +100,8 @@ slots:
   escolaridade:
     type: any
     influence_conversation: false
+  escolaridade_formadoOuAndamento:
+    type: any
   estado:
     type: any
     influence_conversation: false
@@ -179,8 +182,7 @@ responses:
   - text: Qual seu telefone para contato? Exemplo 61999998888
   - text: Telefone para contato? De preferência seu WhatsApp. Digite apenas seu número, exemplo 61999998888
   utter_ask_email:
-  - text: E o seu email para que as empresas entrem em contato com você, {primeiroNome}?
-  - text: Ok, qual seu email, {primeiroNome}?
+  - text: Qual seu email, {primeiroNome}?
   utter_ask_confirmacao_dados_basicos:
   - buttons:
     - payload: '/afirmacao{"confirmacao_dados_basicos": "Sim"}'
@@ -254,18 +256,19 @@ responses:
       title: Pleno
     text: 'Ótimo, agora me diga qual o seu nível na area: '
   utter_ask_objetivo:
-  - text: "{primeiroNome}, qual seu objetivo se candidatando para a vaga? \n 
-      Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
+  - text: |-
+      {primeiroNome}, qual seu objetivo se candidatando para a vaga? 
+       Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.
   utter_ask_escolaridade:
   - buttons:
     - payload: /escolaridade{"escolaridade":"Fundamental"}
       title: Fundamental
     - payload: /escolaridade{"escolaridade":"Médio"}
       title: Médio
-    - payload: /escolaridade{"escolaridade":"Superior"}
-      title: Superior
     - payload: /escolaridade{"escolaridade":"Técnico"}
       title: Técnico
+    - payload: /escolaridade{"escolaridade":"Superior"}
+      title: Superior
     - payload: /escolaridade{"escolaridade":"Pós"}
       title: Pós
     - payload: /escolaridade{"escolaridade":"Mestrado"}
@@ -275,6 +278,13 @@ responses:
     - payload: /escolaridade{"escolaridade":"Outros"}
       title: Outros
     text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {primeiroNome}?
+  utter_ask_escolaridade_formadoOuAndamento:
+  - buttons:
+    - payload: '/escolaridade{"escolaridade_formadoOuAndamento": "Completo"}'
+      title: "Completo."
+    - payload: '/escolaridade{"escolaridade_formadoOuAndamento": "Andamento"}'
+      title: "Ainda em andamento!"
+    text: "Você já concluiu ou ainda está em andamento?"
   utter_ask_cursoNome:
   - text: Qual o seu curso atual?
   utter_ask_institutoNome:
@@ -293,6 +303,7 @@ responses:
       Nível: {area_nivel}; 
       Objetivo: {objetivo}; 
       Escolaridade: {escolaridade}; 
+      Status: {escolaridade_formadoOuAndamento};
       Curso: {cursoNome}; 
       Instituição: {institutoNome}; 
       Previsão de término: {previsaoTermino}. 
@@ -312,7 +323,10 @@ responses:
       title: Certinho
     - payload: '/afirmacao{"confirmacao_habilidade": "Não"}'
       title: Quero corrigir.
-    text: "Então você tem curso: \n{habilidade}. \nCorreto?"
+    text: |-
+      Então você tem curso: 
+      {habilidade}. 
+      Correto?
   utter_not_habilidade:
   - text: Ok, continuando então...
   utter_conhecer_projeto:
@@ -330,8 +344,7 @@ responses:
       title: Certo
     - payload: '/negacao{"confirmacao_pesquisa": "Não"}'
       title: Preciso mudar
-    text: |-
-      Então: {pesquisaCientifica}. Certo {primeiroNome}?
+    text: 'Então: {pesquisaCientifica}. Certo {primeiroNome}?'
   utter_conhecer_experiencia:
   - buttons:
     - payload: /afirmacao
@@ -410,6 +423,7 @@ actions:
 - utter_seeya
 - utter_submit
 - utter_user_has_linkedln
+- utter_vamos_continuar
 - validate_cursos_form
 - validate_dados_basicos_form
 - validate_experiencia_form
@@ -476,6 +490,10 @@ forms:
     - type: from_text
     escolaridade:
     - entity: escolaridade
+      type: from_entity
+    - type: from_text
+    escolaridade_formadoOuAndamento:
+    - entity: escolaridade_formadoOuAndamento
       type: from_entity
     - type: from_text
     cursoNome:
