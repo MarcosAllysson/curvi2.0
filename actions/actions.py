@@ -80,10 +80,21 @@ class ValidateDadosBasicosForm(FormValidationAction):
 
         # conter apenas de A a Z, excluindo caracteres especiais e números
         if re.findall(r"([a-zA-Z])\D*([a-zA-Z])$", value):
-            nome_completo = value.split()
-            primeiro_nome = nome_completo[0]
+            nome_anterior = [] # lista que vai receber indices com primeira letra maisuscula
+            preposicao = ['da', 'de', 'di', 'do', 'du'] # preposição  
+    
+            # verifica se cada item está na lista de preposições, se não estiver então transforma em maiúsculo. 
+            # E por fim adiciona o item maiúsculo na nova lista chamada nome_anterior.
+            for nome in value.split():
+                if not nome in preposicao:
+                    nome = nome.capitalize()
+                nome_anterior.append(nome)
 
-            return {"nome": value.capitalize(), "primeiroNome": primeiro_nome.capitalize()}
+            # com o comando join() junto os items e coloco um espaço entre eles.
+            novo_nome = ' '.join(nome_anterior)
+            primeiro_nome = novo_nome.split()[0]
+
+            return {"nome": novo_nome, "primeiroNome": primeiro_nome}
         else: 
             dispatcher.utter_message("Desculpa, não entendi.")
             return {"nome": None}
@@ -771,6 +782,7 @@ class ActionSubmitResume(Action):
             SlotSet("area_nivel", None),
             SlotSet("objetivo", None),
             SlotSet("escolaridade", None),
+            SlotSet("escolaridade_formadoOuAndamento", None),
             SlotSet("cursoNome", None),
             SlotSet("institutoNome", None),
             SlotSet("previsaoTermino", None),

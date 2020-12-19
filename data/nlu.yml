@@ -152,6 +152,8 @@ nlu:
     - meu nome é (Marcos Allysson){"entity":"nome"}
     - me chamo (Marcos Allysson){"entity":"nome"}
     - (marcos allysson){"entity":"nome"}
+    - (natanael henrique carvalho jales){"entity": "nome"}
+    - (Emanuelle Ferreira da Silva){"entity": "nome"}
     - tenho (30){"entity":"idade"} anos
     - (20){"entity":"idade"} anos
     - meu cep é (70030300){"entity":"cep"}

@@ -244,17 +244,17 @@ responses:
     text: Para que eu possa personalizar o seu currículo é importante saber em qual área você deseja atuar
   utter_ask_area_nivel:
   - buttons:
-    - payload: '/area{"area_nivel": "Estagiário(a)"}'
-      title: Estagiário(a)
     - payload: '/area{"area_nivel": "Jovem aprendiz"}'
       title: Jovem aprendiz
+    - payload: '/area{"area_nivel": "Estagiário(a)"}'
+      title: Estagiário(a)
     - payload: '/area{"area_nivel": "Júnior"}'
       title: Júnior
     - payload: '/area{"area_nivel": "Sênior"}'
       title: Sênior
     - payload: '/area{"area_nivel": "Pleno"}'
       title: Pleno
-    text: 'Ótimo, agora me diga qual o seu nível na area: '
+    text: 'Ótimo, agora me diga qual o seu nível na área: '
   utter_ask_objetivo:
   - text: |-
       {primeiroNome}, qual seu objetivo se candidatando para a vaga? 
