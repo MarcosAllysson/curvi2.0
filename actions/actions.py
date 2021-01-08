@@ -19,8 +19,9 @@ from datetime import date
 
 # DOUGLAS API
 def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-                courseName, courseSchool, courseEndYear, courses, cientificResearch, companyName, companyOccupation, 
-                companyDescription, companyStartEnd, feedback, grade):
+                courseName, courseSchool, courseEndYear, courses, language, language_level, cientificResearch, companyName, 
+                companyOccupation, companyDescription, companyStartEnd, companyNameVolunteer, companyOccupationVolunteer,
+                companyDescriptionVolunteer, companyStartEndVolunteer, feedback, grade):
     request_url = "https://curvi-api.herokuapp.com/api/user"
 
     info = {
@@ -40,11 +41,17 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
         "courseSchool": courseSchool,
         "courseEndYear": courseEndYear,
         "courses": courses,
+        "language": language,
+        "language_level": language_level,
         "cientificResearch": cientificResearch,
         "companyName": companyName,
         "companyOccupation": companyOccupation,
         "companyDescription": companyDescription,
         "companyStartEnd": companyStartEnd,
+        "companyNameVolunteer": companyNameVolunteer,
+        "companyOccupationVolunteer": companyOccupationVolunteer,
+        "companyDescriptionVolunteer": companyDescriptionVolunteer,
+        "companyStartEndVolunteer": companyStartEndVolunteer,
         "feedback": feedback,
         "grade": grade
     }
@@ -68,7 +75,7 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
 # DADOS BASICOS FORM VERIFICAÇÃO 2.0
 class ValidateDadosBasicosForm(FormValidationAction):
     def name(self) -> Text:
-        return "validate_dados_basicos_form"
+        return "validate_curriculo_form"
 
     async def validate_nome(self,
         value: Text,
@@ -146,7 +153,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
 
         # TESTE AVULSO
         # if len(new_cep) == 8:
-        #     return {"endereco": "Paranoá", "cidade": "Brasília", "estado": "DF", "cep": value}
+        #     return {"endereco": "Brasilia", "cidade": "Brasília", "estado": "DF", "cep": value}
         # else:
         #     dispatcher.utter_message("CEP deve conter 8 dígitos.")
         #     return {"cep": None}
@@ -200,7 +207,6 @@ class ValidateDadosBasicosForm(FormValidationAction):
         if re.findall(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", value):
             # requisição no banco pra verificação se já está cadastrado
             get_data_user = requests.get('http://curvi-api.herokuapp.com/api/user', headers={'email' : '{}'.format(value)})
-            # dispatcher.utter_message("STATUS CODE: ", str(get_data_user.status_code))
 
             if get_data_user.status_code == 200:
                 # 200 - conexão sucedida
@@ -209,12 +215,10 @@ class ValidateDadosBasicosForm(FormValidationAction):
                 
                 # RECEBENDO DADOS DO BANCO EM JSON
                 user_data = get_data_user.json()
-                # print(user_data['id'])
                 # print(user_data['name'], ", JÁ TE CONHEÇO...")
                 dia_criado = user_data['created_at']
 
                 dispatcher.utter_message("Acho que já nos conhecemos hein! Vi que você criou teu currículo no dia, {}. Esse email já está cadastrado e não é possível criarmos outro currículo. Só se quiser inserir outro...".format(dia_criado))
-                # dispatcher.utter_message(template="utter_curriculo_link")
                 return {"email": None}
 
             else:
@@ -224,9 +228,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
         # email inválido pelo RE
         else:    
             dispatcher.utter_message("Email inválido...")
-            return {"email": None}
-
-        
+            return {"email": None}        
 
 
     async def validate_confirmacao_dados_basicos(
@@ -248,12 +250,25 @@ class ValidateDadosBasicosForm(FormValidationAction):
 
 
 
-# LINKEDLN FORM
-class ValidateLinkedlnForm(FormValidationAction):
-    """ Início do formulário """
-    def name(self) -> Text:
-        """ Nome do formulário """
-        return "validate_linkedln_form"
+    # ======================= LINKEDIN =======================
+    async def validate_user_has_linkedln(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do linkedin """
+
+        confirmacao = tracker.get_slot("user_has_linkedln")
+        if confirmacao == 'Sim':
+            # se estiver certo, fluxo continua
+            return {"user_has_linkedln": confirmacao}
+        else:
+            # se nao tiver linkedin, variáveis recebem not_print
+            dispatcher.utter_message(template="utter_not_linkedln")
+            return {"linkedln_link": "NOT_PRINT", "confirmacao_linkedln": 'NOT_PRINT', "user_has_linkedln": 'NOT_PRINT'}
+
 
     async def validate_linkedln_link(
         self,
@@ -289,12 +304,7 @@ class ValidateLinkedlnForm(FormValidationAction):
             return {"linkedln_link": None, "confirmacao_linkedln": None}
 
 
-# FORMACAO FORM
-class ValidateFormacaoForm(FormValidationAction):
-    def name(self) -> Text:
-        """ Validando formação form """
-        return "validate_formacao_form"
-
+    #  ======================= FORMACAO FORM =======================
     async def validate_area(
         self,
         value: Text,
@@ -393,10 +403,10 @@ class ValidateFormacaoForm(FormValidationAction):
         """ Validando escolaridade_formadoOuAndamento """
 
         # verificando se o status é Completo ou Andamento
-        if value != '':
-            status_escolaridade = tracker.get_slot("escolaridade_formadoOuAndamento")
-            if status_escolaridade == 'Completo':
-                return {"escolaridade_formadoOuAndamento": status_escolaridade, "previsaoTermino": status_escolaridade}
+        status_escolaridade = tracker.get_slot("escolaridade_formadoOuAndamento")
+
+        if value != '' and status_escolaridade == 'Completo':
+            return {"escolaridade_formadoOuAndamento": value, "previsaoTermino": value}
         else:
             dispatcher.utter_message("O status é importante.")
             return {"escolaridade_formadoOuAndamento": None}
@@ -479,13 +489,25 @@ class ValidateFormacaoForm(FormValidationAction):
 
 
 
-# CURSO FORM
-class ValidateCursoForm(FormValidationAction):
-    def name(self) -> Text:
-        """ Validando formação form """
-        return "validate_cursos_form"
+    #  ======================= CURSO FORM =======================
+    async def validate_conhecer_curso(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do curso """
 
-    
+        confirmacao = tracker.get_slot("conhecer_curso")
+
+        if confirmacao == 'Sim':
+            return {"conhecer_curso": confirmacao}
+        else:
+            # se nao tiver curso, recebe not_print e printa utter_not_habilidade
+            dispatcher.utter_message(template="utter_not_habilidade")
+            return {"habilidade": "NOT_PRINT", "confirmacao_habilidade": "NOT_PRINT", "conhecer_curso": "NOT_PRINT"}
+        
     async def validate_habilidade(
         self,
         value: Text,
@@ -523,10 +545,89 @@ class ValidateCursoForm(FormValidationAction):
 
 
 
-# PROJETOS E PESQUISAS CIENTIFICAS
-class ValidateProjetoForm(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_projeto_form"
+    #  ======================= IDIOMA FORM  =======================
+    async def validate_conhecer_idioma(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do idioma """
+
+        confirmacao = tracker.get_slot("conhecer_idioma")
+
+        if confirmacao == 'Sim':
+            return {"conhecer_idioma": confirmacao}
+        else:
+            # se nao tiver, recebe not_print
+            dispatcher.utter_message(template="utter_not_idioma")
+            return {"conhecer_idioma": "NOT_PRINT", "idioma": "NOT_PRINT", "idioma_nivel": "NOT_PRINT", "confirmacao_idioma": "NOT_PRINT"}
+
+    async def validate_idioma(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validando idioma """
+
+        if value != '':
+            return {"idioma": value}
+        else:
+            dispatcher.utter_message("Não entendi seu idioma, escreve de novo...")
+            return {"idioma": None}
+
+    async def validate_idioma_nivel(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validando nível do idioma """
+
+        if value != '':
+            return {"idioma_nivel": value}
+        else:
+            dispatcher.utter_message("Não entendi seu nível...")
+            return {"idioma_nivel": None}
+
+    async def validate_confirmacao_idioma(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validando confirmação do idioma """
+
+        confirmacao = tracker.get_slot("confirmacao_idioma")
+        if confirmacao == "Sim":
+            return {"confirmacao_idioma": value}
+        else:
+            return {"idioma": None, "idioma_nivel": None, "confirmacao_idioma": None}
+
+
+
+    #  ======================= PROJETOS E PESQUISAS CIENTIFICAS =======================
+    async def validate_conhecer_projeto(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do projeto """
+
+        confirmacao = tracker.get_slot("conhecer_projeto")
+
+        if confirmacao == 'Sim':
+            return {"conhecer_projeto": confirmacao}
+        else:
+            # se nao tiver, recebe not_print
+            return {"conhecer_projeto": "NOT_PRINT", "pesquisaCientifica": "NOT_PRINT", "confirmacao_pesquisa": "NOT_PRINT"}
 
     async def validate_pesquisaCientifica(
         self,
@@ -561,13 +662,22 @@ class ValidateProjetoForm(FormValidationAction):
             return {"pesquisaCientifica": None, "confirmacao_pesquisa": None}
 
 
+    #  ======================= EXPERIENCIA FORM =======================
+    async def validate_conhecer_experiencia(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do experiencia """
 
+        confirmacao = tracker.get_slot("conhecer_experiencia")
 
-# EXPERIENCIA FORM
-class ValidateExperienciaForm(FormValidationAction):
-    def name(self) -> Text:
-        """ Validando formação form """
-        return "validate_experiencia_form"
+        if confirmacao == 'Sim':
+            return {"conhecer_experiencia": value}
+        else:
+            return {"cargo": "NOT_PRINT", "nomeEmpresa": "NOT_PRINT", "cargo_data_entrada_saida": "NOT_PRINT", "cargo_descricao": "NOT_PRINT", "confirmacao_experiencia": "NOT_PRINT", "conhecer_experiencia": "NOT_PRINT"}
 
     async def validate_cargo(self,
         value: Text,
@@ -656,13 +766,106 @@ class ValidateExperienciaForm(FormValidationAction):
             return {"cargo": None, "nomeEmpresa": None, "cargo_data_entrada_saida": None, "cargo_descricao": None, "confirmacao_experiencia": None}
 
 
-# FEEDBACK FORM
-class ValidateFeedbackForm(FormValidationAction):
-    def name(self) -> Text:
-        """ Validando formação form """
-        return "validate_feedback_form"
+
+    #  ======================= VOLUNTÁRIO FORM =======================
+    async def validate_conhecer_voluntario(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação do voluntário """
+
+        confirmacao = tracker.get_slot("conhecer_voluntario")
+
+        if confirmacao == 'Sim':
+            return {"conhecer_voluntario": value}
+        else:
+            # se nao tiver, recebe not_print
+            return {"conhecer_voluntario": "NOT_PRINT", "nome_empresa_voluntario": "NOT_PRINT", "cargo_voluntario": "NOT_PRINT", "cargo_descricao_voluntario": "NOT_PRINT", "cargo_data_entrada_saida_voluntario": "NOT_PRINT", "confirmacao_experiencia_voluntario": "NOT_PRINT"}
+
+    async def validate_nome_empresa_voluntario(self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> Dict[Text, Any]:
+        """ Validando nome da empresa """
+
+        # diferente de vazio
+        if value != '':
+            return {"nome_empresa_voluntario": value.capitalize(), "cargo_voluntario": "Voluntário"}
+        else: 
+            dispatcher.utter_message("Não entendi o nome da empresa. Me fala de novo... ")
+            return {"nome_empresa_voluntario": None}
+
+
+    async def validate_cargo_voluntario(self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> Dict[Text, Any]:
+        """ Validando cargo voluntário """
+
+        # diferente de vazio
+        if value != '':
+            return {"cargo_voluntario": value.capitalize()}
+        else: 
+            dispatcher.utter_message("Não entendi seu cargo. Vamos de novo! ")
+            return {"cargo_voluntario": None}
 
     
+    async def validate_cargo_data_entrada_saida_voluntario(self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> Dict[Text, Any]:
+        """ Validando saída do emprego """
+
+        if value != '':
+            return {"cargo_data_entrada_saida_voluntario": value}
+        else:
+            dispatcher.utter_message("Não entendi...")
+            return {"cargo_data_entrada_saida_voluntario": None}
+
+
+    async def validate_cargo_descricao_voluntario(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validando descrição do cargo """
+
+        # diferente de vazio
+        if value != '':
+            return {"cargo_descricao_voluntario": value.capitalize()}
+        else: 
+            dispatcher.utter_message("Me fala de novo, não entendi... ")
+            return {"cargo_descricao_voluntario": None}
+
+    async def validate_confirmacao_experiencia_voluntario(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """ Validação da experiência """
+
+        confirmacao = tracker.get_slot("confirmacao_experiencia_voluntario")
+        if confirmacao == 'Sim':
+            return {"confirmacao_experiencia_voluntario": confirmacao}
+        else:
+            return {"cargo_voluntario": None, "nome_empresa_voluntario": None, "cargo_data_entrada_saida_voluntario": None, "cargo_descricao_voluntario": None, "confirmacao_experiencia_voluntario": None}
+
+
+
+    #  ======================= FEEDBACK FORM ============================
     async def validate_feedback(
         self,
         value: Text,
@@ -696,6 +899,8 @@ class ValidateFeedbackForm(FormValidationAction):
         else: 
             dispatcher.utter_message("Vamos de novo... ")
             return {"nota": None}
+
+
 
 
 
@@ -736,6 +941,11 @@ class ActionSubmitResume(Action):
         if courses == None:
             courses = "NOT_PRINT"
 
+        language = tracker.get_slot("idioma")
+        if language == None:
+            language = "NOT_PRINT"
+        language_level = tracker.get_slot("idioma_nivel")
+
         cientificResearch = tracker.get_slot("pesquisaCientifica")
         if cientificResearch == None:
             cientificResearch = "NOT_PRINT"
@@ -756,14 +966,32 @@ class ActionSubmitResume(Action):
         if companyStartEnd == None:
             companyStartEnd = "NOT_PRINT"
 
+
+        companyNameVolunteer = tracker.get_slot("nome_empresa_voluntario")
+        if companyNameVolunteer == None:
+            companyNameVolunteer = "Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
+
+        companyOccupationVolunteer = tracker.get_slot("cargo_voluntario")
+        if companyOccupationVolunteer == None:
+            companyOccupationVolunteer = "NOT_PRINT"
+
+        companyDescriptionVolunteer = tracker.get_slot("cargo_descricao_voluntario")
+        if companyDescriptionVolunteer == None:
+            companyDescriptionVolunteer = "NOT_PRINT"
+
+        companyStartEndVolunteer = tracker.get_slot("cargo_data_entrada_saida_voluntario")
+        if companyStartEnd == None:
+            companyStartEnd = "NOT_PRINT"
+
         feedback = tracker.get_slot("feedback")
         grade = tracker.get_slot("nota")
         
 
         # CHAMADA DA FUNÇÃO PASSANDO OS DADOS PRA FAZER POST REQUEST
         generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-                courseName, courseSchool, courseEndYear, courses, cientificResearch, companyName, companyOccupation, 
-                companyDescription, companyStartEnd, feedback, grade)
+                courseName, courseSchool, courseEndYear, courses, language, language_level, cientificResearch, companyName, 
+                companyOccupation, companyDescription, companyStartEnd, companyNameVolunteer, companyOccupationVolunteer,
+                companyDescriptionVolunteer, companyStartEndVolunteer, feedback, grade)
 
 
         # após post request, zerando todos os slots para None
@@ -778,6 +1006,7 @@ class ActionSubmitResume(Action):
             SlotSet("telefone", None),
             SlotSet("email", None),
             SlotSet("linkedln_link", None),
+            SlotSet("user_has_linkedln", None),
             SlotSet("area", None),
             SlotSet("area_nivel", None),
             SlotSet("objetivo", None),
@@ -786,12 +1015,23 @@ class ActionSubmitResume(Action):
             SlotSet("cursoNome", None),
             SlotSet("institutoNome", None),
             SlotSet("previsaoTermino", None),
+            SlotSet("conhecer_curso", None),
             SlotSet("habilidade", None),
+            SlotSet("conhecer_idioma", None),
+            SlotSet("idioma", None),
+            SlotSet("idioma_nivel", None),
+            SlotSet("conhecer_projeto", None),
             SlotSet("pesquisaCientifica", None),
+            SlotSet("conhecer_experiencia", None),
             SlotSet("nomeEmpresa", None),
             SlotSet("cargo", None),
             SlotSet("cargo_descricao", None),
             SlotSet("cargo_data_entrada_saida", None),
+            SlotSet("conhecer_voluntario", None),
+            SlotSet("nome_empresa_voluntario", None),
+            SlotSet("cargo_voluntario", None),
+            SlotSet("cargo_descricao_voluntario", None),
+            SlotSet("cargo_data_entrada_saida_voluntario", None),
             SlotSet("feedback", None),
             SlotSet("nota", None),
             SlotSet("confirmacao_dados_basicos", None),
@@ -799,7 +1039,9 @@ class ActionSubmitResume(Action):
             SlotSet("confirmacao_habilidade", None),
             SlotSet("confirmacao_pesquisa", None),
             SlotSet("confirmacao_experiencia", None),
-            SlotSet("confirmacao_linkedln", None)
+            SlotSet("confirmacao_linkedln", None),
+            SlotSet("confirmacao_experiencia_voluntario", None),
+            SlotSet("confirmacao_idioma", None)
         ]
 
         # dispatcher.utter_message("")

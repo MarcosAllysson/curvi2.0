@@ -32,13 +32,13 @@ rules:
     - action: action_restart
 
   # rule 2
-  - rule: out of scope
-    steps:
-    - intent: out_of_scope
-    - action: utter_out_of_scope
+  # - rule: out of scope
+  #   steps:
+  #   - intent: out_of_scope
+  #   - action: utter_out_of_scope
 
   # rule 3
-  - rule: messages with low confidence handled by FallBack Policy
-    steps:
-    - intent: nlu_fallback
-    - action: utter_ask_rephrase
+  # - rule: messages with low confidence handled by FallBack Policy
+  #   steps:
+  #   - intent: nlu_fallback
+  #   - action: utter_ask_rephrase

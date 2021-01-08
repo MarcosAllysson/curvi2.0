@@ -15,10 +15,10 @@ pipeline:
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
-  - name: FallbackClassifier
+  #- name: FallbackClassifier
     # its used to handle when confidence of response is low
-    threshold: 0.4 # level of confidence, if below 40%, policy is called
-    ambiguity_threshold: 0.1
+    #threshold: 0.4 # level of confidence, if below 40%, policy is called
+    #ambiguity_threshold: 0.1
   # - name: DucklingHTTPExtractor
   #   # entity extractor
   #   url: "http://duckling.rasa.com:8000"
