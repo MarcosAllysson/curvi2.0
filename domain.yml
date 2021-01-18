@@ -38,10 +38,11 @@ entities:
 - conhecer_projeto
 - conhecer_voluntario
 - cursoNome
+- curso_online
 - email
 - endereco
 - escolaridade
-- escolaridade_formadoOuAndamento
+- escolaridadeFormadoOuAndamento
 - estado
 - feedback
 - habilidade
@@ -106,6 +107,9 @@ slots:
   confirmacao_linkedln:
     type: bool
     influence_conversation: false
+  curso_online:
+    type: bool
+    influence_conversation: false
   confirmacao_formacao:
     type: bool
     influence_conversation: false
@@ -127,7 +131,7 @@ slots:
   escolaridade:
     type: any
     influence_conversation: false
-  escolaridade_formadoOuAndamento:
+  escolaridadeFormadoOuAndamento:
     type: any
     influence_conversation: false
   estado:
@@ -329,15 +333,15 @@ responses:
     - payload: /escolaridade{"escolaridade":"Outros"}
       title: Outros
     text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {primeiroNome}?
-  utter_ask_escolaridade_formadoOuAndamento:
+  utter_ask_escolaridadeFormadoOuAndamento:
   - buttons:
-    - payload: '/escolaridade{"escolaridade_formadoOuAndamento": "Completo"}'
+    - payload: '/escolaridade{"escolaridadeFormadoOuAndamento": "Completo"}'
       title: Completo.
-    - payload: '/escolaridade{"escolaridade_formadoOuAndamento": "Andamento"}'
+    - payload: '/escolaridade{"escolaridadeFormadoOuAndamento": "Andamento"}'
       title: Ainda em andamento!
     text: Vc já concluiu ou ainda está em andamento?
   utter_ask_cursoNome:
-  - text: Qual o seu curso atual?
+  - text: Qual o seu curso?
   utter_ask_institutoNome:
   - text: Qual a Instituição de Ensino?
   utter_ask_previsaoTermino:
@@ -354,7 +358,7 @@ responses:
       Nível: {area_nivel}; 
       Objetivo: {objetivo}; 
       Escolaridade: {escolaridade}; 
-      Status: {escolaridade_formadoOuAndamento};
+      Status: {escolaridadeFormadoOuAndamento};
       Curso: {cursoNome}; 
       Instituição: {institutoNome}; 
       Previsão de término: {previsaoTermino}. 
@@ -425,6 +429,16 @@ responses:
     - payload: '/negacao{"confirmacao_pesquisa": "Não"}'
       title: Preciso mudar
     text: 'Então: {pesquisaCientifica}. Certo {primeiroNome}?'
+  utter_ask_curso_online:
+  - buttons:
+    - payload: '/afirmacao{"curso_online":"sim"}'
+      title: 'Sim, quero!'
+    - payload: '/negacao{"curso_online":"nao"}'
+      title: 'Agora não.'
+    text: Que tal receber um curso online gratuito com dicas para aprender como ser contratado mesmo sem experiência?
+  utter_curso_online_link:
+  - text: Show de bola {primeiroNome}, acesse agora e [Aprenda como ser Contratado](https://bit.ly/cursojix) 😉!
+
   utter_ask_conhecer_experiencia:
   - buttons:
     - payload: '/afirmacao{"conhecer_experiencia": "Sim"}'
@@ -458,8 +472,8 @@ responses:
     - payload: '/afirmacao{"conhecer_voluntario": "Sim"}'
       title: Sim, tenho
     - payload: '/negacao{"conhecer_voluntario": "Não"}'
-      title: Também não.
-    text: Ah, deve estar procurando primeira oportunidade. {primeiroNome}, vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário?
+      title: Não.
+    text: Vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário {primeiroNome}?
   utter_ask_nome_empresa_voluntario:
   - text: 'OBS: Nessa versão teste, insira apenas um voluntariado! Já está em desenvolvimento 🙃😉. Qual nome da empresa?'
   utter_ask_cargo_voluntario:
@@ -501,6 +515,7 @@ actions:
 - action_submit_resume
 - utter_curriculo_link
 - utter_curriculo_pronto
+- utter_curso_online_link
 - utter_gerando_curriculo
 - utter_intro
 - utter_not_habilidade
@@ -573,8 +588,8 @@ forms:
     - entity: escolaridade
       type: from_entity
     - type: from_text
-    escolaridade_formadoOuAndamento:
-    - entity: escolaridade_formadoOuAndamento
+    escolaridadeFormadoOuAndamento:
+    - entity: escolaridadeFormadoOuAndamento
       type: from_entity
     - type: from_text
     cursoNome:
@@ -639,7 +654,11 @@ forms:
     - type: from_text
     conhecer_experiencia:
     - entity: conhecer_experiencia
-      type: from_text
+      type: from_entity
+    - type: from_text
+    curso_online:
+    - entity: curso_online
+      type: from_entity
     - type: from_text
     nomeEmpresa:
     - entity: nomeEmpresa

@@ -393,23 +393,22 @@ class ValidateDadosBasicosForm(FormValidationAction):
             return {"escolaridade": None}
 
 
-    async def validate_escolaridade_formadoOuAndamento(
+    async def validate_escolaridadeFormadoOuAndamento(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        """ Validando escolaridade_formadoOuAndamento """
+        """ Validando escolaridadeFormadoOuAndamento """
 
         # verificando se o status é Completo ou Andamento
-        status_escolaridade = tracker.get_slot("escolaridade_formadoOuAndamento")
+        status_escolaridade = tracker.get_slot("escolaridadeFormadoOuAndamento")
 
-        if value != '' and status_escolaridade == 'Completo':
-            return {"escolaridade_formadoOuAndamento": value, "previsaoTermino": value}
+        if status_escolaridade == 'Completo':
+            return {"escolaridadeFormadoOuAndamento": value, "previsaoTermino": value}
         else:
-            dispatcher.utter_message("O status é importante.")
-            return {"escolaridade_formadoOuAndamento": None}
+            return {"escolaridadeFormadoOuAndamento": "Em andamento"}
 
     
     async def validate_cursoNome(self,
@@ -485,7 +484,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
         if confirmacao == 'Sim':
             return {"confirmacao_formacao": confirmacao}
         else:
-            return {"area": None, "area_nivel": None, "objetivo": None, "escolaridade": None, "escolaridade_formadoOuAndamento": None, "cursoNome": None, "institutoNome": None, "previsaoTermino": None, "confirmacao_formacao": None}
+            return {"area": None, "area_nivel": None, "objetivo": None, "escolaridade": None, "escolaridadeFormadoOuAndamento": None, "cursoNome": None, "institutoNome": None, "previsaoTermino": None, "confirmacao_formacao": None}
 
 
 
@@ -675,9 +674,29 @@ class ValidateDadosBasicosForm(FormValidationAction):
         confirmacao = tracker.get_slot("conhecer_experiencia")
 
         if confirmacao == 'Sim':
-            return {"conhecer_experiencia": value}
+            # se tiver experiencia, segue o fluxo e não pergunta sobre curso online
+            return {"conhecer_experiencia": value, "curso_online":"nao"}
         else:
             return {"cargo": "NOT_PRINT", "nomeEmpresa": "NOT_PRINT", "cargo_data_entrada_saida": "NOT_PRINT", "cargo_descricao": "NOT_PRINT", "confirmacao_experiencia": "NOT_PRINT", "conhecer_experiencia": "NOT_PRINT"}
+
+
+    async def validate_curso_online(self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> Dict[Text, Any]:
+        """ Validando curso_online """
+
+        confirmacao = tracker.get_slot("curso_online")
+        if confirmacao == 'sim':
+            # envia link do curso gratuito caso usuário nao tenha experiência
+            dispatcher.utter_message(template="utter_curso_online_link")
+            return {"curso_online": value}
+        else: 
+            dispatcher.utter_message("Ok, continuando então... ")
+            return {"curso_online": "nao"}
+
 
     async def validate_cargo(self,
         value: Text,
@@ -1011,8 +1030,9 @@ class ActionSubmitResume(Action):
             SlotSet("area_nivel", None),
             SlotSet("objetivo", None),
             SlotSet("escolaridade", None),
-            SlotSet("escolaridade_formadoOuAndamento", None),
+            SlotSet("escolaridadeFormadoOuAndamento", None),
             SlotSet("cursoNome", None),
+            SlotSet("curso_online", None),
             SlotSet("institutoNome", None),
             SlotSet("previsaoTermino", None),
             SlotSet("conhecer_curso", None),

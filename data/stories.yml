@@ -76,11 +76,11 @@ stories:
   - slot_was_set:
     - escolaridade: Técnico
   - slot_was_set:
-    - requested_slot: escolaridade_formadoOuAndamento
+    - requested_slot: escolaridadeFormadoOuAndamento
   - slot_was_set:
-    - escolaridade_formadoOuAndamento: Completo
+    - escolaridadeFormadoOuAndamento: Completo
   - slot_was_set:
-    - escolaridade_formadoOuAndamento: Completo
+    - escolaridadeFormadoOuAndamento: Completo
   - slot_was_set:
     - previsaoTermino: Completo
   - slot_was_set:
@@ -160,33 +160,33 @@ stories:
   - slot_was_set:
     - conhecer_experiencia: Sim
   - slot_was_set:
-    - conhecer_experiencia: NOT_PRINT
+    - conhecer_experiencia: Sim
   - slot_was_set:
-    - cargo: NOT_PRINT
+    - cargo: Desenvolvedor
   - slot_was_set:
-    - nomeEmpresa: NOT_PRINT
+    - nomeEmpresa: Rasa
   - slot_was_set:
-    - cargo_data_entrada_saida: NOT_PRINT
+    - cargo_data_entrada_saida: 2019-2020
   - slot_was_set:
-    - cargo_descricao: NOT_PRINT
+    - cargo_descricao: Desenvolvimento de chatbos
   - slot_was_set:
-    - confirmacao_experiencia: NOT_PRINT
+    - confirmacao_experiencia: Sim
   - slot_was_set:
     - requested_slot: conhecer_voluntario
   - slot_was_set:
-    - conhecer_voluntario: Não
+    - conhecer_voluntario: Sim
   - slot_was_set:
-    - conhecer_voluntario: NOT_PRINT
+    - conhecer_voluntario: Sim
   - slot_was_set:
-    - nome_empresa_voluntario: NOT_PRINT
+    - nome_empresa_voluntario: Rasa
   - slot_was_set:
-    - cargo_voluntario: NOT_PRINT
+    - cargo_voluntario: Dev
   - slot_was_set:
-    - cargo_descricao_voluntario: NOT_PRINT
+    - cargo_descricao_voluntario: Desenvolvimento de sites voltado pra IA
   - slot_was_set:
-    - cargo_data_entrada_saida_voluntario: NOT_PRINT
+    - cargo_data_entrada_saida_voluntario: 2019-2020
   - slot_was_set:
-    - confirmacao_experiencia_voluntario: NOT_PRINT
+    - confirmacao_experiencia_voluntario: Sim
   - slot_was_set:
     - requested_slot: feedback
   - slot_was_set:
@@ -231,7 +231,7 @@ stories:
   - slot_was_set:
     - escolaridade: null
   - slot_was_set:
-    - escolaridade_formadoOuAndamento: null
+    - escolaridadeFormadoOuAndamento: null
   - slot_was_set:
     - cursoNome: null
   - slot_was_set:
