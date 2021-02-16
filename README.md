@@ -152,7 +152,7 @@ services:
 	expose:
 	  - '5055'
 	depends_on:
-	  - rasa_production
+	  - rasa-production
 
 - > sudo docker-compose down
 - > sudo docker-compose up -d
