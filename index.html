@@ -3,7 +3,7 @@
 
 <!-- RUN COMMAND: rasa run -m models --enable-api --cors "*" --debug -->
 
-<head>
+<!-- <head>
     <link rel="stylesheet"
         href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
 </head>
@@ -18,14 +18,40 @@
             // initPayload: "/get_started",
             customData: { "language": "pr_BR" }, // arbitrary custom data. Stay minimal as this will be added to the socket
             // socketUrl: "http://localhost:5005",
-            socketUrl: "http://localhost:5005",
-            // socketUrl: "https://03a0477ceab8.ngrok.io",
+            // socketUrl: "http://localhost:5005",
+            socketUrl: "https://9453d217cc21.ngrok.io",
             socketPath: "/socket.io/",
             title: "Curvi",
             subtitle: "Digite Oi para começarmos",
             params: { "storage": "session" } // can be set to "local"  or "session". details in storage section.
         })
     </script>
+</body> -->
+
+<head>
+    <link rel="stylesheet"
+        href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+</head>
+
+<body>
+    <div class="chat-container"></div>
+
+    <script
+        src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js" />
+    </script>
+    <script type="text/javascript">
+        var chatroom = new window.Chatroom({
+            // host: "http://localhost:5005",
+            host: "https://9453d217cc21.ngrok.io",
+            title: "Curvi Bot",
+            container: document.querySelector(".chat-container"),
+            welcomeMessage: "Digite oi para começarmos",
+            speechRecognition: "pt-BR",
+            voiceLang: "pt-BR"
+        });
+        chatroom.openChat();
+    </script>
 </body>
+</head>
 
 </html>

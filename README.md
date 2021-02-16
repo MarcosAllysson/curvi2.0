@@ -132,6 +132,32 @@ Detailed information about this can also be found in the [Rasa Docs](https://ras
 
 Open your IP address in a tab.
 
+#### Run custom actions:
+- > cd /etc/rasa
+- > mkdir actions
+- > touch actions/__init__.py
+- > touch actions/actions.py
+
+- > copy actions.py code from project to actions/actions.py:
+	sudo nano actions/actions.py
+
+- > touch docker-compose.override.yml
+- > sudo nano docker-compose.override.yml:
+version: '3.4'
+services:
+  app:
+    image: 'rasa/rasa-sdk:latest'
+	volumes: 
+	  - './actions:/app/actions'
+	expose:
+	  - '5055'
+	depends_on:
+	  - rasa_production
+
+- > sudo docker-compose down
+- > sudo docker-compose up -d
+
+
 
 ## 👩‍💻 Overview of the files
 
