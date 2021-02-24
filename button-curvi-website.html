@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- BOTÃO FLUTUANTE BOT -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        .float {
+            right: 25px;
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        #msg1 {
+            background: #fff;
+            color: #000;
+            position: fixed;
+            width: 100px;
+            bottom: 55px;
+            right: 90px;
+            font-size: 12px;
+            line-height: 13px;
+            padding: 3px;
+            border-radius: 10px;
+            border: 1px solid #e2e2e2;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // ativa o box de mensagem
+        function showIt2() {
+            document.getElementById("msg1").style.visibility = "visible";
+        }
+        setTimeout("showIt2()", 5000); // Depois 5 segs
+        // desativa o box de mensagem
+        function hiddenIt() {
+            document.getElementById("msg1").style.visibility = "hidden";
+        }
+        setTimeout("hiddenIt()", 15000); // Depois 15 segs
+        // ativa novamente o box de mensagem
+        function showIt3() {
+            document.getElementById("msg1").style.visibility = "visible";
+        }
+        setTimeout("showIt3()", 35000); // Depois 35 segs
+        // Clique para esconder o box de mensagem
+        msg1.onclick = function () {
+            document.getElementById('msg1').style.visibility = "hidden";
+        };
+    </script>
+    <!-- FIM CÓDIGO BOTÃO FLUTUANTE BOT -->
+</head>
+
+<body>
+    <!-- BOTÃO FLUTUANTE BOT -->
+    <a href="http://34.121.152.210/guest/conversations/production/12b3fc5866084fd28f399b752e7740db" class="float" target="_blank">
+        <img src="https://tiinside.com.br/wp-content/uploads/2019/05/Pepper-rob%C3%B4.jpg"
+            alt="" width="60px">
+    </a>
+    <div id="msg1" style="visibility: hidden">Bora começar seu currículo?</div>
+    <!-- BOTÃO FLUTUANTE BOT -->
+</body>
+
+</html>

@@ -118,8 +118,9 @@ rasa run
 Detailed information about this can also be found in the [Rasa Docs](https://rasa.com/docs/core/connectors/#telegram-connector).
 
 
-#### In case you want to install Rasa X on Google Cloud with Docker Compose:
+#### In case you want to install Rasa X on Google Cloud with [Docker Compose](https://rasa.com/docs/rasa-x/installation-and-setup/install/docker-compose):
 - > curl -sSL -o install.sh https://storage.googleapis.com/rasa-x-releases/0.35.1/install.sh
+- > curl -sSL -o install.sh https://storage.googleapis.com/rasa-x-releases/0.36.0/install.sh
 - > sudo bash ./install.sh
 
 - > cd /etc/rasa
@@ -160,7 +161,6 @@ services:
 
 
 ## 👩‍💻 Overview of the files
-
 `data/stories.yml` - contains stories for Rasa Core
 
 `data/nlu.yml` - contains example NLU training data
