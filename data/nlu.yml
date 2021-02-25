@@ -152,11 +152,11 @@ nlu:
     - Não
 - intent: dados_pessoais
   examples: |
-    - meu nome é (Marcos Allysson){"entity":"A_nome"}
-    - me chamo (Marcos Allysson){"entity":"A_nome"}
-    - (marcos allysson){"entity":"A_nome"}
-    - (natanael henrique carvalho jales){"entity": "A_nome"}
-    - (Emanuelle Ferreira da Silva){"entity": "A_nome"}
+    - meu nome é (Marcos Allysson){"entity":"AA_nome"}
+    - me chamo (Marcos Allysson){"entity":"AA_nome"}
+    - (marcos allysson){"entity":"AA_nome"}
+    - (natanael henrique carvalho jales){"entity": "AA_nome"}
+    - (Emanuelle Ferreira da Silva){"entity": "AA_nome"}
     - tenho (30){"entity":"B_idade"} anos
     - (20){"entity":"B_idade"} anos
     - meu cep é (70030300){"entity":"C_cep"}
@@ -178,7 +178,7 @@ nlu:
     - (rápido e prático){"entity":"U_feedback"}
     - (nota 10){"entity":"V_nota"}
     - (nota 10){"entity":"V_nota"} muito bom
-    - (marcos){"entity":"A_nome"}
+    - (marcos){"entity":"AA_nome"}
     - (23){"entity":"B_idade"}
     - (71588186){"entity":"C_cep"}
     - (marcos@gmail.com){"entity":"E_email"}

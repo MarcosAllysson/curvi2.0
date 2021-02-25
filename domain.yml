@@ -13,8 +13,8 @@ intents:
 - negacao
 - obrigado
 entities:
-- A_nome
-- AA_primeiroNome
+- AA_nome
+- A_primeiroNome
 - B_idade
 - C_cep
 - CC_cidade
@@ -61,9 +61,9 @@ entities:
 - U_feedback
 - V_nota
 slots:
-  A_nome:
+  AA_nome:
     type: any
-  AA_primeiroNome:
+  A_primeiroNome:
     type: any
   B_idade:
     type: any
@@ -170,12 +170,12 @@ responses:
     - payload: /afirmacao
       title: Tá bom, vamos lá!
     text: Vc quer continuar? Posso te ajudar fazer seu currículo. Leva apenas alguns minutinhos.
-  utter_ask_A_nome:
+  utter_ask_AA_nome:
   - text: O primeiro passo para fazer o seu currículo são os dados pessoais, então vamos nessa. Qual o seu nome completo?
   - text: Vamos começar pelos dados pessoais. Qual o seu nome completo?
   utter_ask_B_idade:
-  - text: Quantos anos vc tem, {AA_primeiroNome}?
-  - text: Qual sua idade, {AA_primeiroNome}?
+  - text: Quantos anos vc tem, {A_primeiroNome}?
+  - text: Qual sua idade, {A_primeiroNome}?
   utter_ask_C_cep:
   - text: Qual o seu CEP? Deve conter apenas 8 números.
   - text: Vamos localizar seu endereço agora, qual seu CEP? Me fala apenas os 8 números.
@@ -187,7 +187,7 @@ responses:
   - text: Qual seu telefone para contato? Exemplo 61999998888
   - text: Telefone para contato? De preferência seu WhatsApp. Digite apenas seu número, exemplo 61999998888
   utter_ask_E_email:
-  - text: Qual seu email, {AA_primeiroNome}?
+  - text: Qual seu email, {A_primeiroNome}?
   utter_ask_F_confirmacao_dados_basicos:
   - buttons:
     - payload: '/afirmacao{"F_confirmacao_dados_basicos": "Sim"}'
@@ -196,7 +196,7 @@ responses:
       title: Preciso corrigir
     text: |-
       Certo! Seus dados básicos: 
-      Nome Completo: {A_nome}; 
+      Nome Completo: {AA_nome}; 
       Idade: {B_idade};
       Telefone: {D_telefone};
       Email: {E_email};
@@ -262,7 +262,7 @@ responses:
     text: 'Ótimo, agora me diga qual o seu nível na área: '
   utter_ask_L_objetivo:
   - text: |-
-      {AA_primeiroNome}, qual seu objetivo se candidatando para a vaga? 
+      {A_primeiroNome}, qual seu objetivo se candidatando para a vaga? 
        Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.
   utter_ask_I_escolaridade:
   - buttons:
@@ -282,7 +282,7 @@ responses:
       title: Doutorado
     - payload: /escolaridade{"I_escolaridade":"Outros"}
       title: Outros
-    text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {AA_primeiroNome}?
+    text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {A_primeiroNome}?
   utter_ask_II_escolaridadeFormadoOuAndamento:
   - buttons:
     - payload: '/escolaridade{"II_escolaridadeFormadoOuAndamento": "Completo"}'
@@ -312,7 +312,7 @@ responses:
       Curso: {J_cursoNome}; 
       Instituição: {JJ_institutoNome}; 
       Previsão de término: {K_previsaoTermino}. 
-      Tudo certinho {AA_primeiroNome}?
+      Tudo certinho {A_primeiroNome}?
   utter_ask_N_conhecer_curso:
   - buttons:
     - payload: '/afirmacao{"N_conhecer_curso": "Sim"}'
@@ -353,7 +353,7 @@ responses:
       title: Avançado
     - payload: /dados_formacao{"OOO_idioma_nivel":"Fluente"}
       title: Fluente
-    text: Qual seu nível {AA_primeiroNome}?
+    text: Qual seu nível {A_primeiroNome}?
   utter_ask_OOOO_confirmacao_idioma:
   - buttons:
     - payload: /afirmacao{"OOOO_confirmacao_idioma":"Sim"}
@@ -378,7 +378,7 @@ responses:
       title: Certo
     - payload: '/negacao{"Q_confirmacao_pesquisa": "Não"}'
       title: Preciso mudar
-    text: 'Então: {PP_pesquisaCientifica}. Certo {AA_primeiroNome}?'
+    text: 'Então: {PP_pesquisaCientifica}. Certo {A_primeiroNome}?'
   utter_ask_R_curso_online:
   - buttons:
     - payload: '/afirmacao{"R_curso_online":"sim"}'
@@ -387,7 +387,7 @@ responses:
       title: 'Agora não.'
     text: Que tal receber um curso online gratuito com dicas para aprender como ser contratado mesmo sem experiência?
   utter_curso_online_link:
-  - text: Show de bola {AA_primeiroNome}, acesse agora e [Aprenda como ser Contratado](https://bit.ly/cursojix) 😉!
+  - text: Show de bola {A_primeiroNome}, acesse agora e [Aprenda como ser Contratado](https://bit.ly/cursojix) 😉!
 
   utter_ask_QQ_conhecer_experiencia:
   - buttons:
@@ -395,7 +395,7 @@ responses:
       title: Sim!
     - payload: '/negacao{"QQ_conhecer_experiencia": "Não"}'
       title: Ainda não.
-    text: '{AA_primeiroNome}, vc possui experiência profissional?'
+    text: '{A_primeiroNome}, vc possui experiência profissional?'
   utter_ask_S_nomeEmpresa:
   - text: 'OBS: Nessa versão teste, insira apenas uma experiência! Já está em desenvolvimento 🙃😉. Qual nome da empresa?'
   utter_ask_SS_cargo:
@@ -416,14 +416,14 @@ responses:
       Nome da empresa: {S_nomeEmpresa};  
       Entrou e saiu em: {SSSS_cargo_data_entrada_saida}; 
       Descrição do cargo: {SSS_cargo_descricao}. 
-      Correto {AA_primeiroNome}?
+      Correto {A_primeiroNome}?
   utter_ask_T_conhecer_voluntario:
   - buttons:
     - payload: '/afirmacao{"T_conhecer_voluntario": "Sim"}'
       title: Sim, tenho
     - payload: '/negacao{"T_conhecer_voluntario": "Não"}'
       title: Não.
-    text: Vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário {AA_primeiroNome}?
+    text: Vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário {A_primeiroNome}?
   utter_ask_TT_nome_empresa_voluntario:
   - text: 'OBS: Nessa versão teste, insira apenas um voluntariado! Já está em desenvolvimento 🙃😉. Qual nome da empresa?'
   utter_ask_TTT_cargo_voluntario:
@@ -444,9 +444,9 @@ responses:
       Nome da empresa: {TT_nome_empresa_voluntario};  
       Entrou e saiu em: {TTTTT_cargo_data_entrada_saida_voluntario}; 
       Descrição do cargo: {TTTT_cargo_descricao_voluntario}. 
-      Correto {AA_primeiroNome}?
+      Correto {A_primeiroNome}?
   utter_ask_U_feedback:
-  - text: Seu currículo está quase pronto. Antes de te mandar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {AA_primeiroNome}?
+  - text: Seu currículo está quase pronto. Antes de te mandar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {A_primeiroNome}?
   utter_ask_V_nota:
   - text: Para nos ajudar, por favor nos responda de 1 a 10 o quanto vc estaria disposto a recomendar o Curvi para um amigo ou parente?
   utter_gerando_curriculo:
@@ -477,13 +477,13 @@ actions:
 - validate_curriculo_form
 forms:
   curriculo_form:
-    A_nome:
-    - entity: A_nome
+    AA_nome:
+    - entity: AA_nome
       type: from_entity
     - not_intent: negacao
       type: from_text
-    AA_primeiroNome:
-    - entity: AA_primeiroNome
+    A_primeiroNome:
+    - entity: A_primeiroNome
       type: from_entity
     B_idade:
     - entity: B_idade

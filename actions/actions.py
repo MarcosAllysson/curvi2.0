@@ -77,7 +77,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_curriculo_form"
 
-    async def validate_A_nome(self,
+    async def validate_AA_nome(self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -101,10 +101,10 @@ class ValidateDadosBasicosForm(FormValidationAction):
             novo_nome = ' '.join(nome_anterior)
             primeiro_nome = novo_nome.split()[0]
 
-            return {"A_nome": novo_nome, "AA_primeiroNome": primeiro_nome}
+            return {"AA_nome": novo_nome, "A_primeiroNome": primeiro_nome}
         else: 
             dispatcher.utter_message("Desculpa, não entendi.")
-            return {"A_nome": None}
+            return {"AA_nome": None}
 
     async def validate_B_idade(self,
         value: Text,
@@ -246,7 +246,7 @@ class ValidateDadosBasicosForm(FormValidationAction):
             return {"F_confirmacao_dados_basicos": confirmacao}
         else:
             # se dados estiverem errados, slots setados pra None e fluxo é perguntado novamente.
-            return {"A_nome": None, "B_idade": None, "C_cep": None, "CC_cidade": None, "CCCC_estado": None, "D_telefone": None, "E_email": None, "F_confirmacao_dados_basicos": None}
+            return {"AA_nome": None, "B_idade": None, "C_cep": None, "CC_cidade": None, "CCCC_estado": None, "D_telefone": None, "E_email": None, "F_confirmacao_dados_basicos": None}
 
 
 
@@ -936,7 +936,7 @@ class ActionSubmitResume(Action):
     ) -> List[Dict]:
 
         # send info to API on heroku
-        name = tracker.get_slot("A_nome")
+        name = tracker.get_slot("AA_nome")
         age = tracker.get_slot("B_idade")
         address = tracker.get_slot("CCC_endereco")
         city = tracker.get_slot("CC_cidade")
@@ -1015,8 +1015,8 @@ class ActionSubmitResume(Action):
 
         # após post request, zerando todos os slots para None
         return [
-            SlotSet("A_nome", None),
-            SlotSet("AA_primeiroNome", None),
+            SlotSet("AA_nome", None),
+            SlotSet("A_primeiroNome", None),
             SlotSet("B_idade", None),
             SlotSet("C_cep", None),
             SlotSet("CC_cidade", None),

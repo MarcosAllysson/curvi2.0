@@ -8,11 +8,11 @@ stories:
   - action: curriculo_form
   - active_loop: curriculo_form
   - slot_was_set:
-    - requested_slot: A_nome
+    - requested_slot: AA_nome
   - slot_was_set:
-    - A_nome: Marcos
+    - AA_nome: Marcos
   - slot_was_set:
-    - AA_primeiroNome: Marcos
+    - A_primeiroNome: Marcos
   - slot_was_set:
     - requested_slot: B_idade
   - slot_was_set:
@@ -201,9 +201,9 @@ stories:
   - action: utter_gerando_curriculo
   - action: action_submit_resume
   - slot_was_set:
-    - A_nome: null
+    - AA_nome: null
   - slot_was_set:
-    - AA_primeiroNome: null
+    - A_primeiroNome: null
   - slot_was_set:
     - B_idade: null
   - slot_was_set:
