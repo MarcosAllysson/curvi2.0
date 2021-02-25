@@ -8,290 +8,290 @@ stories:
   - action: curriculo_form
   - active_loop: curriculo_form
   - slot_was_set:
-    - requested_slot: 1_nome
+    - requested_slot: A_nome
   - slot_was_set:
-    - 1_nome: Marcos
+    - A_nome: Marcos
   - slot_was_set:
-    - 2_primeiroNome: Marcos
+    - AA_primeiroNome: Marcos
   - slot_was_set:
-    - requested_slot: 3_idade
+    - requested_slot: B_idade
   - slot_was_set:
-    - 3_idade: '23'
+    - B_idade: '23'
   - slot_was_set:
-    - requested_slot: 4_cep
+    - requested_slot: C_cep
   - slot_was_set:
-    - 4_cep: '70070300'
+    - C_cep: '70070300'
   - slot_was_set:
-    - 6_endereco: Esplanada da Torre
+    - CCC_endereco: Esplanada da Torre
   - slot_was_set:
-    - 5_cidade: Brasília
+    - CC_cidade: Brasília
   - slot_was_set:
-    - 7_estado: DF
+    - CCCC_estado: DF
   - slot_was_set:
-    - requested_slot: 8_telefone
+    - requested_slot: D_telefone
   - slot_was_set:
-    - 8_telefone: '99999999999'
+    - D_telefone: '99999999999'
   - slot_was_set:
-    - requested_slot: 9_email
+    - requested_slot: E_email
   - slot_was_set:
-    - 9_email: marc@gmail.com
+    - E_email: marc@gmail.com
   - slot_was_set:
-    - requested_slot: 10_confirmacao_dados_basicos
+    - requested_slot: F_confirmacao_dados_basicos
   - slot_was_set:
-    - 10_confirmacao_dados_basicos: Sim
+    - F_confirmacao_dados_basicos: Sim
   - slot_was_set:
-    - 10_confirmacao_dados_basicos: Sim
+    - F_confirmacao_dados_basicos: Sim
   - slot_was_set:
-    - requested_slot: 11_user_has_linkedln
+    - requested_slot: G_user_has_linkedln
   - slot_was_set:
-    - 11_user_has_linkedln: Sim
+    - G_user_has_linkedln: Sim
   - slot_was_set:
-    - 11_user_has_linkedln: Sim
+    - G_user_has_linkedln: Sim
   - slot_was_set:
-    - requested_slot: 12_linkedln_link
+    - requested_slot: GG_linkedln_link
   - slot_was_set:
-    - 12_linkedln_link: link.com.br
+    - GG_linkedln_link: link.com.br
   - slot_was_set:
-    - requested_slot: 13_confirmacao_linkedln
+    - requested_slot: GGG_confirmacao_linkedln
   - slot_was_set:
-    - 13_confirmacao_linkedln: Sim
+    - GGG_confirmacao_linkedln: Sim
   - slot_was_set:
-    - 13_confirmacao_linkedln: Sim
+    - GGG_confirmacao_linkedln: Sim
   - slot_was_set:
-    - requested_slot: 14_area
+    - requested_slot: H_area
   - slot_was_set:
-    - 14_area: Tecnologia
+    - H_area: Tecnologia
   - slot_was_set:
-    - 14_area: Tecnologia
+    - H_area: Tecnologia
   - slot_was_set:
-    - requested_slot: 15_area_nivel
+    - requested_slot: HH_area_nivel
   - slot_was_set:
-    - 15_area_nivel: Júnior
+    - HH_area_nivel: Júnior
   - slot_was_set:
-    - 15_area_nivel: Júnior
+    - HH_area_nivel: Júnior
   - slot_was_set:
-    - requested_slot: 16_escolaridade
+    - requested_slot: I_escolaridade
   - slot_was_set:
-    - 16_escolaridade: Técnico
+    - I_escolaridade: Técnico
   - slot_was_set:
-    - 16_escolaridade: Técnico
+    - I_escolaridade: Técnico
   - slot_was_set:
-    - requested_slot: 17_escolaridadeFormadoOuAndamento
+    - requested_slot: II_escolaridadeFormadoOuAndamento
   - slot_was_set:
-    - 17_escolaridadeFormadoOuAndamento: Completo
+    - II_escolaridadeFormadoOuAndamento: Completo
   - slot_was_set:
-    - 17_escolaridadeFormadoOuAndamento: Completo
+    - II_escolaridadeFormadoOuAndamento: Completo
   - slot_was_set:
-    - 20_previsaoTermino: Completo
+    - K_previsaoTermino: Completo
   - slot_was_set:
-    - requested_slot: 18_cursoNome
+    - requested_slot: J_cursoNome
   - slot_was_set:
-    - 18_cursoNome: tecnologia
+    - J_cursoNome: tecnologia
   - slot_was_set:
-    - requested_slot: 19_institutoNome
+    - requested_slot: JJ_institutoNome
   - slot_was_set:
-    - 19_institutoNome: ifb
+    - JJ_institutoNome: ifb
   - slot_was_set:
-    - requested_slot: 21_objetivo
+    - requested_slot: L_objetivo
   - slot_was_set:
-    - 21_objetivo: Primeiro emprego
+    - L_objetivo: Primeiro emprego
   - slot_was_set:
-    - requested_slot: 22_confirmacao_formacao
+    - requested_slot: M_confirmacao_formacao
   - slot_was_set:
-    - 22_confirmacao_formacao: Sim
+    - M_confirmacao_formacao: Sim
   - slot_was_set:
-    - 22_confirmacao_formacao: Sim
+    - M_confirmacao_formacao: Sim
   - slot_was_set:
-    - requested_slot: 23_conhecer_curso
+    - requested_slot: N_conhecer_curso
   - slot_was_set:
-    - 23_conhecer_curso: Sim
+    - N_conhecer_curso: Sim
   - slot_was_set:
-    - 23_conhecer_curso: Sim
+    - N_conhecer_curso: Sim
   - slot_was_set:
-    - requested_slot: 24_habilidade
+    - requested_slot: NN_habilidade
   - slot_was_set:
-    - 24_habilidade: Python
+    - NN_habilidade: Python
   - slot_was_set:
-    - requested_slot: 25_confirmacao_habilidade
+    - requested_slot: NNN_confirmacao_habilidade
   - slot_was_set:
-    - 25_confirmacao_habilidade: Sim
+    - NNN_confirmacao_habilidade: Sim
   - slot_was_set:
-    - 25_confirmacao_habilidade: Sim
+    - NNN_confirmacao_habilidade: Sim
   - slot_was_set:
-    - requested_slot: 26_conhecer_idioma
+    - requested_slot: O_conhecer_idioma
   - slot_was_set:
-    - 26_conhecer_idioma: Sim
+    - O_conhecer_idioma: Sim
   - slot_was_set:
-    - 26_conhecer_idioma: Sim
+    - O_conhecer_idioma: Sim
   - slot_was_set:
-    - requested_slot: 27_idioma
+    - requested_slot: OO_idioma
   - slot_was_set:
-    - 27_idioma: ingles
+    - OO_idioma: ingles
   - slot_was_set:
-    - requested_slot: 28_idioma_nivel
+    - requested_slot: OOO_idioma_nivel
   - slot_was_set:
-    - 28_idioma_nivel: Avançado
+    - OOO_idioma_nivel: Avançado
   - slot_was_set:
-    - 28_idioma_nivel: Avançado
+    - OOO_idioma_nivel: Avançado
   - slot_was_set:
-    - requested_slot: 29_confirmacao_idioma
+    - requested_slot: OOOO_confirmacao_idioma
   - slot_was_set:
-    - 29_confirmacao_idioma: Sim
+    - OOOO_confirmacao_idioma: Sim
   - slot_was_set:
-    - 29_confirmacao_idioma: Sim
+    - OOOO_confirmacao_idioma: Sim
   - slot_was_set:
-    - requested_slot: 30_conhecer_projeto
+    - requested_slot: P_conhecer_projeto
   - slot_was_set:
-    - 30_conhecer_projeto: Sim
+    - P_conhecer_projeto: Sim
   - slot_was_set:
-    - 30_conhecer_projeto: Sim
+    - P_conhecer_projeto: Sim
   - slot_was_set:
-    - requested_slot: 31_pesquisaCientifica
+    - requested_slot: PP_pesquisaCientifica
   - slot_was_set:
-    - 31_pesquisaCientifica: artigo cientifico na area de ia
+    - PP_pesquisaCientifica: artigo cientifico na area de ia
   - slot_was_set:
-    - requested_slot: 32_confirmacao_pesquisa
+    - requested_slot: Q_confirmacao_pesquisa
   - slot_was_set:
-    - 32_confirmacao_pesquisa: Sim
+    - Q_confirmacao_pesquisa: Sim
   - slot_was_set:
-    - 32_confirmacao_pesquisa: Sim
+    - Q_confirmacao_pesquisa: Sim
   - slot_was_set:
-    - requested_slot: 33_conhecer_experiencia
+    - requested_slot: QQ_conhecer_experiencia
   - slot_was_set:
-    - 33_conhecer_experiencia: Sim
+    - QQ_conhecer_experiencia: Sim
   - slot_was_set:
-    - 33_conhecer_experiencia: Sim
+    - QQ_conhecer_experiencia: Sim
   - slot_was_set:
-    - 36_cargo: Desenvolvedor
+    - SS_cargo: Desenvolvedor
   - slot_was_set:
-    - 35_nomeEmpresa: Rasa
+    - S_nomeEmpresa: Rasa
   - slot_was_set:
-    - 38_cargo_data_entrada_saida: 2019-2020
+    - SSSS_cargo_data_entrada_saida: 2019-2020
   - slot_was_set:
-    - 37_cargo_descricao: Desenvolvimento de chatbos
+    - SSS_cargo_descricao: Desenvolvimento de chatbos
   - slot_was_set:
-    - 39_confirmacao_experiencia: Sim
+    - SSSSS_confirmacao_experiencia: Sim
   - slot_was_set:
-    - requested_slot: 40_conhecer_voluntario
+    - requested_slot: T_conhecer_voluntario
   - slot_was_set:
-    - 40_conhecer_voluntario: Sim
+    - T_conhecer_voluntario: Sim
   - slot_was_set:
-    - 40_conhecer_voluntario: Sim
+    - T_conhecer_voluntario: Sim
   - slot_was_set:
-    - 41_nome_empresa_voluntario: Rasa
+    - TT_nome_empresa_voluntario: Rasa
   - slot_was_set:
-    - 42_cargo_voluntario: Dev
+    - TTT_cargo_voluntario: Dev
   - slot_was_set:
-    - 43_cargo_descricao_voluntario: Desenvolvimento de sites voltado pra IA
+    - TTTT_cargo_descricao_voluntario: Desenvolvimento de sites voltado pra IA
   - slot_was_set:
-    - 44_cargo_data_entrada_saida_voluntario: 2019-2020
+    - TTTTT_cargo_data_entrada_saida_voluntario: 2019-2020
   - slot_was_set:
-    - 45_confirmacao_experiencia_voluntario: Sim
+    - TTTTTT_confirmacao_experiencia_voluntario: Sim
   - slot_was_set:
-    - requested_slot: 46_feedback
+    - requested_slot: U_feedback
   - slot_was_set:
-    - 46_feedback: top
+    - U_feedback: top
   - slot_was_set:
-    - requested_slot: 47_nota
+    - requested_slot: V_nota
   - slot_was_set:
-    - 47_nota: '10'
+    - V_nota: '10'
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
   - action: utter_gerando_curriculo
   - action: action_submit_resume
   - slot_was_set:
-    - 1_nome: null
+    - A_nome: null
   - slot_was_set:
-    - 2_primeiroNome: null
+    - AA_primeiroNome: null
   - slot_was_set:
-    - 3_idade: null
+    - B_idade: null
   - slot_was_set:
-    - 4_cep: null
+    - C_cep: null
   - slot_was_set:
-    - 6_endereco: null
+    - CCC_endereco: null
   - slot_was_set:
-    - 5_cidade: null
+    - CC_cidade: null
   - slot_was_set:
-    - 7_estado: null
+    - CCCC_estado: null
   - slot_was_set:
-    - 8_telefone: null
+    - D_telefone: null
   - slot_was_set:
-    - 9_email: null
+    - E_email: null
   - slot_was_set:
-    - 12_linkedln_link: null
+    - GG_linkedln_link: null
   - slot_was_set:
-    - 11_user_has_linkedln: null
+    - G_user_has_linkedln: null
   - slot_was_set:
-    - 14_area: null
+    - H_area: null
   - slot_was_set:
-    - 15_area_nivel: null
+    - HH_area_nivel: null
   - slot_was_set:
-    - 21_objetivo: null
+    - L_objetivo: null
   - slot_was_set:
-    - 16_escolaridade: null
+    - I_escolaridade: null
   - slot_was_set:
-    - 17_escolaridadeFormadoOuAndamento: null
+    - II_escolaridadeFormadoOuAndamento: null
   - slot_was_set:
-    - 18_cursoNome: null
+    - J_cursoNome: null
   - slot_was_set:
-    - 19_institutoNome: null
+    - JJ_institutoNome: null
   - slot_was_set:
-    - 20_previsaoTermino: null
+    - K_previsaoTermino: null
   - slot_was_set:
-    - 23_conhecer_curso: null
+    - N_conhecer_curso: null
   - slot_was_set:
-    - 24_habilidade: null
+    - NN_habilidade: null
   - slot_was_set:
-    - 26_conhecer_idioma: null
+    - O_conhecer_idioma: null
   - slot_was_set:
-    - 27_idioma: null
+    - OO_idioma: null
   - slot_was_set:
-    - 28_idioma_nivel: null
+    - OOO_idioma_nivel: null
   - slot_was_set:
-    - 30_conhecer_projeto: null
+    - P_conhecer_projeto: null
   - slot_was_set:
-    - 31_pesquisaCientifica: null
+    - PP_pesquisaCientifica: null
   - slot_was_set:
-    - 33_conhecer_experiencia: null
+    - QQ_conhecer_experiencia: null
   - slot_was_set:
-    - 35_nomeEmpresa: null
+    - S_nomeEmpresa: null
   - slot_was_set:
-    - 36_cargo: null
+    - SS_cargo: null
   - slot_was_set:
-    - 37_cargo_descricao: null
+    - SSS_cargo_descricao: null
   - slot_was_set:
-    - 38_cargo_data_entrada_saida: null
+    - SSSS_cargo_data_entrada_saida: null
   - slot_was_set:
-    - 40_conhecer_voluntario: null
+    - T_conhecer_voluntario: null
   - slot_was_set:
-    - 41_nome_empresa_voluntario: null
+    - TT_nome_empresa_voluntario: null
   - slot_was_set:
-    - 42_cargo_voluntario: null
+    - TTT_cargo_voluntario: null
   - slot_was_set:
-    - 43_cargo_descricao_voluntario: null
+    - TTTT_cargo_descricao_voluntario: null
   - slot_was_set:
-    - 44_cargo_data_entrada_saida_voluntario: null
+    - TTTTT_cargo_data_entrada_saida_voluntario: null
   - slot_was_set:
-    - 46_feedback: null
+    - U_feedback: null
   - slot_was_set:
-    - 47_nota: null
+    - V_nota: null
   - slot_was_set:
-    - 10_confirmacao_dados_basicos: null
+    - F_confirmacao_dados_basicos: null
   - slot_was_set:
-    - 22_confirmacao_formacao: null
+    - M_confirmacao_formacao: null
   - slot_was_set:
-    - 25_confirmacao_habilidade: null
+    - NNN_confirmacao_habilidade: null
   - slot_was_set:
-    - 32_confirmacao_pesquisa: null
+    - Q_confirmacao_pesquisa: null
   - slot_was_set:
-    - 39_confirmacao_experiencia: null
+    - SSSSS_confirmacao_experiencia: null
   - slot_was_set:
-    - 13_confirmacao_linkedln: null
+    - GGG_confirmacao_linkedln: null
   - slot_was_set:
-    - 45_confirmacao_experiencia_voluntario: null
+    - TTTTTT_confirmacao_experiencia_voluntario: null
   - slot_was_set:
-    - 29_confirmacao_idioma: null
+    - OOOO_confirmacao_idioma: null
   - action: utter_curriculo_pronto
   - action: utter_curriculo_link
 

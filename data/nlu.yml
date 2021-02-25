@@ -152,69 +152,69 @@ nlu:
     - Não
 - intent: dados_pessoais
   examples: |
-    - meu nome é (Marcos Allysson){"entity":"1_nome"}
-    - me chamo (Marcos Allysson){"entity":"1_nome"}
-    - (marcos allysson){"entity":"1_nome"}
-    - (natanael henrique carvalho jales){"entity": "1_nome"}
-    - (Emanuelle Ferreira da Silva){"entity": "1_nome"}
-    - tenho (30){"entity":"3_idade"} anos
-    - (20){"entity":"3_idade"} anos
-    - meu cep é (70030300){"entity":"4_cep"}
-    - CEP (70030300){"entity":"4_cep"}
-    - (70070300){"entity":"4_cep"}
-    - meu número é (99999999999){"entity":"8_telefone"}
-    - telefone: (99999999999){"entity":"8_telefone"}
-    - (99999999999){"entity":"8_telefone"}
-    - meu email é (email@gmail.com){"entity":"9_email"}
-    - (email@gmail.com){"entity":"9_email"}
-    - email: (email@gmail.com){"entity":"9_email"}
-    - meu linkedin é (https://www.linkedin.com/in/marcos-allysson/){"entity":"12_linkedln_link"}
-    - linkedin: (https://www.linkedin.com/in/marcos-allysson-648128188/){"entity":"12_linkedln_link"}
-    - (https://link.com.br){"entity":"12_linkedln_link"}
-    - (top){"entity":"46_feedback"}
-    - (top demais){"entity":"46_feedback"}
-    - (muito bom){"entity":"46_feedback"}
-    - (gostei){"entity":"46_feedback"}
-    - (rápido e prático){"entity":"46_feedback"}
-    - (nota 10){"entity":"47_nota"}
-    - (nota 10){"entity":"47_nota"} muito bom
-    - (marcos){"entity":"1_nome"}
-    - (23){"entity":"3_idade"}
-    - (71588186){"entity":"4_cep"}
-    - (marcos@gmail.com){"entity":"9_email"}
-    - (linkedin.com.br){"entity":"12_linkedln_link"}
-    - (link.com.br){"entity":"12_linkedln_link"}
-    - (10){"entity":"47_nota"}
+    - meu nome é (Marcos Allysson){"entity":"A_nome"}
+    - me chamo (Marcos Allysson){"entity":"A_nome"}
+    - (marcos allysson){"entity":"A_nome"}
+    - (natanael henrique carvalho jales){"entity": "A_nome"}
+    - (Emanuelle Ferreira da Silva){"entity": "A_nome"}
+    - tenho (30){"entity":"B_idade"} anos
+    - (20){"entity":"B_idade"} anos
+    - meu cep é (70030300){"entity":"C_cep"}
+    - CEP (70030300){"entity":"C_cep"}
+    - (70070300){"entity":"C_cep"}
+    - meu número é (99999999999){"entity":"D_telefone"}
+    - telefone: (99999999999){"entity":"D_telefone"}
+    - (99999999999){"entity":"D_telefone"}
+    - meu email é (email@gmail.com){"entity":"E_email"}
+    - (email@gmail.com){"entity":"E_email"}
+    - email: (email@gmail.com){"entity":"E_email"}
+    - meu linkedin é (https://www.linkedin.com/in/marcos-allysson/){"entity":"GG_linkedln_link"}
+    - linkedin: (https://www.linkedin.com/in/marcos-allysson-648128188/){"entity":"GG_linkedln_link"}
+    - (https://link.com.br){"entity":"GG_linkedln_link"}
+    - (top){"entity":"U_feedback"}
+    - (top demais){"entity":"U_feedback"}
+    - (muito bom){"entity":"U_feedback"}
+    - (gostei){"entity":"U_feedback"}
+    - (rápido e prático){"entity":"U_feedback"}
+    - (nota 10){"entity":"V_nota"}
+    - (nota 10){"entity":"V_nota"} muito bom
+    - (marcos){"entity":"A_nome"}
+    - (23){"entity":"B_idade"}
+    - (71588186){"entity":"C_cep"}
+    - (marcos@gmail.com){"entity":"E_email"}
+    - (linkedin.com.br){"entity":"GG_linkedln_link"}
+    - (link.com.br){"entity":"GG_linkedln_link"}
+    - (10){"entity":"V_nota"}
     - marcos
     - asda2@gmail.com
     - link.com.br
     - marc@gmail.com
 - intent: dados_formacao
   examples: |
-    - sou da area de (tecnologia){"entity":"14_area"}
-    - meu nível na área é (pleno){"entity":"15_area_nivel"}
-    - (Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.){"entity":"21_objetivo"}
-    - (ensino superior){"entity":"16_escolaridade"}
-    - estou cursando (direito){"entity":"18_cursoNome"}
-    - (tecnologia){"entity":"18_cursoNome"}
-    - (advogacia){"entity":"18_cursoNome"}
-    - eu estudo no (Instituto Federal de Brasília){"entity":"19_institutoNome"}
-    - (ufmg){"entity":"19_institutoNome"}
-    - (instituto federal de brasilia){"entity":"19_institutoNome"}
-    - previsão pra me formar em (2021){"entity":"20_previsaoTermino"}
-    - (2020){"entity":"20_previsaoTermino"}
-    - fiz curso de (auxiliar administrativo){"entity":"24_habilidade"}
-    - já participei no desenvolvimento de (artigos cientificos){"entity":"31_pesquisaCientifica"}
-    - participei no (desenvolvimento de artigos){"entity":"31_pesquisaCientifica"} cientificos juntamente ao lattes
-    - (tecnologo){"entity":"16_escolaridade"} (sistemas para internet){"entity":"18_cursoNome"}
-    - (unb){"entity":"19_institutoNome"}
-    - (objetivo trabalhar, aprender e agregar valor a empresa){"entity":"21_objetivo"}
-    - (universidade de brasilia){"entity":"19_institutoNome"}
-    - eu falo (inglês){"entity": "27_idioma"} nível (básico){"entity":"28_idioma_nivel"}
-    - falo (francês){"entity": "idio27_idiomama"} nível (intermediário){"entity":"28_idioma_nivel"}
-    - (espanhol){"entity": "27_idioma"} nível (avançado){"entity":"28_idioma_nivel"}
-    - já sou (fluente){"entity":"28_idioma_nivel"} em (inglês){"entity": "27_idioma"}
-    - (francês){"entity": "27_idioma"} (básico){"entity":"28_idioma_nivel"}
+    - sou da area de (tecnologia){"entity":"H_area"}
+    - meu nível na área é (pleno){"entity":"HH_area_nivel"}
+    - (Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.){"entity":"L_objetivo"}
+    - (ensino superior){"entity":"I_escolaridade"}
+    - estou cursando (direito){"entity":"J_cursoNome"}
+    - (tecnologia){"entity":"J_cursoNome"}
+    - (advogacia){"entity":"J_cursoNome"}
+    - eu estudo no (Instituto Federal de Brasília){"entity":"JJ_institutoNome"}
+    - (ufmg){"entity":"JJ_institutoNome"}
+    - (instituto federal de brasilia){"entity":"JJ_institutoNome"}
+    - previsão pra me formar em (2021){"entity":"K_previsaoTermino"}
+    - (2020){"entity":"K_previsaoTermino"}
+    - fiz curso de (auxiliar administrativo){"entity":"NN_habilidade"}
+    - já participei no desenvolvimento de (artigos cientificos){"entity":"PP_pesquisaCientifica"}
+    - participei no (desenvolvimento de artigos){"entity":"PP_pesquisaCientifica"} cientificos juntamente ao lattes
+    - (tecnologo){"entity":"I_escolaridade"} (sistemas para internet){"entity":"J_cursoNome"}
+    - (unb){"entity":"JJ_institutoNome"}
+    - (objetivo trabalhar, aprender e agregar valor a empresa){"entity":"L_objetivo"}
+    - (universidade de brasilia){"entity":"JJ_institutoNome"}
+    - eu falo (inglês){"entity": "OO_idioma"} nível (básico){"entity":"OOO_idioma_nivel"}
+    - falo (francês){"entity": "idioOO_idiomama"} nível (intermediário){"entity":"OOO_idioma_nivel"}
+    - (espanhol){"entity": "OO_idioma"} nível (avançado){"entity":"OOO_idioma_nivel"}
+    - já sou (fluente){"entity":"OOO_idioma_nivel"} em (inglês){"entity": "OO_idioma"}
+    - (francês){"entity": "OO_idioma"} (básico){"entity":"OOO_idioma_nivel"}
     - ifb
     - primeiro emprego
     - python - digital
@@ -233,14 +233,14 @@ nlu:
     - artigo cientifico na area de ia
 - intent: dados_experiencia
   examples: |
-    - trabalhei no (Google){"entity":"35_nomeEmpresa"}
-    - (rasa){"entity":"35_nomeEmpresa"}
-    - desempenhei a função de (gerente){"entity":"36_cargo"} quando trabalhei no google
-    - (executivo){"entity":"36_cargo"}
-    - (minha função era organizar todos os processos da empresa). {"entity":"37_cargo_descricao"}
-    - fique lá no período de (2010-2020){"entity": "38_cargo_data_entrada_saida"}
+    - trabalhei no (Google){"entity":"S_nomeEmpresa"}
+    - (rasa){"entity":"S_nomeEmpresa"}
+    - desempenhei a função de (gerente){"entity":"SS_cargo"} quando trabalhei no google
+    - (executivo){"entity":"SS_cargo"}
+    - (minha função era organizar todos os processos da empresa). {"entity":"SSS_cargo_descricao"}
+    - fique lá no período de (2010-2020){"entity": "SSSS_cargo_data_entrada_saida"}
     - era responsavel por organizar os processos da empresa
-    - (2010-2020){"entity": "38_cargo_data_entrada_saida"}
+    - (2010-2020){"entity": "SSSS_cargo_data_entrada_saida"}
     - responsavel pelo trafego interno e externo da empresa
     - desenvolvimento de websites
     - desenvolvimento de websites e apps
@@ -282,30 +282,30 @@ nlu:
     - obrigado
 - intent: area
   examples: |
-    - (Vendas){"entity": "14_area"}
-    - (Marketing){"entity": "14_area"}
-    - (Tecnologia){"entity": "14_area"}
-    - (Direito){"entity": "14_area"}
-    - (Saúde){"entity": "14_area"}
-    - (RH){"entity": "14_area"}
-    - (Administração){"entity": "14_area"}
-    - (Contabilidade){"entity": "14_area"}
-    - (Projetos){"entity": "14_area"}
-    - (Engenharia){"entity": "14_area"}
-    - (Outros){"entity": "14_area"}
-    - (Estagiário){"entity": "15_area_nivel"}
-    - (Jovem aprendiz){"entity": "15_area_nivel"}
-    - (Júnior){"entity": "15_area_nivel"}
-    - (Sênior){"entity": "15_area_nivel"}
-    - (Pleno){"entity": "15_area_nivel"}
+    - (Vendas){"entity": "H_area"}
+    - (Marketing){"entity": "H_area"}
+    - (Tecnologia){"entity": "H_area"}
+    - (Direito){"entity": "H_area"}
+    - (Saúde){"entity": "H_area"}
+    - (RH){"entity": "H_area"}
+    - (Administração){"entity": "H_area"}
+    - (Contabilidade){"entity": "H_area"}
+    - (Projetos){"entity": "H_area"}
+    - (Engenharia){"entity": "H_area"}
+    - (Outros){"entity": "H_area"}
+    - (Estagiário){"entity": "HH_area_nivel"}
+    - (Jovem aprendiz){"entity": "HH_area_nivel"}
+    - (Júnior){"entity": "HH_area_nivel"}
+    - (Sênior){"entity": "HH_area_nivel"}
+    - (Pleno){"entity": "HH_area_nivel"}
 - intent: escolaridade
   examples: |
-    - (Ensino fundamental){"entity": "16_escolaridade"}
-    - (Ensino médio){"entity": "16_escolaridade"}
-    - (Ensino superior){"entity": "16_escolaridade"}
-    - (Técnico){"entity": "16_escolaridade"}
-    - (Técnologo){"entity": "16_escolaridade"}
-    - (Pós Graduação){"entity": "16_escolaridade"}
-    - (Mestrado){"entity": "16_escolaridade"}
-    - (Doutorado){"entity": "16_escolaridade"}
+    - (Ensino fundamental){"entity": "I_escolaridade"}
+    - (Ensino médio){"entity": "I_escolaridade"}
+    - (Ensino superior){"entity": "I_escolaridade"}
+    - (Técnico){"entity": "I_escolaridade"}
+    - (Técnologo){"entity": "I_escolaridade"}
+    - (Pós Graduação){"entity": "I_escolaridade"}
+    - (Mestrado){"entity": "I_escolaridade"}
+    - (Doutorado){"entity": "I_escolaridade"}
     - (Outros){"entity": "outros"}

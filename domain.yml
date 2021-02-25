@@ -13,147 +13,147 @@ intents:
 - negacao
 - obrigado
 entities:
-- 1_nome
-- 2_primeiroNome
-- 3_idade
-- 4_cep
-- 5_cidade
-- 6_endereco
-- 7_estado
-- 8_telefone
-- 9_email
-- 10_confirmacao_dados_basicos
-- 11_user_has_linkedln
-- 12_linkedln_link
-- 13_confirmacao_linkedln
-- 14_area
-- 15_area_nivel
-- 16_escolaridade
-- 17_escolaridadeFormadoOuAndamento
-- 18_cursoNome
-- 19_institutoNome
-- 20_previsaoTermino
-- 21_objetivo
-- 22_confirmacao_formacao
-- 23_conhecer_curso
-- 24_habilidade
-- 25_confirmacao_habilidade
-- 26_conhecer_idioma
-- 27_idioma
-- 28_idioma_nivel
-- 29_confirmacao_idioma
-- 30_conhecer_projeto
-- 31_pesquisaCientifica
-- 32_confirmacao_pesquisa
-- 33_conhecer_experiencia
-- 34_curso_online
-- 35_nomeEmpresa
-- 36_cargo
-- 37_cargo_descricao
-- 38_cargo_data_entrada_saida
-- 39_confirmacao_experiencia
-- 40_conhecer_voluntario
-- 41_nome_empresa_voluntario
-- 42_cargo_voluntario
-- 43_cargo_descricao_voluntario
-- 44_cargo_data_entrada_saida_voluntario
-- 45_confirmacao_experiencia_voluntario
-- 46_feedback
-- 47_nota
+- A_nome
+- AA_primeiroNome
+- B_idade
+- C_cep
+- CC_cidade
+- CCC_endereco
+- CCCC_estado
+- D_telefone
+- E_email
+- F_confirmacao_dados_basicos
+- G_user_has_linkedln
+- GG_linkedln_link
+- GGG_confirmacao_linkedln
+- H_area
+- HH_area_nivel
+- I_escolaridade
+- II_escolaridadeFormadoOuAndamento
+- J_cursoNome
+- JJ_institutoNome
+- K_previsaoTermino
+- L_objetivo
+- M_confirmacao_formacao
+- N_conhecer_curso
+- NN_habilidade
+- NNN_confirmacao_habilidade
+- O_conhecer_idioma
+- OO_idioma
+- OOO_idioma_nivel
+- OOOO_confirmacao_idioma
+- P_conhecer_projeto
+- PP_pesquisaCientifica
+- Q_confirmacao_pesquisa
+- QQ_conhecer_experiencia
+- R_curso_online
+- S_nomeEmpresa
+- SS_cargo
+- SSS_cargo_descricao
+- SSSS_cargo_data_entrada_saida
+- SSSSS_confirmacao_experiencia
+- T_conhecer_voluntario
+- TT_nome_empresa_voluntario
+- TTT_cargo_voluntario
+- TTTT_cargo_descricao_voluntario
+- TTTTT_cargo_data_entrada_saida_voluntario
+- TTTTTT_confirmacao_experiencia_voluntario
+- U_feedback
+- V_nota
 slots:
-  1_nome:
+  A_nome:
     type: any
-  2_primeiroNome:
+  AA_primeiroNome:
     type: any
-  3_idade:
+  B_idade:
     type: any
-  4_cep:
+  C_cep:
     type: any    
-  5_cidade:
+  CC_cidade:
     type: any
-  6_endereco:
+  CCC_endereco:
     type: any    
-  7_estado:
+  CCCC_estado:
     type: any    
-  8_telefone:
+  D_telefone:
     type: any    
-  9_email:
+  E_email:
     type: any
-  10_confirmacao_dados_basicos:
+  F_confirmacao_dados_basicos:
     type: bool
-  11_user_has_linkedln:
+  G_user_has_linkedln:
     type: bool    
-  12_linkedln_link:
+  GG_linkedln_link:
     type: any
-  13_confirmacao_linkedln:
+  GGG_confirmacao_linkedln:
     type: bool
-  14_area:
+  H_area:
     type: any    
-  15_area_nivel:
+  HH_area_nivel:
     type: any
-  16_escolaridade:
+  I_escolaridade:
     type: any  
-  17_escolaridadeFormadoOuAndamento:
+  II_escolaridadeFormadoOuAndamento:
     type: any
-  18_cursoNome:
+  J_cursoNome:
     type: any
-  19_institutoNome:
+  JJ_institutoNome:
     type: any
-  20_previsaoTermino:
+  K_previsaoTermino:
     type: any
-  21_objetivo:
+  L_objetivo:
     type: any
-  22_confirmacao_formacao:
+  M_confirmacao_formacao:
     type: bool
-  23_conhecer_curso:
+  N_conhecer_curso:
     type: bool  
-  24_habilidade:
+  NN_habilidade:
     type: any
-  25_confirmacao_habilidade:
+  NNN_confirmacao_habilidade:
     type: bool   
-  26_conhecer_idioma:
+  O_conhecer_idioma:
     type: bool  
-  27_idioma:
+  OO_idioma:
     type: any    
-  28_idioma_nivel:
+  OOO_idioma_nivel:
     type: any    
-  29_confirmacao_idioma:
+  OOOO_confirmacao_idioma:
     type: bool
-  30_conhecer_projeto:
+  P_conhecer_projeto:
     type: bool
-  31_pesquisaCientifica:
+  PP_pesquisaCientifica:
     type: any
-  32_confirmacao_pesquisa:
+  Q_confirmacao_pesquisa:
     type: bool
-  33_conhecer_experiencia:
+  QQ_conhecer_experiencia:
     type: bool  
-  34_curso_online:
+  R_curso_online:
     type: bool
-  35_nomeEmpresa:
+  S_nomeEmpresa:
     type: any   
-  36_cargo:
+  SS_cargo:
     type: any
-  37_cargo_descricao:
+  SSS_cargo_descricao:
     type: any    
-  38_cargo_data_entrada_saida:
+  SSSS_cargo_data_entrada_saida:
     type: any
-  39_confirmacao_experiencia:
+  SSSSS_confirmacao_experiencia:
     type: bool  
-  40_conhecer_voluntario:
+  T_conhecer_voluntario:
     type: bool    
-  41_nome_empresa_voluntario:
+  TT_nome_empresa_voluntario:
     type: any    
-  42_cargo_voluntario:
+  TTT_cargo_voluntario:
     type: any    
-  43_cargo_descricao_voluntario:
+  TTTT_cargo_descricao_voluntario:
     type: any    
-  44_cargo_data_entrada_saida_voluntario:
+  TTTTT_cargo_data_entrada_saida_voluntario:
     type: any    
-  45_confirmacao_experiencia_voluntario:
+  TTTTTT_confirmacao_experiencia_voluntario:
     type: bool
-  46_feedback:
+  U_feedback:
     type: any
-  47_nota:
+  V_nota:
     type: any    
   confirmacao:
     type: bool  
@@ -170,284 +170,284 @@ responses:
     - payload: /afirmacao
       title: Tá bom, vamos lá!
     text: Vc quer continuar? Posso te ajudar fazer seu currículo. Leva apenas alguns minutinhos.
-  utter_ask_1_nome:
+  utter_ask_A_nome:
   - text: O primeiro passo para fazer o seu currículo são os dados pessoais, então vamos nessa. Qual o seu nome completo?
   - text: Vamos começar pelos dados pessoais. Qual o seu nome completo?
-  utter_ask_3_idade:
-  - text: Quantos anos vc tem, {2_primeiroNome}?
-  - text: Qual sua idade, {2_primeiroNome}?
-  utter_ask_4_cep:
+  utter_ask_B_idade:
+  - text: Quantos anos vc tem, {AA_primeiroNome}?
+  - text: Qual sua idade, {AA_primeiroNome}?
+  utter_ask_C_cep:
   - text: Qual o seu CEP? Deve conter apenas 8 números.
   - text: Vamos localizar seu endereço agora, qual seu CEP? Me fala apenas os 8 números.
-  utter_ask_5_cidade:
+  utter_ask_CC_cidade:
   - text: Em qual cidade vc mora?
-  utter_ask_7_estado:
+  utter_ask_CCCC_estado:
   - text: 'E o estado? '
-  utter_ask_8_telefone:
+  utter_ask_D_telefone:
   - text: Qual seu telefone para contato? Exemplo 61999998888
   - text: Telefone para contato? De preferência seu WhatsApp. Digite apenas seu número, exemplo 61999998888
-  utter_ask_9_email:
-  - text: Qual seu email, {2_primeiroNome}?
-  utter_ask_10_confirmacao_dados_basicos:
+  utter_ask_E_email:
+  - text: Qual seu email, {AA_primeiroNome}?
+  utter_ask_F_confirmacao_dados_basicos:
   - buttons:
-    - payload: '/afirmacao{"10_confirmacao_dados_basicos": "Sim"}'
+    - payload: '/afirmacao{"F_confirmacao_dados_basicos": "Sim"}'
       title: Tudo certo!
-    - payload: '/negacao{"10_confirmacao_dados_basicos": "Não"}'
+    - payload: '/negacao{"F_confirmacao_dados_basicos": "Não"}'
       title: Preciso corrigir
     text: |-
       Certo! Seus dados básicos: 
-      Nome Completo: {1_nome}; 
-      Idade: {3_idade};
-      Telefone: {8_telefone};
-      Email: {9_email};
-      Endereço: {6_endereco};
-      Cidade: {5_cidade};
-      Estado: {7_estado}.
+      Nome Completo: {A_nome}; 
+      Idade: {B_idade};
+      Telefone: {D_telefone};
+      Email: {E_email};
+      Endereço: {CCC_endereco};
+      Cidade: {CC_cidade};
+      Estado: {CCCC_estado}.
       Todos os dados estão corretos? 
-  utter_ask_11_user_has_linkedln:
+  utter_ask_G_user_has_linkedln:
   - buttons:
-    - payload: '/afirmacao{"11_user_has_linkedln": "Sim"}'
+    - payload: '/afirmacao{"G_user_has_linkedln": "Sim"}'
       title: Tenho!
-    - payload: '/negacao{"11_user_has_linkedln": "Nao"}'
+    - payload: '/negacao{"G_user_has_linkedln": "Nao"}'
       title: Ainda não.
     text: Vc tem Linkedln?
-  utter_ask_12_linkedln_link:
+  utter_ask_GG_linkedln_link:
   - text: Qual o link do seu perfil no Linkedln?
-  utter_ask_13_confirmacao_linkedln:
+  utter_ask_GGG_confirmacao_linkedln:
   - buttons:
-    - payload: '/afirmacao{"13_confirmacao_linkedln": "Sim"}'
+    - payload: '/afirmacao{"GGG_confirmacao_linkedln": "Sim"}'
       title: Certo
-    - payload: '/negacao{"13_confirmacao_linkedln": "Não"}'
+    - payload: '/negacao{"GGG_confirmacao_linkedln": "Não"}'
       title: Preciso mudar.
-    text: 'Então seu linkedln é: {12_linkedln_link}, o link está certo?'
+    text: 'Então seu linkedln é: {GG_linkedln_link}, o link está certo?'
   utter_not_linkedln:
   - text: Ok, sem problemas vamos para a próxima pergunta!
-  utter_ask_14_area:
+  utter_ask_H_area:
   - buttons:
-    - payload: '/area{"14_area": "Vendas"}'
+    - payload: '/area{"H_area": "Vendas"}'
       title: Vendas
-    - payload: '/area{"14_area": "Marketing"}'
+    - payload: '/area{"H_area": "Marketing"}'
       title: Marketing
-    - payload: '/area{"14_area": "Tecnologia"}'
+    - payload: '/area{"H_area": "Tecnologia"}'
       title: Tecnologia
-    - payload: '/area{"14_area": "Direito"}'
+    - payload: '/area{"H_area": "Direito"}'
       title: Direito
-    - payload: '/area{"14_area": "Saúde"}'
+    - payload: '/area{"H_area": "Saúde"}'
       title: Saúde
-    - payload: '/area{"14_area": "RH"}'
+    - payload: '/area{"H_area": "RH"}'
       title: RH
-    - payload: '/area{"14_area": "Administração"}'
+    - payload: '/area{"H_area": "Administração"}'
       title: Administração
-    - payload: '/area{"14_area": "Contabilidade"}'
+    - payload: '/area{"H_area": "Contabilidade"}'
       title: Contabilidade
-    - payload: '/area{"14_area": "Projetos"}'
+    - payload: '/area{"H_area": "Projetos"}'
       title: Projetos
-    - payload: '/area{"14_area": "Engenharia"}'
+    - payload: '/area{"H_area": "Engenharia"}'
       title: Engenharia
-    - payload: '/area{"14_area": "Outros"}'
+    - payload: '/area{"H_area": "Outros"}'
       title: Outros
     text: Para que eu possa personalizar o seu currículo é importante saber em qual área vc deseja atuar
-  utter_ask_15_area_nivel:
+  utter_ask_HH_area_nivel:
   - buttons:
-    - payload: '/area{"15_area_nivel": "Jovem aprendiz"}'
+    - payload: '/area{"HH_area_nivel": "Jovem aprendiz"}'
       title: Jovem aprendiz
-    - payload: '/area{"15_area_nivel": "Estagiário(a)"}'
+    - payload: '/area{"HH_area_nivel": "Estagiário(a)"}'
       title: Estagiário(a)
-    - payload: '/area{"15_area_nivel": "Júnior"}'
+    - payload: '/area{"HH_area_nivel": "Júnior"}'
       title: Júnior
-    - payload: '/area{"15_area_nivel": "Sênior"}'
+    - payload: '/area{"HH_area_nivel": "Sênior"}'
       title: Sênior
-    - payload: '/area{"15_area_nivel": "Pleno"}'
+    - payload: '/area{"HH_area_nivel": "Pleno"}'
       title: Pleno
     text: 'Ótimo, agora me diga qual o seu nível na área: '
-  utter_ask_21_objetivo:
+  utter_ask_L_objetivo:
   - text: |-
-      {2_primeiroNome}, qual seu objetivo se candidatando para a vaga? 
+      {AA_primeiroNome}, qual seu objetivo se candidatando para a vaga? 
        Exemplo: Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.
-  utter_ask_16_escolaridade:
+  utter_ask_I_escolaridade:
   - buttons:
-    - payload: /escolaridade{"16_escolaridade":"Fundamental"}
+    - payload: /escolaridade{"I_escolaridade":"Fundamental"}
       title: Fundamental
-    - payload: /escolaridade{"16_escolaridade":"Médio"}
+    - payload: /escolaridade{"I_escolaridade":"Médio"}
       title: Médio
-    - payload: /escolaridade{"16_escolaridade":"Técnico"}
+    - payload: /escolaridade{"I_escolaridade":"Técnico"}
       title: Técnico
-    - payload: /escolaridade{"16_escolaridade":"Superior"}
+    - payload: /escolaridade{"I_escolaridade":"Superior"}
       title: Superior
-    - payload: /escolaridade{"16_escolaridade":"Pós"}
+    - payload: /escolaridade{"I_escolaridade":"Pós"}
       title: Pós
-    - payload: /escolaridade{"16_escolaridade":"Mestrado"}
+    - payload: /escolaridade{"I_escolaridade":"Mestrado"}
       title: Mestrado
-    - payload: /escolaridade{"16_escolaridade":"Doutorado"}
+    - payload: /escolaridade{"I_escolaridade":"Doutorado"}
       title: Doutorado
-    - payload: /escolaridade{"16_escolaridade":"Outros"}
+    - payload: /escolaridade{"I_escolaridade":"Outros"}
       title: Outros
-    text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {2_primeiroNome}?
-  utter_ask_17_escolaridadeFormadoOuAndamento:
+    text: Muito bom, vamos agora para os estudos, qual seu nível de escolaridade {AA_primeiroNome}?
+  utter_ask_II_escolaridadeFormadoOuAndamento:
   - buttons:
-    - payload: '/escolaridade{"17_escolaridadeFormadoOuAndamento": "Completo"}'
+    - payload: '/escolaridade{"II_escolaridadeFormadoOuAndamento": "Completo"}'
       title: Completo.
-    - payload: '/escolaridade{"17_escolaridadeFormadoOuAndamento": "Andamento"}'
+    - payload: '/escolaridade{"II_escolaridadeFormadoOuAndamento": "Andamento"}'
       title: Ainda em andamento!
     text: Vc já concluiu ou ainda está em andamento?
-  utter_ask_18_cursoNome:
+  utter_ask_J_cursoNome:
   - text: Qual o seu curso?
-  utter_ask_19_institutoNome:
+  utter_ask_JJ_institutoNome:
   - text: Qual a Instituição de Ensino?
-  utter_ask_20_previsaoTermino:
+  utter_ask_K_previsaoTermino:
   - text: Ano de previsão para conclusão?
-  utter_ask_22_confirmacao_formacao:
+  utter_ask_M_confirmacao_formacao:
   - buttons:
-    - payload: '/afirmacao{"22_confirmacao_formacao": "Sim"}'
+    - payload: '/afirmacao{"M_confirmacao_formacao": "Sim"}'
       title: Correto
-    - payload: '/negacao{"22_confirmacao_formacao": "Não"}'
+    - payload: '/negacao{"M_confirmacao_formacao": "Não"}'
       title: Quero mudar.
     text: |-
       Ok! 
-      Área: {14_area}; 
-      Nível: {15_area_nivel}; 
-      Objetivo: {21_objetivo}; 
-      Escolaridade: {16_escolaridade}; 
-      Status: {17_escolaridadeFormadoOuAndamento};
-      Curso: {18_cursoNome}; 
-      Instituição: {19_institutoNome}; 
-      Previsão de término: {20_previsaoTermino}. 
-      Tudo certinho {2_primeiroNome}?
-  utter_ask_23_conhecer_curso:
+      Área: {H_area}; 
+      Nível: {HH_area_nivel}; 
+      Objetivo: {L_objetivo}; 
+      Escolaridade: {I_escolaridade}; 
+      Status: {II_escolaridadeFormadoOuAndamento};
+      Curso: {J_cursoNome}; 
+      Instituição: {JJ_institutoNome}; 
+      Previsão de término: {K_previsaoTermino}. 
+      Tudo certinho {AA_primeiroNome}?
+  utter_ask_N_conhecer_curso:
   - buttons:
-    - payload: '/afirmacao{"23_conhecer_curso": "Sim"}'
+    - payload: '/afirmacao{"N_conhecer_curso": "Sim"}'
       title: Sim, tenho!
-    - payload: '/negacao{"23_conhecer_curso": "Não"}'
+    - payload: '/negacao{"N_conhecer_curso": "Não"}'
       title: Não.
     text: Possui cursos ou certificações que deseja incluir no seu currículo?
-  utter_ask_24_habilidade:
+  utter_ask_NN_habilidade:
   - text: 'Escreva o nome do curso junto da Instituição de ensino (Ex. Aux. de Vendas - Microlins), OBS: Nessa versão teste, insira apenas 1 curso. Vc poderá acrescentar outros cursos, por enquanto está em desenvolvimento 🙃😉'
-  utter_ask_25_confirmacao_habilidade:
+  utter_ask_NNN_confirmacao_habilidade:
   - buttons:
-    - payload: '/afirmacao{"25_confirmacao_habilidade": "Sim"}'
+    - payload: '/afirmacao{"NNN_confirmacao_habilidade": "Sim"}'
       title: Certinho
-    - payload: '/afirmacao{"25_confirmacao_habilidade": "Não"}'
+    - payload: '/afirmacao{"NNN_confirmacao_habilidade": "Não"}'
       title: Quero corrigir.
     text: |-
       Então vc tem curso: 
-      {24_habilidade}. 
+      {NN_habilidade}. 
       Correto?
   utter_not_habilidade:
   - text: Ok, continuando então...
-  utter_ask_26_conhecer_idioma:
+  utter_ask_O_conhecer_idioma:
   - buttons:
-    - payload: '/afirmacao{"26_conhecer_idioma": "Sim"}'
+    - payload: '/afirmacao{"O_conhecer_idioma": "Sim"}'
       title: Sim!
-    - payload: '/negacao{"26_conhecer_idioma": "Não"}'
+    - payload: '/negacao{"O_conhecer_idioma": "Não"}'
       title: Ainda não!
     text: Vc fala algum idioma?
-  utter_ask_27_idioma:
+  utter_ask_OO_idioma:
   - text: Massa, qual idioma?
-  utter_ask_28_idioma_nivel:
+  utter_ask_OOO_idioma_nivel:
   - buttons:
-    - payload: /dados_formacao{"28_idioma_nivel":"Básico"}
+    - payload: /dados_formacao{"OOO_idioma_nivel":"Básico"}
       title: Básico
-    - payload: /dados_formacao{"28_idioma_nivel":"Intermediário"}
+    - payload: /dados_formacao{"OOO_idioma_nivel":"Intermediário"}
       title: Intermediário
-    - payload: /dados_formacao{"28_idioma_nivel":"Avançado"}
+    - payload: /dados_formacao{"OOO_idioma_nivel":"Avançado"}
       title: Avançado
-    - payload: /dados_formacao{"28_idioma_nivel":"Fluente"}
+    - payload: /dados_formacao{"OOO_idioma_nivel":"Fluente"}
       title: Fluente
-    text: Qual seu nível {2_primeiroNome}?
-  utter_ask_29_confirmacao_idioma:
+    text: Qual seu nível {AA_primeiroNome}?
+  utter_ask_OOOO_confirmacao_idioma:
   - buttons:
-    - payload: /afirmacao{"29_confirmacao_idioma":"Sim"}
+    - payload: /afirmacao{"OOOO_confirmacao_idioma":"Sim"}
       title: Isso mesmo!
-    - payload: /negacao{"29_confirmacao_idioma":"Nao"}
+    - payload: /negacao{"OOOO_confirmacao_idioma":"Nao"}
       title: Preciso corrigir.
-    text: Certo, então vc fala {27_idioma} nível {28_idioma_nivel}, correto?
+    text: Certo, então vc fala {OO_idioma} nível {OOO_idioma_nivel}, correto?
   utter_not_idioma:
   - text: Tudo bem, recomendo que vc aprenda pelo menos o básico de outro idioma. Isso pode fazer a diferença 😉.
-  utter_ask_30_conhecer_projeto:
+  utter_ask_P_conhecer_projeto:
   - buttons:
-    - payload: /afirmacao{"30_conhecer_projeto":"Sim"}
+    - payload: /afirmacao{"P_conhecer_projeto":"Sim"}
       title: Sim!
-    - payload: /negacao{"30_conhecer_projeto":"Não"}
+    - payload: /negacao{"P_conhecer_projeto":"Não"}
       title: Ainda não.
     text: Vc já participou de desenvolvimento de pesquisas ou artigos científicos?
-  utter_ask_31_pesquisaCientifica:
+  utter_ask_PP_pesquisaCientifica:
   - text: Tudo bem, pode escrever aqui sobre isso
-  utter_ask_32_confirmacao_pesquisa:
+  utter_ask_Q_confirmacao_pesquisa:
   - buttons:
-    - payload: '/afirmacao{"32_confirmacao_pesquisa": "Sim"}'
+    - payload: '/afirmacao{"Q_confirmacao_pesquisa": "Sim"}'
       title: Certo
-    - payload: '/negacao{"32_confirmacao_pesquisa": "Não"}'
+    - payload: '/negacao{"Q_confirmacao_pesquisa": "Não"}'
       title: Preciso mudar
-    text: 'Então: {31_pesquisaCientifica}. Certo {2_primeiroNome}?'
-  utter_ask_34_curso_online:
+    text: 'Então: {PP_pesquisaCientifica}. Certo {AA_primeiroNome}?'
+  utter_ask_R_curso_online:
   - buttons:
-    - payload: '/afirmacao{"34_curso_online":"sim"}'
+    - payload: '/afirmacao{"R_curso_online":"sim"}'
       title: 'Sim, quero!'
-    - payload: '/negacao{"34_curso_online":"nao"}'
+    - payload: '/negacao{"R_curso_online":"nao"}'
       title: 'Agora não.'
     text: Que tal receber um curso online gratuito com dicas para aprender como ser contratado mesmo sem experiência?
   utter_curso_online_link:
-  - text: Show de bola {2_primeiroNome}, acesse agora e [Aprenda como ser Contratado](https://bit.ly/cursojix) 😉!
+  - text: Show de bola {AA_primeiroNome}, acesse agora e [Aprenda como ser Contratado](https://bit.ly/cursojix) 😉!
 
-  utter_ask_33_conhecer_experiencia:
+  utter_ask_QQ_conhecer_experiencia:
   - buttons:
-    - payload: '/afirmacao{"33_conhecer_experiencia": "Sim"}'
+    - payload: '/afirmacao{"QQ_conhecer_experiencia": "Sim"}'
       title: Sim!
-    - payload: '/negacao{"33_conhecer_experiencia": "Não"}'
+    - payload: '/negacao{"QQ_conhecer_experiencia": "Não"}'
       title: Ainda não.
-    text: '{2_primeiroNome}, vc possui experiência profissional?'
-  utter_ask_35_nomeEmpresa:
+    text: '{AA_primeiroNome}, vc possui experiência profissional?'
+  utter_ask_S_nomeEmpresa:
   - text: 'OBS: Nessa versão teste, insira apenas uma experiência! Já está em desenvolvimento 🙃😉. Qual nome da empresa?'
-  utter_ask_36_cargo:
+  utter_ask_SS_cargo:
   - text: Qual cargo?
-  utter_ask_37_cargo_descricao:
+  utter_ask_SSS_cargo_descricao:
   - text: Ok! Quais suas principais atividades no cargo?
-  utter_ask_38_cargo_data_entrada_saida:
+  utter_ask_SSSS_cargo_data_entrada_saida:
   - text: Me diga agora qual o ano de entrada e ano de saída (ex. 2009-2010)?
-  utter_ask_39_confirmacao_experiencia:
+  utter_ask_SSSSS_confirmacao_experiencia:
   - buttons:
-    - payload: '/afirmacao{"39_confirmacao_experiencia": "Sim"}'
+    - payload: '/afirmacao{"SSSSS_confirmacao_experiencia": "Sim"}'
       title: Tudo certo
-    - payload: '/negacao{"39_confirmacao_experiencia": "Não"}'
+    - payload: '/negacao{"SSSSS_confirmacao_experiencia": "Não"}'
       title: Preciso corrigir
     text: |-
       Certo, sua experiência: 
-      Cargo: {36_cargo}; 
-      Nome da empresa: {35_nomeEmpresa};  
-      Entrou e saiu em: {38_cargo_data_entrada_saida}; 
-      Descrição do cargo: {37_cargo_descricao}. 
-      Correto {2_primeiroNome}?
-  utter_ask_40_conhecer_voluntario:
+      Cargo: {SS_cargo}; 
+      Nome da empresa: {S_nomeEmpresa};  
+      Entrou e saiu em: {SSSS_cargo_data_entrada_saida}; 
+      Descrição do cargo: {SSS_cargo_descricao}. 
+      Correto {AA_primeiroNome}?
+  utter_ask_T_conhecer_voluntario:
   - buttons:
-    - payload: '/afirmacao{"40_conhecer_voluntario": "Sim"}'
+    - payload: '/afirmacao{"T_conhecer_voluntario": "Sim"}'
       title: Sim, tenho
-    - payload: '/negacao{"40_conhecer_voluntario": "Não"}'
+    - payload: '/negacao{"T_conhecer_voluntario": "Não"}'
       title: Não.
-    text: Vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário {2_primeiroNome}?
-  utter_ask_41_nome_empresa_voluntario:
+    text: Vc tem experiência em empresa júnior ou em algum projeto ou trabalho voluntário {AA_primeiroNome}?
+  utter_ask_TT_nome_empresa_voluntario:
   - text: 'OBS: Nessa versão teste, insira apenas um voluntariado! Já está em desenvolvimento 🙃😉. Qual nome da empresa?'
-  utter_ask_42_cargo_voluntario:
+  utter_ask_TTT_cargo_voluntario:
   - text: Qual cargo?
-  utter_ask_43_cargo_descricao_voluntario:
+  utter_ask_TTTT_cargo_descricao_voluntario:
   - text: Ok! Quais suas principais atividades lá?
-  utter_ask_44_cargo_data_entrada_saida_voluntario:
+  utter_ask_TTTTT_cargo_data_entrada_saida_voluntario:
   - text: Me diga agora qual o ano de entrada e ano de saída (ex. 2009-2010)?
-  utter_ask_45_confirmacao_experiencia_voluntario:
+  utter_ask_TTTTTT_confirmacao_experiencia_voluntario:
   - buttons:
-    - payload: '/afirmacao{"45_confirmacao_experiencia_voluntario": "Sim"}'
+    - payload: '/afirmacao{"TTTTTT_confirmacao_experiencia_voluntario": "Sim"}'
       title: Tudo certo
-    - payload: '/negacao{"45_confirmacao_experiencia_voluntario": "Não"}'
+    - payload: '/negacao{"TTTTTT_confirmacao_experiencia_voluntario": "Não"}'
       title: Preciso corrigir
     text: |-
       Certo, sua experiência como voluntário: 
-      Cargo: {42_cargo_voluntario}; 
-      Nome da empresa: {41_nome_empresa_voluntario};  
-      Entrou e saiu em: {44_cargo_data_entrada_saida_voluntario}; 
-      Descrição do cargo: {43_cargo_descricao_voluntario}. 
-      Correto {2_primeiroNome}?
-  utter_ask_46_feedback:
-  - text: Seu currículo está quase pronto. Antes de te mandar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {2_primeiroNome}?
-  utter_ask_47_nota:
+      Cargo: {TTT_cargo_voluntario}; 
+      Nome da empresa: {TT_nome_empresa_voluntario};  
+      Entrou e saiu em: {TTTTT_cargo_data_entrada_saida_voluntario}; 
+      Descrição do cargo: {TTTT_cargo_descricao_voluntario}. 
+      Correto {AA_primeiroNome}?
+  utter_ask_U_feedback:
+  - text: Seu currículo está quase pronto. Antes de te mandar, me conte sobre sua experiência com o Curvi na hora de fazer seu currículo. O que achou {AA_primeiroNome}?
+  utter_ask_V_nota:
   - text: Para nos ajudar, por favor nos responda de 1 a 10 o quanto vc estaria disposto a recomendar o Curvi para um amigo ou parente?
   utter_gerando_curriculo:
   - text: Certo, já estou gerando seu currículo. 1 segundinho... 😉
@@ -477,188 +477,188 @@ actions:
 - validate_curriculo_form
 forms:
   curriculo_form:
-    1_nome:
-    - entity: 1_nome
+    A_nome:
+    - entity: A_nome
       type: from_entity
     - not_intent: negacao
       type: from_text
-    2_primeiroNome:
-    - entity: 2_primeiroNome
+    AA_primeiroNome:
+    - entity: AA_primeiroNome
       type: from_entity
-    3_idade:
-    - entity: 3_idade
-      type: from_entity
-    - type: from_text
-    4_cep:
-    - entity: 4_cep
+    B_idade:
+    - entity: B_idade
       type: from_entity
     - type: from_text
-    5_cidade:
-    - entity: 5_cidade
-      type: from_entity
-    6_endereco:
-    - entity: 6_endereco
-      type: from_entity
-    7_estado:
-    - entity: 7_estado
-      type: from_entity
-    8_telefone:
-    - entity: 8_telefone
+    C_cep:
+    - entity: C_cep
       type: from_entity
     - type: from_text
-    9_email:
-    - entity: 9_email
+    CC_cidade:
+    - entity: CC_cidade
+      type: from_entity
+    CCC_endereco:
+    - entity: CCC_endereco
+      type: from_entity
+    CCCC_estado:
+    - entity: CCCC_estado
+      type: from_entity
+    D_telefone:
+    - entity: D_telefone
       type: from_entity
     - type: from_text
-    10_confirmacao_dados_basicos:
-    - entity: 10_confirmacao_dados_basicos
+    E_email:
+    - entity: E_email
       type: from_entity
     - type: from_text
-    11_user_has_linkedln:
-    - entity: 11_user_has_linkedln
+    F_confirmacao_dados_basicos:
+    - entity: F_confirmacao_dados_basicos
       type: from_entity
     - type: from_text
-    12_linkedln_link:
-    - entity: 12_linkedln_link
+    G_user_has_linkedln:
+    - entity: G_user_has_linkedln
       type: from_entity
     - type: from_text
-    13_confirmacao_linkedln:
-    - entity: 13_confirmacao_linkedln
+    GG_linkedln_link:
+    - entity: GG_linkedln_link
       type: from_entity
     - type: from_text
-    14_area:
-    - entity: 14_area
+    GGG_confirmacao_linkedln:
+    - entity: GGG_confirmacao_linkedln
       type: from_entity
     - type: from_text
-    15_area_nivel:
-    - entity: 15_area_nivel
+    H_area:
+    - entity: H_area
       type: from_entity
     - type: from_text
-    16_escolaridade:
-    - entity: 16_escolaridade
+    HH_area_nivel:
+    - entity: HH_area_nivel
       type: from_entity
     - type: from_text
-    17_escolaridadeFormadoOuAndamento:
-    - entity: 17_escolaridadeFormadoOuAndamento
+    I_escolaridade:
+    - entity: I_escolaridade
       type: from_entity
     - type: from_text
-    18_cursoNome:
-    - entity: 18_cursoNome
+    II_escolaridadeFormadoOuAndamento:
+    - entity: II_escolaridadeFormadoOuAndamento
       type: from_entity
     - type: from_text
-    19_institutoNome:
-    - entity: 19_institutoNome
+    J_cursoNome:
+    - entity: J_cursoNome
       type: from_entity
     - type: from_text
-    20_previsaoTermino:
-    - entity: 20_previsaoTermino
+    JJ_institutoNome:
+    - entity: JJ_institutoNome
       type: from_entity
     - type: from_text
-    21_objetivo:
-    - entity: 21_objetivo
+    K_previsaoTermino:
+    - entity: K_previsaoTermino
       type: from_entity
     - type: from_text
-    22_confirmacao_formacao:
-    - entity: 22_confirmacao_formacao
+    L_objetivo:
+    - entity: L_objetivo
       type: from_entity
     - type: from_text
-    23_conhecer_curso:
-    - entity: 23_conhecer_curso
+    M_confirmacao_formacao:
+    - entity: M_confirmacao_formacao
       type: from_entity
     - type: from_text
-    24_habilidade:
-    - entity: 24_habilidade
+    N_conhecer_curso:
+    - entity: N_conhecer_curso
       type: from_entity
     - type: from_text
-    25_confirmacao_habilidade:
-    - entity: 25_confirmacao_habilidade
+    NN_habilidade:
+    - entity: NN_habilidade
       type: from_entity
     - type: from_text
-    26_conhecer_idioma:
-    - entity: 26_conhecer_idioma
+    NNN_confirmacao_habilidade:
+    - entity: NNN_confirmacao_habilidade
       type: from_entity
     - type: from_text
-    27_idioma:
-    - entity: 27_idioma
+    O_conhecer_idioma:
+    - entity: O_conhecer_idioma
       type: from_entity
     - type: from_text
-    28_idioma_nivel:
-    - entity: 28_idioma_nivel
+    OO_idioma:
+    - entity: OO_idioma
       type: from_entity
     - type: from_text
-    29_confirmacao_idioma:
-    - entity: 29_confirmacao_idioma
+    OOO_idioma_nivel:
+    - entity: OOO_idioma_nivel
       type: from_entity
     - type: from_text
-    30_conhecer_projeto:
-    - entity: 30_conhecer_projeto
+    OOOO_confirmacao_idioma:
+    - entity: OOOO_confirmacao_idioma
       type: from_entity
     - type: from_text
-    31_pesquisaCientifica:
-    - entity: 31_pesquisaCientifica
+    P_conhecer_projeto:
+    - entity: P_conhecer_projeto
       type: from_entity
     - type: from_text
-    32_confirmacao_pesquisa:
-    - entity: 32_confirmacao_pesquisa
+    PP_pesquisaCientifica:
+    - entity: PP_pesquisaCientifica
       type: from_entity
     - type: from_text
-    33_conhecer_experiencia:
-    - entity: 33_conhecer_experiencia
+    Q_confirmacao_pesquisa:
+    - entity: Q_confirmacao_pesquisa
       type: from_entity
     - type: from_text
-    34_curso_online:
-    - entity: 34_curso_online
+    QQ_conhecer_experiencia:
+    - entity: QQ_conhecer_experiencia
       type: from_entity
     - type: from_text
-    35_nomeEmpresa:
-    - entity: 35_nomeEmpresa
+    R_curso_online:
+    - entity: R_curso_online
       type: from_entity
     - type: from_text
-    36_cargo:
-    - entity: 36_cargo
+    S_nomeEmpresa:
+    - entity: S_nomeEmpresa
       type: from_entity
     - type: from_text
-    37_cargo_descricao:
-    - entity: 37_cargo_descricao
+    SS_cargo:
+    - entity: SS_cargo
       type: from_entity
     - type: from_text
-    38_cargo_data_entrada_saida:
-    - entity: 38_cargo_data_entrada_saida
+    SSS_cargo_descricao:
+    - entity: SSS_cargo_descricao
       type: from_entity
     - type: from_text
-    39_confirmacao_experiencia:
-    - entity: 39_confirmacao_experiencia
+    SSSS_cargo_data_entrada_saida:
+    - entity: SSSS_cargo_data_entrada_saida
       type: from_entity
     - type: from_text
-    40_conhecer_voluntario:
-    - entity: 40_conhecer_voluntario
+    SSSSS_confirmacao_experiencia:
+    - entity: SSSSS_confirmacao_experiencia
       type: from_entity
     - type: from_text
-    41_nome_empresa_voluntario:
-    - entity: 41_nome_empresa_voluntario
+    T_conhecer_voluntario:
+    - entity: T_conhecer_voluntario
       type: from_entity
     - type: from_text
-    42_cargo_voluntario:
-    - entity: 42_cargo_voluntario
+    TT_nome_empresa_voluntario:
+    - entity: TT_nome_empresa_voluntario
       type: from_entity
     - type: from_text
-    43_cargo_descricao_voluntario:
-    - entity: 43_cargo_descricao_voluntario
+    TTT_cargo_voluntario:
+    - entity: TTT_cargo_voluntario
       type: from_entity
     - type: from_text
-    44_cargo_data_entrada_saida_voluntario:
-    - entity: 44_cargo_data_entrada_saida_voluntario
+    TTTT_cargo_descricao_voluntario:
+    - entity: TTTT_cargo_descricao_voluntario
       type: from_entity
     - type: from_text
-    45_confirmacao_experiencia_voluntario:
-    - entity: 45_confirmacao_experiencia_voluntario
+    TTTTT_cargo_data_entrada_saida_voluntario:
+    - entity: TTTTT_cargo_data_entrada_saida_voluntario
       type: from_entity
     - type: from_text
-    46_feedback:
-    - entity: 46_feedback
+    TTTTTT_confirmacao_experiencia_voluntario:
+    - entity: TTTTTT_confirmacao_experiencia_voluntario
       type: from_entity
     - type: from_text
-    47_nota:
-    - entity: 47_nota
+    U_feedback:
+    - entity: U_feedback
+      type: from_entity
+    - type: from_text
+    V_nota:
+    - entity: V_nota
       type: from_entity
     - type: from_text
