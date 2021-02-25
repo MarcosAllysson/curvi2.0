@@ -159,9 +159,9 @@ nlu:
     - (Emanuelle Ferreira da Silva){"entity": "AA_nome"}
     - tenho (30){"entity":"B_idade"} anos
     - (20){"entity":"B_idade"} anos
-    - meu cep é (70030300){"entity":"C_cep"}
-    - CEP (70030300){"entity":"C_cep"}
-    - (70070300){"entity":"C_cep"}
+    - meu cep é (70030300){"entity":"CCCC_cep"}
+    - CEP (70030300){"entity":"CCCC_cep"}
+    - (70070300){"entity":"CCCC_cep"}
     - meu número é (99999999999){"entity":"D_telefone"}
     - telefone: (99999999999){"entity":"D_telefone"}
     - (99999999999){"entity":"D_telefone"}
@@ -180,7 +180,7 @@ nlu:
     - (nota 10){"entity":"V_nota"} muito bom
     - (marcos){"entity":"AA_nome"}
     - (23){"entity":"B_idade"}
-    - (71588186){"entity":"C_cep"}
+    - (71588186){"entity":"CCCC_cep"}
     - (marcos@gmail.com){"entity":"E_email"}
     - (linkedin.com.br){"entity":"GG_linkedln_link"}
     - (link.com.br){"entity":"GG_linkedln_link"}
@@ -191,30 +191,30 @@ nlu:
     - marc@gmail.com
 - intent: dados_formacao
   examples: |
-    - sou da area de (tecnologia){"entity":"H_area"}
-    - meu nível na área é (pleno){"entity":"HH_area_nivel"}
+    - sou da area de (tecnologia){"entity":"HH_area"}
+    - meu nível na área é (pleno){"entity":"H_area_nivel"}
     - (Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa.){"entity":"L_objetivo"}
-    - (ensino superior){"entity":"I_escolaridade"}
-    - estou cursando (direito){"entity":"J_cursoNome"}
-    - (tecnologia){"entity":"J_cursoNome"}
-    - (advogacia){"entity":"J_cursoNome"}
-    - eu estudo no (Instituto Federal de Brasília){"entity":"JJ_institutoNome"}
-    - (ufmg){"entity":"JJ_institutoNome"}
-    - (instituto federal de brasilia){"entity":"JJ_institutoNome"}
+    - (ensino superior){"entity":"II_escolaridade"}
+    - estou cursando (direito){"entity":"JJ_cursoNome"}
+    - (tecnologia){"entity":"JJ_cursoNome"}
+    - (advogacia){"entity":"JJ_cursoNome"}
+    - eu estudo no (Instituto Federal de Brasília){"entity":"J_institutoNome"}
+    - (ufmg){"entity":"J_institutoNome"}
+    - (instituto federal de brasilia){"entity":"J_institutoNome"}
     - previsão pra me formar em (2021){"entity":"K_previsaoTermino"}
     - (2020){"entity":"K_previsaoTermino"}
     - fiz curso de (auxiliar administrativo){"entity":"NN_habilidade"}
-    - já participei no desenvolvimento de (artigos cientificos){"entity":"PP_pesquisaCientifica"}
-    - participei no (desenvolvimento de artigos){"entity":"PP_pesquisaCientifica"} cientificos juntamente ao lattes
-    - (tecnologo){"entity":"I_escolaridade"} (sistemas para internet){"entity":"J_cursoNome"}
-    - (unb){"entity":"JJ_institutoNome"}
+    - já participei no desenvolvimento de (artigos cientificos){"entity":"P_pesquisaCientifica"}
+    - participei no (desenvolvimento de artigos){"entity":"P_pesquisaCientifica"} cientificos juntamente ao lattes
+    - (tecnologo){"entity":"II_escolaridade"} (sistemas para internet){"entity":"JJ_cursoNome"}
+    - (unb){"entity":"J_institutoNome"}
     - (objetivo trabalhar, aprender e agregar valor a empresa){"entity":"L_objetivo"}
-    - (universidade de brasilia){"entity":"JJ_institutoNome"}
-    - eu falo (inglês){"entity": "OO_idioma"} nível (básico){"entity":"OOO_idioma_nivel"}
-    - falo (francês){"entity": "idioOO_idiomama"} nível (intermediário){"entity":"OOO_idioma_nivel"}
-    - (espanhol){"entity": "OO_idioma"} nível (avançado){"entity":"OOO_idioma_nivel"}
-    - já sou (fluente){"entity":"OOO_idioma_nivel"} em (inglês){"entity": "OO_idioma"}
-    - (francês){"entity": "OO_idioma"} (básico){"entity":"OOO_idioma_nivel"}
+    - (universidade de brasilia){"entity":"J_institutoNome"}
+    - eu falo (inglês){"entity": "OOO_idioma"} nível (básico){"entity":"OO_idioma_nivel"}
+    - falo (francês){"entity": "OOO_idioma"} nível (intermediário){"entity":"OO_idioma_nivel"}
+    - (espanhol){"entity": "OOO_idioma"} nível (avançado){"entity":"OO_idioma_nivel"}
+    - já sou (fluente){"entity":"OO_idioma_nivel"} em (inglês){"entity": "OOO_idioma"}
+    - (francês){"entity": "OOO_idioma"} (básico){"entity":"OO_idioma_nivel"}
     - ifb
     - primeiro emprego
     - python - digital
@@ -233,14 +233,14 @@ nlu:
     - artigo cientifico na area de ia
 - intent: dados_experiencia
   examples: |
-    - trabalhei no (Google){"entity":"S_nomeEmpresa"}
-    - (rasa){"entity":"S_nomeEmpresa"}
-    - desempenhei a função de (gerente){"entity":"SS_cargo"} quando trabalhei no google
-    - (executivo){"entity":"SS_cargo"}
+    - trabalhei no (Google){"entity":"SSSSS_nomeEmpresa"}
+    - (rasa){"entity":"SSSSS_nomeEmpresa"}
+    - desempenhei a função de (gerente){"entity":"SSSS_cargo"} quando trabalhei no google
+    - (executivo){"entity":"SSSS_cargo"}
     - (minha função era organizar todos os processos da empresa). {"entity":"SSS_cargo_descricao"}
-    - fique lá no período de (2010-2020){"entity": "SSSS_cargo_data_entrada_saida"}
+    - fique lá no período de (2010-2020){"entity": "SS_cargo_data_entrada_saida"}
     - era responsavel por organizar os processos da empresa
-    - (2010-2020){"entity": "SSSS_cargo_data_entrada_saida"}
+    - (2010-2020){"entity": "SS_cargo_data_entrada_saida"}
     - responsavel pelo trafego interno e externo da empresa
     - desenvolvimento de websites
     - desenvolvimento de websites e apps
@@ -282,30 +282,30 @@ nlu:
     - obrigado
 - intent: area
   examples: |
-    - (Vendas){"entity": "H_area"}
-    - (Marketing){"entity": "H_area"}
-    - (Tecnologia){"entity": "H_area"}
-    - (Direito){"entity": "H_area"}
-    - (Saúde){"entity": "H_area"}
-    - (RH){"entity": "H_area"}
-    - (Administração){"entity": "H_area"}
-    - (Contabilidade){"entity": "H_area"}
-    - (Projetos){"entity": "H_area"}
-    - (Engenharia){"entity": "H_area"}
-    - (Outros){"entity": "H_area"}
-    - (Estagiário){"entity": "HH_area_nivel"}
-    - (Jovem aprendiz){"entity": "HH_area_nivel"}
-    - (Júnior){"entity": "HH_area_nivel"}
-    - (Sênior){"entity": "HH_area_nivel"}
-    - (Pleno){"entity": "HH_area_nivel"}
+    - (Vendas){"entity": "HH_area"}
+    - (Marketing){"entity": "HH_area"}
+    - (Tecnologia){"entity": "HH_area"}
+    - (Direito){"entity": "HH_area"}
+    - (Saúde){"entity": "HH_area"}
+    - (RH){"entity": "HH_area"}
+    - (Administração){"entity": "HH_area"}
+    - (Contabilidade){"entity": "HH_area"}
+    - (Projetos){"entity": "HH_area"}
+    - (Engenharia){"entity": "HH_area"}
+    - (Outros){"entity": "HH_area"}
+    - (Estagiário){"entity": "H_area_nivel"}
+    - (Jovem aprendiz){"entity": "H_area_nivel"}
+    - (Júnior){"entity": "H_area_nivel"}
+    - (Sênior){"entity": "H_area_nivel"}
+    - (Pleno){"entity": "H_area_nivel"}
 - intent: escolaridade
   examples: |
-    - (Ensino fundamental){"entity": "I_escolaridade"}
-    - (Ensino médio){"entity": "I_escolaridade"}
-    - (Ensino superior){"entity": "I_escolaridade"}
-    - (Técnico){"entity": "I_escolaridade"}
-    - (Técnologo){"entity": "I_escolaridade"}
-    - (Pós Graduação){"entity": "I_escolaridade"}
-    - (Mestrado){"entity": "I_escolaridade"}
-    - (Doutorado){"entity": "I_escolaridade"}
+    - (Ensino fundamental){"entity": "II_escolaridade"}
+    - (Ensino médio){"entity": "II_escolaridade"}
+    - (Ensino superior){"entity": "II_escolaridade"}
+    - (Técnico){"entity": "II_escolaridade"}
+    - (Técnologo){"entity": "II_escolaridade"}
+    - (Pós Graduação){"entity": "II_escolaridade"}
+    - (Mestrado){"entity": "II_escolaridade"}
+    - (Doutorado){"entity": "II_escolaridade"}
     - (Outros){"entity": "outros"}
