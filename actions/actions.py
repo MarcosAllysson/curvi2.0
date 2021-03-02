@@ -22,7 +22,8 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
                 courseName, courseSchool, courseEndYear, courses, language, language_level, cientificResearch, companyName, 
                 companyOccupation, companyDescription, companyStartEnd, companyNameVolunteer, companyOccupationVolunteer,
                 companyDescriptionVolunteer, companyStartEndVolunteer, feedback, grade):
-    request_url = "https://curvi-api.herokuapp.com/api/user"
+    # request_url = "https://curvi-api.herokuapp.com/api/user"
+    request_url = "https://sincere-quasar-301622.rj.r.appspot.com/api/user"
 
     info = {
         "name": name,
@@ -31,8 +32,8 @@ def generate_pdf(name, age, address, city, state, cellphone, email, linkedln_lin
         "city": city,
         "state": state,
         "cellphone": cellphone,
-        "E_email": email,
-        "GG_linkedln_link": linkedln_link,
+        "email": email,
+        "linkedln_link": linkedln_link,
         "area": area,
         "area_level": area_level,
         "goal": goal,
@@ -206,7 +207,8 @@ class ValidateDadosBasicosForm(FormValidationAction):
         # validando email com RE
         if re.findall(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", value):
             # requisição no banco pra verificação se já está cadastrado
-            get_data_user = requests.get('http://curvi-api.herokuapp.com/api/user', headers={'email' : '{}'.format(value)})
+            # get_data_user = requests.get('http://curvi-api.herokuapp.com/api/user', headers={'email' : '{}'.format(value)})
+            get_data_user = requests.get('https://sincere-quasar-301622.rj.r.appspot.com/api/user', headers={'email' : '{}'.format(value)})
 
             if get_data_user.status_code == 200:
                 # 200 - conexão sucedida
@@ -945,8 +947,8 @@ class ActionSubmitResume(Action):
         email = tracker.get_slot("E_email")
 
         linkedln_link = tracker.get_slot("GG_linkedln_link")
-        if linkedln_link == None:
-            linkedln_link = "NOT_PRINT"
+        # if linkedln_link == None:
+        #     linkedln_link = "NOT_PRINT"
 
         area = tracker.get_slot("HH_area")
         area_level = tracker.get_slot("H_area_nivel")
@@ -957,60 +959,60 @@ class ActionSubmitResume(Action):
         courseEndYear = tracker.get_slot("K_previsaoTermino")
 
         courses = tracker.get_slot("NN_habilidade")
-        if courses == None:
-            courses = "NOT_PRINT"
+        # if courses == None:
+        #     courses = "NOT_PRINT"
 
         language = tracker.get_slot("OOO_idioma")
-        if language == None:
-            language = "NOT_PRINT"
+        # if language == None:
+        #     language = "NOT_PRINT"
         language_level = tracker.get_slot("OO_idioma_nivel")
 
         cientificResearch = tracker.get_slot("P_pesquisaCientifica")
-        if cientificResearch == None:
-            cientificResearch = "NOT_PRINT"
+        # if cientificResearch == None:
+        #     cientificResearch = "NOT_PRINT"
 
         companyName = tracker.get_slot("SSSSS_nomeEmpresa")
         if companyName == None:
             companyName = "Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
 
         companyOccupation = tracker.get_slot("SSSS_cargo")
-        if companyOccupation == None:
-            companyOccupation = "NOT_PRINT"
+        # if companyOccupation == None:
+        #     companyOccupation = "NOT_PRINT"
 
         companyDescription = tracker.get_slot("SSS_cargo_descricao")
-        if companyDescription == None:
-            companyDescription = "NOT_PRINT"
+        # if companyDescription == None:
+        #     companyDescription = "NOT_PRINT"
 
         companyStartEnd = tracker.get_slot("SS_cargo_data_entrada_saida")
-        if companyStartEnd == None:
-            companyStartEnd = "NOT_PRINT"
+        # if companyStartEnd == None:
+        #     companyStartEnd = "NOT_PRINT"
 
 
         companyNameVolunteer = tracker.get_slot("TTTTT_nome_empresa_voluntario")
-        if companyNameVolunteer == None:
-            companyNameVolunteer = "Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
+        # if companyNameVolunteer == None:
+        #     companyNameVolunteer = "Primeiro emprego objetivando adquirir conhecimento e experiência necessária junto à empresa."
 
         companyOccupationVolunteer = tracker.get_slot("TTTT_cargo_voluntario")
-        if companyOccupationVolunteer == None:
-            companyOccupationVolunteer = "NOT_PRINT"
+        # if companyOccupationVolunteer == None:
+        #     companyOccupationVolunteer = "NOT_PRINT"
 
         companyDescriptionVolunteer = tracker.get_slot("TTT_cargo_descricao_voluntario")
-        if companyDescriptionVolunteer == None:
-            companyDescriptionVolunteer = "NOT_PRINT"
+        # if companyDescriptionVolunteer == None:
+        #     companyDescriptionVolunteer = "NOT_PRINT"
 
         companyStartEndVolunteer = tracker.get_slot("TT_cargo_data_entrada_saida_voluntario")
-        if companyStartEnd == None:
-            companyStartEnd = "NOT_PRINT"
+        # if companyStartEnd == None:
+        #     companyStartEnd = "NOT_PRINT"
 
         feedback = tracker.get_slot("U_feedback")
         grade = tracker.get_slot("V_nota")
         
 
         # CHAMADA DA FUNÇÃO PASSANDO OS DADOS PRA FAZER POST REQUEST
-        # generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
-        #         courseName, courseSchool, courseEndYear, courses, language, language_level, cientificResearch, companyName, 
-        #         companyOccupation, companyDescription, companyStartEnd, companyNameVolunteer, companyOccupationVolunteer,
-        #         companyDescriptionVolunteer, companyStartEndVolunteer, feedback, grade)
+        generate_pdf(name, age, address, city, state, cellphone, email, linkedln_link, area, area_level, goal, scholarity, 
+                courseName, courseSchool, courseEndYear, courses, language, language_level, cientificResearch, companyName, 
+                companyOccupation, companyDescription, companyStartEnd, companyNameVolunteer, companyOccupationVolunteer,
+                companyDescriptionVolunteer, companyStartEndVolunteer, feedback, grade)
 
 
         # após post request, zerando todos os slots para None
