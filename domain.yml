@@ -454,11 +454,11 @@ responses:
   utter_curriculo_pronto:
   - text: Muito obrigado pelo feedback 😉. Seu currículo está pronto e totalmente personalizado para sua necessidade.
   utter_curriculo_link:
-  - image: https://i.imgur.com/qqEOp3u.jpg
-    text: Seu currículo está pronto e falta pouco para vc acessar. Acesse o [Curvi - clicando aqui](https://curviapp.herokuapp.com/resume) e coloque seu e-mail. Um forte abraço virtual e sucesso na sua jornada profissional 🙃😉...
+  - image: https://curvibot.com/wp-content/uploads/2021/03/curriculo.jpeg
+    text: Seu currículo está pronto e falta pouco para vc acessar. Acesse o [Curvi - clicando aqui](https://curviapp-dot-sincere-quasar-301622.rj.r.appspot.com/) e coloque seu e-mail. Um forte abraço virtual e sucesso na sua jornada profissional 🙃😉...
   utter_seeya:
-  - text: Até mais!
-  - text: Tchau.
+  - image: https://curvibot.com/wp-content/uploads/2021/03/obrigado.jpeg
+    text: Até mais!
   utter_unhappy:
   - text: Tudo bem! Caso mude de ideia, volte e continuamos.
 actions:
